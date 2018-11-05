@@ -68,7 +68,7 @@ public function make($name, $value, $minutes = 0, $path = null, $domain = null, 
 }
 ```
 
-產生到期日使用 [Carbon](https://github.com/MilesChou/book-decompose-wheels/blob/master/docs/day02.md) 實作，應該是好理解的，產生實例也沒有什麼大問題，[`getPathAndDomain()`](https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Cookie/CookieJar.php#L163-L166) 的實作如下：
+產生到期日使用 [Carbon][Decompose Day02] 實作，應該是好理解的，產生實例也沒有什麼大問題，[`getPathAndDomain()`](https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Cookie/CookieJar.php#L163-L166) 的實作如下：
 
 ```php
 protected function getPathAndDomain($path, $domain, $secure = null, $sameSite = null)
@@ -149,5 +149,7 @@ Laravel 的程式碼可以這麼簡潔，有很大一部分也是歸工於 Symfo
 以筆者的經驗來說，Cookie 的處理是麻煩的，但 Laravel 與 Symfony 讓這一切處理都變得非常簡單。偶爾翻翻原始碼，才有辦法思考什麼樣的設計才能讓其他開發者覺得好用， 
 
 [Cookie]: https://github.com/laravel/framework/tree/v5.7.6/src/Illuminate/Cookie
+
+[Decompose Day02]: https://github.com/MilesChou/book-decompose-wheels/blob/master/docs/day02.md
 
 [Day07]: day07.md

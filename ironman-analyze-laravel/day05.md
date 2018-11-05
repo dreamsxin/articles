@@ -1,8 +1,8 @@
 # 分析 Application
 
-Application 繼承了 [Container][Day 03]，同時也是整個 Laravel 生命週期會用到的共同容器。而 Laravel 為了做到元件可獨立使用，所以大部分的元件，為了要取得其他相依元件，都會只依賴 Container。
+Application 繼承了 [Container][Day03]，同時也是整個 Laravel 生命週期會用到的共同容器。而 Laravel 為了做到元件可獨立使用，所以大部分的元件，為了要取得其他相依元件，都會只依賴 Container。
 
-因此 Application 必須要遵守[里氏替換原則](https://github.com/MilesChou/book-refactoring-30-days/blob/master/docs/day09.md)，才不會有意外發生。
+因此 Application 必須要遵守[里氏替換原則][Refactoring Day09]，才不會有意外發生。
 
 可以翻了一下原始碼，有下列方法被覆寫：
 
@@ -134,7 +134,7 @@ public function register($provider, $force = false)
 
 > 上面這些功能，其實在[文件](https://laravel.com/docs/5.7/providers#the-register-method)裡面都有出現。
 
-`register()` 邏輯是比較單純的，複雜的其實是從 [bootstrap 流程][Day 02]如何進到這裡。第二天曾提到，`bootstrapWith()` 載了很多 bootstrappers，其中有一個是 `RegisterProviders`，這正是註冊所有 service provider 的起始點。
+`register()` 邏輯是比較單純的，複雜的其實是從 [bootstrap 流程][Day02]如何進到這裡。第二天曾提到，`bootstrapWith()` 載了很多 bootstrappers，其中有一個是 `RegisterProviders`，這正是註冊所有 service provider 的起始點。
 
 ```php
 public function bootstrap(Application $app)
@@ -245,5 +245,7 @@ protected function compileManifest($providers)
 [Package Discovery]: https://laravel.com/docs/5.5/releases#laravel-5.5
 [Application]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Foundation/Application.php
 
-[Day 02]: day02.md
-[Day 03]: day03.md
+[Refactoring Day09]: /ironman-refactoring-30-days/day09.md
+
+[Day02]: day02.md
+[Day03]: day03.md

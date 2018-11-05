@@ -176,11 +176,13 @@ $this->app->make('router')
     ]);
 ```
 
-會這樣設計，有一個原因是：Laravel 對 action 資訊的定義正是長這樣，但如果直接使用 array 傳遞參數的話，最明顯的問題就是違反[最小知識原則（Least Knowledge Principle）](https://github.com/MilesChou/book-refactoring-30-days/blob/master/docs/day12.md)，因為 array 的格式，等於是曝露資料細節，當 array 規格調整時，將會引發一場災難；相對的這樣設計，雖然程式碼顯得複雜許多，不過帶來的好處就是，使用起來非常直觀，且依賴只有該實例曝露出來的方法，這也是比較容易調整的（如：使用 alias）。
+會這樣設計，有一個原因是：Laravel 對 action 資訊的定義正是長這樣，但如果直接使用 array 傳遞參數的話，最明顯的問題就是違反[最小知識原則（Least Knowledge Principle）][Refactoring Day12]，因為 array 的格式，等於是曝露資料細節，當 array 規格調整時，將會引發一場災難；相對的這樣設計，雖然程式碼顯得複雜許多，不過帶來的好處就是，使用起來非常直觀，且依賴只有該實例曝露出來的方法，這也是比較容易調整的（如：使用 alias）。
 
 `group()` 比較複雜了一點，明天再接著繼續看。
 
 [Router]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Routing/Router.php
 [RouteRegistrar]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Routing/RouteRegistrar.php
+
+[Refactoring Day12]: https://github.com/MilesChou/book-refactoring-30-days/blob/master/docs/day12.md
 
 [Day04]: day04.md

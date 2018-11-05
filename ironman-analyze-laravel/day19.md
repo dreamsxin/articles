@@ -175,5 +175,6 @@ Foo::hello(); // world
 
 這也是筆者認為 Laravel 神奇設計的其中之一。
 
-[Carbon]: https://github.com/MilesChou/book-decompose-wheels/blob/master/docs/day02.md
 [Marcoable]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Support/Traits/Macroable.php
+
+[Carbon]: /ironman-decompose-wheels/day02.md

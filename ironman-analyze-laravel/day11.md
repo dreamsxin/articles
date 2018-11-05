@@ -12,7 +12,7 @@
 
 而這個設計也同時牽動了另一個設計：也就是讓 Store 聚合 SessionHandlerInterface 的設計，它們兩個的關係也是使用了 strategy pattern。
 
-Strategy pattern 確實是一個符合[開關原則（Open-close principle）](https://github.com/MilesChou/book-refactoring-30-days/blob/master/docs/day08.md)的最佳實踐，但它同時也有一個嚴重的缺陷：這麼多 strategy，開發者要怎麼知道要使用哪一個，因此有兩種做法：直接使用，比方說直接把 `FileSessionHandler` 拿來用，這樣就容易違反[最小知識原則（Least Knowledge Principle）](https://github.com/MilesChou/book-refactoring-30-days/blob/master/docs/day12.md)，因為類別間的知識，知道對方的細節越少越好，最好是只要依賴抽象 `SessionHandlerInterface` 就好，而不要依賴細節 `FileSessionHandler`，因此有了第二種方法，就像 SessionManager 一樣，使用某個角色來管理這些 strategy，而這個方法則容易違反[單一職責原則（Single responsibility principle）](https://github.com/MilesChou/book-refactoring-30-days/blob/master/docs/day07.md)，建構資訊容易集中在這個類別上，就會顯得很雜亂，因此或許大家也會覺得 SessionManager 的程式碼不一定好找，正是因為這個原因，而且是兩倍。因為 `SessionManager` 與 `Session` 的關係是 strategy pattern；`Store` 與 `SessionHandlerInterface` 的關係也是 strategy pattern。
+Strategy pattern 確實是一個符合[開關原則（Open-close principle）][Refactoring Day08]的最佳實踐，但它同時也有一個嚴重的缺陷：這麼多 strategy，開發者要怎麼知道要使用哪一個，因此有兩種做法：直接使用，比方說直接把 `FileSessionHandler` 拿來用，這樣就容易違反[最小知識原則（Least Knowledge Principle）][Refactoring Day12]，因為類別間的知識，知道對方的細節越少越好，最好是只要依賴抽象 `SessionHandlerInterface` 就好，而不要依賴細節 `FileSessionHandler`，因此有了第二種方法，就像 SessionManager 一樣，使用某個角色來管理這些 strategy，而這個方法則容易違反[單一職責原則（Single responsibility principle）][Refactoring Day07]，建構資訊容易集中在這個類別上，就會顯得很雜亂，因此或許大家也會覺得 SessionManager 的程式碼不一定好找，正是因為這個原因，而且是兩倍。因為 `SessionManager` 與 `Session` 的關係是 strategy pattern；`Store` 與 `SessionHandlerInterface` 的關係也是 strategy pattern。
 
 原本或許只要 `SessionManager` 直接跟各種不同實作的 `Store` 做成 strategy pattern 就好，但因為 Laravel 對 Store 有自己一套處理介面，還有加密需求等，所以並不適合把 `SessionHandlerInterface` 直接實作在 `Store`，所以才會演變成現在這樣的設計。
 
@@ -162,6 +162,10 @@ public function setRequestOnHandler($request)
 ## 今日總結
 
 Session 雖然類別多，但結構算簡單，並且也有些設計理念存在，是個練習分析原始碼的好目標。
+
+[Refactoring Day07]: /ironman-refactoring-30-days/day07.md
+[Refactoring Day08]: /ironman-refactoring-30-days/day08.md
+[Refactoring Day12]: /ironman-refactoring-30-days/day12.md
 
 [Day02]: day02.md
 [Day07]: day07.md

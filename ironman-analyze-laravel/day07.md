@@ -42,7 +42,7 @@ Illuminate\Pipeline\Pipeline <|-- Illuminate\Routing\Pipeline
 @enduml
 ```
 
-繼承與實作關係很單純，跟 [Application][Day05] 一樣，可以了解一下繼承有沒有符合[里氏替換原則](https://github.com/MilesChou/book-refactoring-30-days/blob/master/docs/day09.md)。
+繼承與實作關係很單純，跟 [Application][Day05] 一樣，可以了解一下繼承有沒有符合[里氏替換原則][Refactoring Day09]。
 
 參考註解，`Routing\Pipeline` 繼承並沒有修改原有行為，而是為了加上 try/catch，等後面一點再來分析這個類別。
 
@@ -205,7 +205,7 @@ return function ($passable) use ($stack0, $pipe3) {
 
 單看這段程式碼，可以知道 $pipe3 的 $next ，實際上就是 $stack0。所以回傳的 Closure 執行結果會是 `response3`。
 
-根據 [Closure 的特性](https://github.com/MilesChou/book-start-golang-30-days/blob/master/docs/day12.md#closure)，我們可以知道回傳的 Closure 的變數會被包起來，接著再傳給下一個：
+根據 [Closure 的特性][Golang Day12]，我們可以知道回傳的 Closure 的變數會被包起來，接著再傳給下一個：
 
 ```php
 // 這次的 stack 就是上面的 return
@@ -247,6 +247,8 @@ $pipe1 的 $next 其實就是 $stack2，執行結果就是 `response321`。
 今天先看到這裡，明天繼續看 `Routing\Pipeline`。
 
 [CI Day21]: /ironman-intro-of-ci/day21.md
+[Refactoring Day09]: /ironman-refactoring-30-days/day09.md
+[Golang Day12]: /ironman-start-golang-30-days/day12.md#closure
 
 [Day02]: day02.md
 [Day05]: day05.md
