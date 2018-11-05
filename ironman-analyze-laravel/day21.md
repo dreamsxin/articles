@@ -12,7 +12,7 @@ $this->app->singleton('log', function () {
 });
 ```
 
-LogManager 實作了 LoggerInterface。它跟之前提到的 [SessionManager][] 有異區同工之妙，方法定義也非常接近，只差 LogManager 並沒有繼承 Manager 而已。
+LogManager 實作了 LoggerInterface。它跟之前提到的 [Day10][] 有異區同工之妙，方法定義也非常接近，只差 LogManager 並沒有繼承 Manager 而已。
 
 只要 [logging.php](https://github.com/laravel/laravel/blob/v5.7.0/config/logging.php) 有設定好，基本上就可以直接 make 出來用：
 
@@ -214,6 +214,6 @@ Stack 本身代表的意義是把所有 Laravel Logger 所定義的 channels（�
 [Writer]: https://github.com/laravel/framework/blob/5.5/src/Illuminate/Log/Writer.php
 [Registry]: https://github.com/Seldaek/monolog/blob/master/src/Monolog/Registry.php
 
-[Monolog]: https://github.com/MilesChou/book-decompose-wheels/blob/master/docs/day12.md
+[Monolog]: /ironman-decompose-wheels/day12.md
 
-[SessionManager]: day10.md
+[Day10]: day10.md
