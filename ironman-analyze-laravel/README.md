@@ -33,6 +33,7 @@ Laravel 是目前 PHP 熱門的框架之一；它一定是好用，才會受到�
 * [Day 19 - 分析 Marcoable](day19.md)
 * [Day 20 - 解析 Middleware 的實作細節](day20.md)
 * [Day 21 - 分析 Log](day21.md)
+* [Day 22 - 分析 Facade](day22.md)
 
 ## 誌謝
 
