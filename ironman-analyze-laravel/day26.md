@@ -16,7 +16,7 @@ $credentials = [
 
 ## 客製化 Authenticatable
 
-因資料的結構改變，所以 [Authenticatable][] 也可能需要自己寫一個。之前來看一下它的介面：
+因資料的結構改變，所以 [Authenticatable][] 也可能需要自己寫一個。先來看一下它的介面：
 
 ```php
 // 取得 ID 時，所會需要用到的 key / col 名稱等識別名稱 
@@ -236,3 +236,4 @@ return [
 [DatabaseUserProvider]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Auth/DatabaseUserProvider.php
 [EloquentUserProvider]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Auth/EloquentUserProvider.php
 [GenericUser]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Auth/GenericUser.php
+[UserProvider]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Contracts/Auth/UserProvider.php
