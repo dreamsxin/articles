@@ -43,6 +43,10 @@ Laravel 是目前 PHP 熱門的框架之一；它一定是好用，才會受到�
 * [Day 29 - 分析 Auth（6）－－Authorization](day29.md)
 * [Day 30 - 總結](day30.md)
 
+---
+
+* [Day 31 - 分析自定義錯誤頁](day31.md)
+
 ## 誌謝
 
 * 感謝老婆支持我寫作。
