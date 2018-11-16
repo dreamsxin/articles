@@ -6,7 +6,7 @@
 
 這裡的主程式是指 `go` 指令，它能處理編譯、直譯、建置、格式化程式碼、測試、下載依賴等多種工具的組合。
 
-以下介紹常見的環境該如何安裝 go 。
+以下介紹常見的環境該如何安裝 Go。
 
 ### MacOS
 
@@ -20,7 +20,7 @@
 
 ### Ubuntu Linux 16.04
 
-使用預設安裝，但筆者試了一下， Ubuntu 預設版本是 Go 1.6 ：
+使用預設安裝，但筆者試了一下，Ubuntu 預設版本是 Go 1.6：
 
 > 使用 [Vagrant](https://www.vagrantup.com/) 建立 Ubuntu 虛擬環境測試
 
@@ -31,7 +31,7 @@
     $ go version
     go version go1.6.2 linux/amd64
 
-如果需要最新版，可以加入 golang 的 PPA ：
+如果需要最新版，可以加入 Golang 的 PPA：
 
 > 注意安裝套件與 go 指令的位置
 
@@ -41,7 +41,7 @@
     $ /usr/lib/go-1.9/bin/go version
     go version go1.9.2 linux/amd64
 
-> 如安裝上遇到問題，也可參考 [wiki](https://github.com/golang/go/wiki/Ubuntu) 。
+> 如安裝上遇到問題，也可參考 [wiki](https://github.com/golang/go/wiki/Ubuntu)。
 
 ### Windows
 
@@ -77,7 +77,7 @@
     CGO_LDFLAGS="-g -O2"
     PKG_CONFIG="pkg-config"
 
-裡面有一個 `GOPATH` ，這是需要設定的環境變數。它代表著 go 程式的工作空間（workspace）， Windows 預設會設定在 `~\Go` ， Unix-like 則沒有預設，官方建議設定在 `~/go` 。
+裡面有一個 `GOPATH`，這是需要設定的環境變數。它代表著 go 程式的工作空間（workspace）， Windows 預設會設定在 `~\Go` ， Unix-like 則沒有預設，官方建議設定在 `~/go`。
 
 Workspace 裡，劃分成三個主要目錄：
 
@@ -85,13 +85,13 @@ Workspace 裡，劃分成三個主要目錄：
 * `pkg` - go package
 * `bin` - 編譯好的執行檔，有需要也可以加入 `PATH` 環境變數
 
-接著可以使用 go 的第一個指令－－ `go get` ，它會把目標下載回來放在 src 裡，如：
+接著可以使用 go 的第一個指令－－ `go get`，它會把目標下載回來放在 src 裡，如：
 
     go get github.com/MilesChou/book-start-golang-30-days
 
-這樣會把上面這個 repo ，使用 HTTPS 協定 clone 到硬碟裡。
+這樣會把上面這個 repo，使用 HTTPS 協定 clone 到硬碟裡。
 
-當如果編譯需要第三方的原始碼時，即可使用 go get 下載，同時這也可以用來下載自己或是第三方的原始碼。把所有原始碼集中成一個大大的 workspace ，這就是 go 管理原始碼的概念。
+當如果編譯需要第三方的原始碼時，即可使用 go get 下載，同時這也可以用來下載自己或是第三方的原始碼。把所有原始碼集中成一個大大的 workspace，這就是 go 管理原始碼的概念。
 
 ## 今日回顧
 
@@ -100,5 +100,7 @@ Workspace 裡，劃分成三個主要目錄：
 ## 參考資料
 
 * [Getting Started](https://golang.org/doc/install) | The Go Programming Language
+
+[上一篇](day01.md) | [下一篇](day03.md)
 
 [Homebrew]: https://brew.sh

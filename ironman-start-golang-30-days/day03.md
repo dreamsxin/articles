@@ -14,7 +14,7 @@ func main() {
 
 > 未來有原始碼，都將會在[這個專案](https://github.com/MilesChou/book-start-golang-30-days)裡更新。
 
-討論原始碼細節前，我們先想辦法讓它可以在[昨天][]建好的環境執行。我們先建個目錄，在裡面新增一個檔案叫 `main.go` ，然後切換到目錄，把上面的內容輸入到檔案裡，接著下 `go run main.go` ：
+討論原始碼細節前，我們先想辦法讓它可以在[昨天][]建好的環境執行。我們先建個目錄，在裡面新增一個檔案叫 `main.go`，然後切換到目錄，把上面的內容輸入到檔案裡，接著下 `go run main.go` ：
 
     $ mkdir -p /path/to/helloworld
     $ cd /path/to/helloworld
@@ -24,7 +24,7 @@ func main() {
     $ go run main.go
     Hello, 世界
 
-順利的話，應該就會如上面的範例一樣，看到 `Hello, 世界` 。恭喜你，寫出第一隻 Go 程式了。
+順利的話，應該就會如上面的範例一樣，看到 `Hello, 世界`。恭喜你，寫出第一隻 Go 程式了。
 
 ## 這之中到底做了什麼呢？
 
@@ -45,7 +45,7 @@ func main() {
 package main
 ```
 
-第一行 `package` 指的是定義套件名稱。每個 `.go` 原始碼開頭都必須要宣告 `package` 。
+第一行 `package` 指的是定義套件名稱。每個 `.go` 原始碼開頭都必須要宣告 `package`。
 
 `main` 套件是有特殊意義的套件名，它是程式的起始點。執行程式的時候，將會從 main 套件開始。
 
@@ -80,13 +80,13 @@ func main() {
 
 `func` 定義了程式流程，供其他函式呼叫使用。上面的程式碼可以看到兩個函式，一個是現正定義的 `main` ，另一個則是 `fmt` 套件所提供的 `Println` 函式，這是把後面帶入的文字印出來，然後再另外加一個換行。
 
-Go 語言有套件庫的概念，同時的函式也有能見度的規範。 Go 採用比較特別的方法：開頭大寫的函式是 public ，不同的套件庫可以呼叫 public func ；開頭小寫的則是 private ，只限套件庫內部使用。
+Go 語言有套件庫的概念，同時的函式也有能見度的規範。Go 採用比較特別的方法：開頭大寫的函式是 public，不同的套件庫可以呼叫 public func；開頭小寫的則是 private，只限套件庫內部使用。
 
-上例 `Println` 是屬於 `fmt` 套件的 public func ，因此雖然套件庫不同（`main` 與 `fmt`），仍然可以正常呼叫。
+上例 `Println` 是屬於 `fmt` 套件的 public func，因此雖然套件庫不同（`main` 與 `fmt`），仍然可以正常呼叫。
 
 而 `func main` 比較特別，它會搭配 `package main` 一起使用。前面提到 `package main` 是所有程式的進入點，而 `go run` 會把 `package main` 的 `func main` 拿出來呼叫。
 
-最後總結一下： `go run main.go` 實際上就是執行 `fmt.Println("Hello, 世界")` ，於是就跑出 `Hello, 世界` （和換行）了。
+最後總結一下：`go run main.go` 實際上就是執行 `fmt.Println("Hello, 世界")`，於是就跑出 `Hello, 世界`（和換行）了。
 
 ## 今日回顧
 
@@ -102,6 +102,8 @@ Go 語言有套件庫的概念，同時的函式也有能見度的規範。 Go �
 
 * [The Go Programming Language](https://golang.org)
 * [語言技術：Go 語言](https://openhome.cc/Gossip/Go/index.html) | 良葛格學習筆記
+
+[上一篇][昨天] | [下一篇](day04.md)
 
 [昨天]: day02.md
 [官方首頁]: https://golang.org
