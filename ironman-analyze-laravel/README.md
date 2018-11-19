@@ -49,6 +49,7 @@ Laravel 是目前 PHP 熱門的框架之一；它一定是好用，才會受到�
 * [Day 32 - Redirector 與 UrlGenerator 的關係](day32.md)
 * [Day 33 - 如何正確地在 Response 加 Header（1）](day33.md)
 * [Day 34 - 如何正確地在 Response 加 Header（2）](day34.md)
+* [Day 35 - 自定義 bootstrapper](day35.md)
 
 ## 誌謝
 
