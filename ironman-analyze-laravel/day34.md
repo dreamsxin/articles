@@ -24,13 +24,11 @@ protected $middlewareGroups = [
 ];
 ```
 
-但查過原始碼，雖然有的 middleware 有調整過內容，但並沒有任何一個 middleware 改過 header，理論上是不會受影響的。
-
-以原始碼分析，確認看不出結果，但我們應該用驗證來證實程式是如我們所預期的，因此筆者跟朋友確認程式內容，並實際做了一點實驗。
+但查過原始碼，雖然有的 middleware 有調整過 response 內容，但並沒有任何一個 middleware 去改過 header，理論上是不會受影響的。但我們應該用驗證來證實程式是如我們所預期的，因此筆者跟朋友確認程式內容，並實際做了一點實驗。
 
 ## 測試驗證
 
-首先確認版本為 [Laravel v5.7.0](https://github.com/laravel/laravel/tree/v5.7.0) 我們先打開專案，來寫個 Feature 測試如下：
+首先得知版本為 [Laravel v5.7.0](https://github.com/laravel/laravel/tree/v5.7.0)，我們先打開專案，來寫個 Feature 測試如下：
 
 ```php
 public function testBasicTest()
@@ -56,7 +54,7 @@ public function testBasicTest()
 
 > 對於設定 Router 的方法有疑問的話，可以參考之前[分析 Routing][Day12] 文章。
 
-這個測試是通過的，但畢竟這只是程式上運行，跟實際啟用服務或許會有落差，所以實際照著朋友的做法做一次：
+這個測試是通過的，但畢竟這只是程式上運行，跟啟用 web 服務或許會有落差，所以實際照著朋友的做法做一次：
 
 建立 Cors middleware：
 
@@ -101,7 +99,7 @@ Route::middleware(['api', 'cors'])->group(function() {
 
 然後打開 http://localhost/api/foo 即可看到剛剛建立的測試 route。
 
-但驗證過後，一切正常，該有的 header 還是有，所以可以推測是使用或測試的方法出錯導致錯誤的。
+驗證一切正常，該有的 header 是有的，所以可以推測是使用或測試的方法出錯導致錯誤的。
 
 ---
 
@@ -109,7 +107,7 @@ Route::middleware(['api', 'cors'])->group(function() {
 
 開發程式的過程中，也會遇到許多奇怪的問題，我們可以像一開始一樣，直接翻原始碼確認，但時間容易拖很長，而且最後的結果依然不是可靠的；或許直接寫單元測試會是個可行的做法，寫測試即可馬上驗證想法是否正確，而且真的是一翻兩瞪眼啊！
 
-[Http Kernel]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Foundation/Http/Kernel.php 
+[Http Kernel]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Foundation/Http/Kernel.php
 
 [Day12]: day12.md
  
