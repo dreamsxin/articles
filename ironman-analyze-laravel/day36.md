@@ -34,7 +34,9 @@ function array_get($array, $key, $default = null)
 }
 ```
 
-它是把任務交付給 [Arr][] 類別處理的，會這樣做有兩種可能：一種是因為 [4.1](https://github.com/laravel/framework/blob/4.1/src/Illuminate/Support/helpers.php) 版以前，並沒有 Arr 類別，這是為了符合過去的習慣所留下來的，但這個可能性較小。較有可能是因為 array 處理越來越複雜，為了讓檔案可以 SRP，所以就另外寫了一個靜態類別來處理。
+它是把任務交付給 [Arr][] 類別處理的
+
+> 會這樣做有兩種可能：一種是因為 [4.1](https://github.com/laravel/framework/blob/4.1/src/Illuminate/Support/helpers.php) 版以前，並沒有 Arr 類別，這是為了符合過去的習慣所留下來的，但這個可能性較小。較有可能是因為 array 處理越來越複雜，為了讓檔案可以 SRP，所以就另外寫了一個靜態類別來處理。
 
 ```php
 public static function get($array, $key, $default = null)
@@ -124,7 +126,9 @@ function object_get($object, $key, $default = null)
 
 ## `data_get()`
 
-最後一個也是最複雜的，因為它同時支援兩種取資料方法：
+`array_get()` 必須要所有階層都是 array 或 ArrayAccess 實例，才能正常地使用。`object_get()` 則要每一階層都是 object。
+
+如果是 array 包 object 或相反，就需要靠 `data_get()` 了。因為它除了同時支援兩種取資料方法，還另外實作了 `*` 的取資料方法，所以原始碼也比較複雜的：
 
 ```php
 function data_get($target, $key, $default = null)
@@ -148,10 +152,10 @@ function data_get($target, $key, $default = null)
                 // 如果不是 Collection，也不是 array 的話，代表取資料的 key 有問題，直接回預設值
                 return value($default);
             }
-            
-            // 重組裡面的 key value
+
+            // 依 key 取得裡面的 value，然後重組成 array
             $result = Arr::pluck($target, $key);
-            
+
             // 如果剩下的 key 還有 * 的話，就使用 collapse 把結果打平成一維 array，如果沒有 * 的話就直接回傳
             return in_array('*', $key) ? Arr::collapse($result) : $result;
         }
@@ -173,6 +177,26 @@ function data_get($target, $key, $default = null)
 }
 ```
 
+`*` 的用法，比方說在[分析 Routing（5）][Day16]曾提到 `addToCollections()` 會建立查詢表：
+
+```php
+$domainAndUri = $route->getDomain().$route->uri();
+
+foreach ($route->methods() as $method) {
+    $this->routes[$method][$domainAndUri] = $route;
+}
+```
+
+下面是應用方法：
+
+```php
+// 取得所有 GET 方法的 route，並轉換成一維陣列
+data_get($this->routes, 'get.*');
+
+// 取得所有 URI 是 `/user` 的 route，並轉換成一維陣列
+data_get($this->routes, '*./user');
+```
+
 ---
 
 三種方法都可以像 Javascript 使用 `.` 來取得多維陣列或 object 的取，像 `config()` 在取設定的時候，正是使用這些方法。
@@ -182,3 +206,5 @@ function data_get($target, $key, $default = null)
 [Arr]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Support/Arr.php
 [Collection]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Support/Collection.php
 [helpers]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Support/helpers.php
+
+[Day16]: day16.md
