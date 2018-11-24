@@ -54,6 +54,7 @@ Laravel 是目前 PHP 熱門的框架之一；它一定是好用，才會受到�
 * [Day 37 - 分析 Collection（1）](day37.md)
 * [Day 38 - 分析 Collection（2）](day38.md)
 * [Day 39 - 分析 Collection（3）－－Higher Order Messages](day39.md)
+* [Day 40 - 再看 tap()](day40.md)
 
 ## 誌謝
 
