@@ -5,7 +5,7 @@
 ### 在 if 裡做 assign
 
 ```php
-if ($user = $this->resloveUser() {
+if ($user = $this->resloveUser()) {
     $user->can('create');
 }
 ```
@@ -67,7 +67,7 @@ if (!$user) {
     return false;
 }
 
-if (!is_callable($callback) {
+if (!is_callable($callback)) {
     return false;
 }
 
@@ -78,7 +78,7 @@ return $callback($user);
 
 ```php
 if ($user) {
-    if (is_callable($callback) {
+    if (is_callable($callback)) {
         return $callback($user);
     }
 }
