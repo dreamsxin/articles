@@ -60,7 +60,8 @@ Laravel 是目前 PHP 熱門的框架之一；它一定是好用，才會受到�
 
 * [Day 41 - Lumen 簡介](day41.md)
 * [Day 42 - 分析 bootstrap 流程－－Lumen 篇](day42.md)
-* [Day 43 - Dispatch 做了什麼](day43.md)
+* [Day 43 - 分析 Lumen Application－－dispatch() 上篇](day43.md)
+* [Day 44 - 分析 Lumen Application－－dispatch() 下篇](day44.md)
 
 ## 誌謝
 
