@@ -263,7 +263,7 @@ function () use ($container, $callback, $parameters) {
 
 ## 今日總結
 
-看完 Container 的分析，除了感慨它設計的奧妙之外，同時也理解它可以如何使用，更加能發揮它的價值。
+看完 Container 的分析，除了讚嘆它設計的奧妙之外，同時也理解它可以如何使用，更加能發揮它的價值。
 
 [Container]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Container/Container.php
 [ContextualBindingBuilder]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Container/ContextualBindingBuilder.php
