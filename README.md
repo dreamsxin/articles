@@ -7,3 +7,7 @@
 * [從無到有，使用 Go 開發應用程式](/ironman-start-golang-30-days/README.md) | 完賽
 * [輪子們，聽口令，大部分解開始！](/ironman-decompose-wheels/README.md) | 未完賽
 * [Laravel 原始碼分析](/ironman-analyze-laravel/README.md) | iT邦幫忙第十屆鐵人賽優選
+
+## 身分驗證（Authentication）與授權（Authorization）相關筆記
+
+* [術語](/auth/terminology.md)
