@@ -90,17 +90,19 @@ $kernel->terminate($request, $response);
 
 關係圖如下：
 
-![](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuVBCoIdDpSnBB4cDSSilpKj9BCdCpulnA2afYF5EpKlDKT3IrLL0KXIKNrgIcPSEfbEB26ktqTD3rkwSdrTIb9XSKeoitB6W82Sp6SnMi4ekIWKg9D5TX0tcSaZDIm5w6000)
+![](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuVBCoIdDpSnBB4cDSSilpKj9BCdCpulnA2afYF5EBSfBpL7GqjLLG58Lb5zQafcN3gPJYuZGRwEdXwpVEJ-lf2WnkQGOMRrZGK5EPZAOhM2LN9GAL4YgomYRpEMGcfS2z3C0)
 
 PlantUML 原始碼：
 
 ```
 @startuml
-Illuminate\Foundation\Http\Kenel *-- Illuminate\Routing\Router
-Illuminate\Foundation\Http\Kenel <.. Illuminate\Contracts\Foundation\Application :create
-Illuminate\Foundation\Http\Kenel *-- Illuminate\Contracts\Foundation\Application
+Illuminate\Foundation\Http\Kernel *-- Illuminate\Routing\Router
+Illuminate\Foundation\Http\Kernel <.. Illuminate\Contracts\Foundation\Application :create
+Illuminate\Foundation\Http\Kernel *-- Illuminate\Contracts\Foundation\Application
 @enduml
 ```
+
+> 類別圖錯字已修正，感謝 Yi-hsuan Lai 提醒。
 
 接著 `handle()` 才是真正做事的地方，也就是剛剛在 `index.php` 看到的那個被呼叫的方法。其中有[一行](https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Foundation/Http/Kernel.php#L116)，是產生 response 的地方：
 
