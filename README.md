@@ -11,3 +11,4 @@
 ## 身分驗證（Authentication）與授權（Authorization）相關筆記
 
 * [術語](/auth/terminology.md)
+* [OpenID Connect](/auth/oidc/README.md)
