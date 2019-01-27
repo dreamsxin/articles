@@ -8,7 +8,7 @@
 * [輪子們，聽口令，大部分解開始！](/ironman-decompose-wheels/README.md) | 未完賽
 * [Laravel 原始碼分析](/ironman-analyze-laravel/README.md) | iT邦幫忙第十屆鐵人賽優選
 
-## 身分驗證（Authentication）與授權（Authorization）相關筆記
+## 身分驗證（Authentication）與授權（Authorization）
 
 * [術語](/auth/terminology.md)
 * [OpenID Connect](/auth/oidc/README.md)
