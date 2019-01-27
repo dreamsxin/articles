@@ -50,7 +50,7 @@ return $app;
 
 回顧之前[分析 bootstrap][Day02]，這裡多了載 .env 與註冊 route 兩件事。這意味著 Lumen Application 並沒有處理這兩件事。
 
-> 載 .env 是 Bootstrapper [LoadEnvironmentVariables][] 所初始化的，Router 則是在 [App\Providers\RouteServiceProvider::boot()][Day12] 的時候註冊的。 
+> 載 .env 是 Bootstrapper [LoadEnvironmentVariables][] 所初始化的，Router 則是在 [App\Providers\RouteServiceProvider::boot()][Day12] 的時候註冊的。
 
 不僅如此，從註解的說明可以知道，Lumen 預設很多事都沒有做，如 [ServiceProvider][Day05] 需要從頭來；[Middleware][Day20] 也要重頭來；[Facade][Day23] 需要另外設定，等。
 

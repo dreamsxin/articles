@@ -106,14 +106,14 @@ public function register($provider, $force = false)
         $provider->register();
     }
 
-    // 如果有 property `bindings` ，就拿來跑 bind()
+    // 如果有 property `bindings`，就拿來跑 bind()
     if (property_exists($provider, 'bindings')) {
         foreach ($provider->bindings as $key => $value) {
             $this->bind($key, $value);
         }
     }
 
-    // 如果有 property `singletons` ，就拿來跑 singleton()
+    // 如果有 property `singletons`，就拿來跑 singleton()
     if (property_exists($provider, 'singletons')) {
         foreach ($provider->singletons as $key => $value) {
             $this->singleton($key, $value);
@@ -210,7 +210,7 @@ protected function compileManifest($providers)
     $manifest = $this->freshManifest($providers);
 
     foreach ($providers as $provider) {
-        // 產生 provider ，實作與 Application::resolveProvider() 一模一樣
+        // 產生 provider，實作與 Application::resolveProvider() 一模一樣
         $instance = $this->createProvider($provider);
 
         // 如果是 deferred provider 就把 deferred service 對應 provider 的記錄寫入 manifest 裡

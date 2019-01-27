@@ -1,6 +1,6 @@
 # Faker（3）－－Base 類別中的基本方法
 
-昨天有提到 `Generator` 有 `addProvider()` 方法，可以把各式各樣的 Provider 加入 Generator 。而也有提到 Generator 的屬性或方法，會轉接到 Provider 提供的方法。
+昨天有提到 `Generator` 有 `addProvider()` 方法，可以把各式各樣的 Provider 加入 Generator。而也有提到 Generator 的屬性或方法，會轉接到 Provider 提供的方法。
 
 雖然沒有硬性規定，不過它的 Provider 都有繼承自 `Provider\Base` 的基礎類別，這個類別定義了很多產生假資料的基本方法，讓我們一起來看看。
 
@@ -69,7 +69,7 @@ array (
 $generator = new Faker\Generator();
 $base = new Base($generator);
 
-$template = "取代範例： ### %%% ??? ***\n";
+$template = "取代範例：### %%% ??? ***\n";
 
 echo $base->numerify($template);
 echo $base->lexify($template);
@@ -80,10 +80,10 @@ echo $base->bothify($template);
 輸出效果如下：
 
 ```php
-取代範例： 833 554 ??? ***
-取代範例： ### %%% rgv ***
-取代範例： ### %%% ??? p@u
-取代範例： 420 641 xju 26z
+取代範例：833 554 ??? ***
+取代範例：### %%% rgv ***
+取代範例：### %%% ??? p@u
+取代範例：420 641 xju 26z
 ```
 
 規則是：
@@ -93,7 +93,7 @@ echo $base->bothify($template);
 * `?` 會用 `randomLetter()` 的結果取代
 * `*` 會用 `randomAscii()` 的結果取代
 
-不同的方法會取代不同的 wildcard ，這是為了保留在不同場合使用適合方法的彈性。
+不同的方法會取代不同的 wildcard，這是為了保留在不同場合使用適合方法的彈性。
 
 * `numerify()` 只會取代 `#` 和 `%` 
 * `lexify()` 只會取代 `?` 

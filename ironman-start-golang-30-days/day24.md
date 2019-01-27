@@ -4,7 +4,7 @@
 
 ## 分析
 
-交付前必須要經過建置（[Build][]）的過程，不過畢竟只是 side project ，所以測試暫時先跳過吧！但有一個很重要的任務不能不做－－**編譯**。
+交付前必須要經過建置（[Build][]）的過程，不過畢竟只是 side project，所以測試暫時先跳過吧！但有一個很重要的任務不能不做－－**編譯**。
 
 Go 的編譯還算簡單，直接下指令 build 就行了
 
@@ -12,7 +12,7 @@ Go 的編譯還算簡單，直接下指令 build 就行了
 $ go build
 ```
 
-接著就會出現與專案名稱同名的可執行檔，如 `namer` ：
+接著就會出現與專案名稱同名的可執行檔，如 `namer`：
 
 ```
 $ ls namer
@@ -23,11 +23,11 @@ namer
 
 Travis CI 的串接方法可以參考[官方網站](https://docs.travis-ci.com/user/deployment/releases/)。
 
-Travis CI 上做 cross compile 可以參考 [gimme](https://github.com/travis-ci/gimme#travisyml) 。
+Travis CI 上做 cross compile 可以參考 [gimme](https://github.com/travis-ci/gimme#travisyml)。
 
 ## 開工
 
-首先要先安裝 [travis 指令](https://github.com/travis-ci/travis.rb#installation) ，安裝好應該就能看得到版本號了：
+首先要先安裝 [travis 指令](https://github.com/travis-ci/travis.rb#installation)，安裝好應該就能看得到版本號了：
 
 ```
 $ travis -v
@@ -47,7 +47,7 @@ Deploy from iron branch? |yes| no
 Encrypt API key? |yes| 
 ```
 
-它會問一些問題，其中記得 `Encrypt API key` 一定要選 yes ，因為這個 key 是機敏資訊。 
+它會問一些問題，其中記得 `Encrypt API key` 一定要選 yes，因為這個 key 是機敏資訊。
 
 接著調整 `.travis.yml` 描述檔：
 
@@ -75,9 +75,9 @@ deploy:
     tags: true
 ```
 
-一切就緒，當打 tag 的時候，就會觸發 deploy 行為，然後把建置出來的執行檔都交付到 GitHub Release 。
+一切就緒，當打 tag 的時候，就會觸發 deploy 行為，然後把建置出來的執行檔都交付到 GitHub Release。
 
-程式碼可以參考 [PR Day 24](https://github.com/MilesChou/namer/pull/10) 。
+程式碼可以參考 [PR Day 24](https://github.com/MilesChou/namer/pull/10)。
 
 ## 參考資料
 

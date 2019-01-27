@@ -218,6 +218,6 @@ $arguments = [
 
 剩下的分析就與 Closure 定義的方法沒有什麼差異了。
 
-明天會來分析，各種確認權限的方法，背後是如何實作的。 
+明天會來分析，各種確認權限的方法，背後是如何實作的。
 
 [Support\Providers\AuthServiceProvider]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Foundation/Support/Providers/AuthServiceProvider.php

@@ -10,7 +10,7 @@ SOLID 是 Robert C. Martin 提出的物件導向設計五個原則：
 * **I**nterface segregation principle (ISP)
 * **D**ependency inversion principle (DIP)
 
-剛好字首五個字母合在一起就成為了 `SOLID` ，這五個原則目的都是為了在面對改變時，能有一套策略來應付。
+剛好字首五個字母合在一起就成為了 `SOLID`，這五個原則目的都是為了在面對改變時，能有一套策略來應付。
 
 今天先來講講單一職責原則：
 
@@ -20,9 +20,9 @@ SOLID 是 Robert C. Martin 提出的物件導向設計五個原則：
 
 > A class should have only one reason to change.
 
-大部分朋友看到「單一職責」就會聯想到，這個原則的目的是不是把 class 功能單一化？其實原文是把職責（responsibility）定義成 *one reason to change* 。
+大部分朋友看到「單一職責」就會聯想到，這個原則的目的是不是把 class 功能單一化？其實原文是把職責（responsibility）定義成 *one reason to change*。
 
-這好像有點抽象，[書中][The Principles of OOD]就有舉個例子：我們有個 Modem ，它的介面如下：
+這好像有點抽象，[書中][The Principles of OOD]就有舉個例子：我們有個 Modem，它的介面如下：
 
 ```php
 // Modem
@@ -42,10 +42,10 @@ interface Modem
 }
 ```
 
-從介面上可以了解，它有一個職責是屬於連線（connection），另一個則是數據溝通（data communication）。 `dial` 、 `hangup` 是連線； `send` 、 `recv`
+從介面上可以了解，它有一個職責是屬於連線（connection），另一個則是數據溝通（data communication）。`dial`、`hangup` 是連線；`send`、`recv`
 是數據溝通。
 
-這樣會有什麼潛在風險呢？今天 ADSL 要升級成 100M ，我們會需要修改 Modem 實作，這會導致與它連線無關的 `send` 與 `recv` 也會跟著重新編譯與佈署，風險範圍也隨之擴增。重構的方法之一，是把這個介面抽離出兩個單一職責的介面：
+這樣會有什麼潛在風險呢？今天 ADSL 要升級成 100M，我們會需要修改 Modem 實作，這會導致與它連線無關的 `send` 與 `recv` 也會跟著重新編譯與佈署，風險範圍也隨之擴增。重構的方法之一，是把這個介面抽離出兩個單一職責的介面：
 
 ```php
 interface Connection
@@ -72,7 +72,7 @@ class Modem implements Connection, DataChannel
 }
 ```
 
-而原本其他依賴 Modem 介面的 class ，都依職責不同，改依賴對應的介面。
+而原本其他依賴 Modem 介面的 class，都依職責不同，改依賴對應的介面。
 
 ## 優點
 
@@ -84,7 +84,7 @@ class Modem implements Connection, DataChannel
 
 ### 強健性提升
 
-如果有做好 SRP ，那修改只會對同一個介面或類別有影響，這對擴展性和維護性都有很大的幫助。
+如果有做好 SRP，那修改只會對同一個介面或類別有影響，這對擴展性和維護性都有很大的幫助。
 
 ## 潛在問題
 

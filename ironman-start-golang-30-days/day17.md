@@ -10,7 +10,7 @@
 app.Commands = []cli.Command{}
 ```
 
-另外還會需要參數，比方說一次想要產生的數量有多少， `app` 和 `Command` 都有一個值域叫 Flags ，只要給它 Flag 結構的 slice 即可：
+另外還會需要參數，比方說一次想要產生的數量有多少，`app` 和 `Command` 都有一個值域叫 Flags，只要給它 Flag 結構的 slice 即可：
 
 ```go
 app.Flags = []cli.Flag{
@@ -34,7 +34,7 @@ func(c *cli.Context) error {
 
 ## 開工
 
-先定義兩個子命令 `generate` 與 `status` ，而 `generate` 定義一個 flags 是 `num` ，另外把它抽出另一個函式初始化：
+先定義兩個子命令 `generate` 與 `status`，而 `generate` 定義一個 flags 是 `num`，另外把它抽出另一個函式初始化：
 
 ```go
 package main

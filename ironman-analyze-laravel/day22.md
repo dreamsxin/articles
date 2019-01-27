@@ -29,7 +29,7 @@ class Request extends Facade
 }
 ```
 
-它繼承的實作是回傳了 `request` 字串。而當我們使用這個 Facade，如 `Request::ip()` 時， `__callStatic()` 即會被觸發：
+它繼承的實作是回傳了 `request` 字串。而當我們使用這個 Facade，如 `Request::ip()` 時，`__callStatic()` 即會被觸發：
 
 ```php
 public static function __callStatic($method, $args)
@@ -72,7 +72,7 @@ protected static function resolveFacadeInstance($name)
 }
 ```
 
-這個 `$app` 正是剛剛提到要搭配的 Container，使用 `setFacadeApplication()` 即可設定。只要有 Container 就能建構所有實例。至於究竟什麼地方被呼叫到了？在[分析 bootstrap 流程][Day02]時，有一小段細節並沒有提到：[RegisterFacades][] 的實作：  
+這個 `$app` 正是剛剛提到要搭配的 Container，使用 `setFacadeApplication()` 即可設定。只要有 Container 就能建構所有實例。至於究竟什麼地方被呼叫到了？在[分析 bootstrap 流程][Day02]時，有一小段細節並沒有提到：[RegisterFacades][] 的實作：
 
 ```php
 public function bootstrap(Application $app)

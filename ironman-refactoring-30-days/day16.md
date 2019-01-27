@@ -40,7 +40,7 @@ $ composer init
 }
 ```
 
-另外 `vender` 資料夾也需要加入 `.gitignore` ：
+另外 `vender` 資料夾也需要加入 `.gitignore`：
 
 ```
 # Composer file
@@ -51,7 +51,7 @@ $ composer init
 
 只把 Composer 準備好，不安裝個套件好像說不過去。
 
-我們今天也來安裝 PHPUnit ，順便把 Autoload 設定好。
+我們今天也來安裝 PHPUnit，順便把 Autoload 設定好。
 
 首先安裝 PHPUnit
 
@@ -59,7 +59,7 @@ $ composer init
 $ composer require phpunit/phpunit
 ```
 
-接著初始化 PHPUnit 的設定檔： `phpunit.xml.dist`
+接著初始化 PHPUnit 的設定檔：`phpunit.xml.dist`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -80,7 +80,7 @@ $ composer require phpunit/phpunit
 </phpunit>
 ```
 
-這個設定檔會找 `tests` 資料夾裡， `Test.php` 結尾的檔案來當 TestCase 執行。建好資料夾後，我們來寫一個最簡單的測試：
+這個設定檔會找 `tests` 資料夾裡，`Test.php` 結尾的檔案來當 TestCase 執行。建好資料夾後，我們來寫一個最簡單的測試：
 
 ```php
 <?php
@@ -114,7 +114,7 @@ Time: 47 ms, Memory: 4.00MB
 OK (1 test, 1 assertion)
 ```
 
-這樣就代表測試正常。 TestCase 裡面，一個測試會是一個 method ，我們再來加一個新的測試：
+這樣就代表測試正常。TestCase 裡面，一個測試會是一個 method，我們再來加一個新的測試：
 
 ```php
 /**
@@ -152,7 +152,7 @@ Use of undefined constant DB_HOST - assumed 'DB_HOST' (this will throw an Error 
 /Users/miles.chou/GitHub/MilesChou/book-refactoring-30-days/tests/ExampleTest.php:23
 ```
 
-因為常數在跑 PHPUnit 一開始沒設定，建議這一類的環境變數，一開始先不要載入 `config.php` ，而是在 XML 裡設定：
+因為常數在跑 PHPUnit 一開始沒設定，建議這一類的環境變數，一開始先不要載入 `config.php`，而是在 XML 裡設定：
 
 > [文件參考](https://phpunit.de/manual/current/zh_cn/appendixes.configuration.html#appendixes.configuration.php-ini-constants-variables)
 
@@ -166,7 +166,7 @@ Use of undefined constant DB_HOST - assumed 'DB_HOST' (this will throw an Error 
 </php>
 ```
 
-這裡要注意的是，因為這次執行單元測試不是在容器裡，所以 `DB_HOST` 要改為本機， Docker Container 也要注意是否有把 port 打開。 
+這裡要注意的是，因為這次執行單元測試不是在容器裡，所以 `DB_HOST` 要改為本機，Docker Container 也要注意是否有把 port 打開。
 
 最後再跑一次就會成功了：
 

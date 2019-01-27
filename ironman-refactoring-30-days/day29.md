@@ -59,7 +59,7 @@ public function testShouldNotSeeSmartyTagAtAdminProductPage()
 }
 ```
 
-再來開始切 Controller ，先把 `op=view` 複製出去，除了 controller 和 route 要調整外，測試也需要調整：
+再來開始切 Controller，先把 `op=view` 複製出去，除了 controller 和 route 要調整外，測試也需要調整：
 
 ```php
 // controllers

@@ -146,7 +146,7 @@ Laravel 的程式碼可以這麼簡潔，有很大一部分也是歸工於 Symfo
 
 ## 今日總結
 
-以筆者的經驗來說，Cookie 的處理是麻煩的，但 Laravel 與 Symfony 讓這一切處理都變得非常簡單。偶爾翻翻原始碼，才有辦法思考什麼樣的設計才能讓其他開發者覺得好用， 
+以筆者的經驗來說，Cookie 的處理是麻煩的，但 Laravel 與 Symfony 讓這一切處理都變得非常簡單。偶爾翻翻原始碼，才有辦法思考什麼樣的設計才能讓其他開發者覺得好用，
 
 [Cookie]: https://github.com/laravel/framework/tree/v5.7.6/src/Illuminate/Cookie
 

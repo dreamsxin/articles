@@ -2,7 +2,7 @@
 
 我們在重構 [Name Provider][Day 26] 有提到，指令必須也要加參數，才有辦法傳給 Provider 產生對應的結果。
 
-除此之外還有個需求：參考 [Faker](https://github.com/fzaninotto/Faker) ，我們還需要單純取得男性名字和女性名字的方法。
+除此之外還有個需求：參考 [Faker](https://github.com/fzaninotto/Faker)，我們還需要單純取得男性名字和女性名字的方法。
 
 ## 分析
 

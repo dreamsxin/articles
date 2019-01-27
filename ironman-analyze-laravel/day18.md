@@ -20,7 +20,7 @@ protected function runRoute(Request $request, Route $route)
 }
 ```
 
-從 `runRouteWithinStack()` 取得結果後，再給 `prepareResponse()` 產生 Response。  
+從 `runRouteWithinStack()` 取得結果後，再給 `prepareResponse()` 產生 Response。
 
 ```php
 protected function runRouteWithinStack(Route $route, Request $request)

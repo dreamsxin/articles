@@ -24,7 +24,7 @@ protected function dispatchToRouter()
 }
 ```
 
-這裡回傳了一個 Closure，它會被放到 Pipeline 裡執行。而傳入的 `$request` ，即為 Pipeline 傳入的 `send($request)`。
+這裡回傳了一個 Closure，它會被放到 Pipeline 裡執行。而傳入的 `$request`，即為 Pipeline 傳入的 `send($request)`。
 
 拿到 request 之後，立刻設定到 [Container][Day03] 裡。這代表在這個時機點之後，才能開始使用 [`request()`](https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Foundation/helpers.php#L718-L731) 取得 Request 實例。
 
@@ -101,7 +101,7 @@ protected function matchAgainstRoutes(array $routes, $request, $includingMethod 
     });
 
     // 再把 Fallback Route 放到最後一個
-    // 接著所有的 Route 依序呼叫 matches() ，找出哪一個 Route 是第一個匹配這次的 request 
+    // 接著所有的 Route 依序呼叫 matches()，找出哪一個 Route 是第一個匹配這次的 request 
     return $routes->merge($fallbacks)->first(function ($value) use ($request, $includingMethod) {
         return $value->matches($request, $includingMethod);
     });
@@ -140,7 +140,7 @@ public function matches(Request $request, $includingMethod = true)
 * SchemeValidator - 如果有設定 http / https 的話，就會比對
 * HostValidator - 如果有設定 Domain 的話，就會比對
 
-回到 match() 的流程，`bind()` 蠻單純的，先跳過，來看 `checkForAlternateVerbs()`： 
+回到 match() 的流程，`bind()` 蠻單純的，先跳過，來看 `checkForAlternateVerbs()`：
 
 ```php
 protected function checkForAlternateVerbs($request)

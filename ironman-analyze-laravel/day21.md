@@ -200,7 +200,7 @@ protected function createStackDriver(array $config)
 }
 ```
 
-Stack 本身代表的意義是把所有 Laravel Logger 所定義的 channels（也就是 driver）整合成一個懶人包，只要對 stack 推送 log ，所有在設定裡的 channel 都會跟著推送 log。
+Stack 本身代表的意義是把所有 Laravel Logger 所定義的 channels（也就是 driver）整合成一個懶人包，只要對 stack 推送 log，所有在設定裡的 channel 都會跟著推送 log。
 
 如果想針對單一 driver 推 log 也很簡單，使用 `driver()` 取得對應的 driver 即可。
 

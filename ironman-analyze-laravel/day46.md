@@ -98,7 +98,7 @@ public function assertJsonFragment(array $data)
 
 protected function jsonSearchStrings($key, $value)
 {
-    // 假設是 'a' 與 1 ，則會產生字串 `"a":1` 
+    // 假設是 'a' 與 1，則會產生字串 `"a":1` 
     $needle = substr(json_encode([$key => $value]), 1, -1);
 
     return [

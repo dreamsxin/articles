@@ -83,7 +83,7 @@ bool(false)
 bool(true)
 ```
 
-它可以作為一個 spy ，去確認寫到 Logger 的內容是正確的。
+它可以作為一個 spy，去確認寫到 Logger 的內容是正確的。
 
 它的設計方法也很單純，在 write 去寫入一個陣列：
 
@@ -99,7 +99,7 @@ protected function write(array $record)
 
 ## GroupHandler
 
-這可以把多個 Handler 集合成一個 Group ，而對這個 Group 操作，就等於對全部的 Handler 操作。
+這可以把多個 Handler 集合成一個 Group，而對這個 Group 操作，就等於對全部的 Handler 操作。
 
 ## NullHandler
 
@@ -113,4 +113,4 @@ protected function write(array $record)
 
 ## PsrHandler
 
-覺得 Monolog 不好，但有中意其他 PSR Logger 。雖然傷心寂寞覺得冷，但還是可以考慮用 Monolog 的 PsrHandler 包裝其他 PSR Logger 哦。
+覺得 Monolog 不好，但有中意其他 PSR Logger。雖然傷心寂寞覺得冷，但還是可以考慮用 Monolog 的 PsrHandler 包裝其他 PSR Logger 哦。

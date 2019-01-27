@@ -77,7 +77,7 @@
     CGO_LDFLAGS="-g -O2"
     PKG_CONFIG="pkg-config"
 
-裡面有一個 `GOPATH`，這是需要設定的環境變數。它代表著 go 程式的工作空間（workspace）， Windows 預設會設定在 `~\Go` ， Unix-like 則沒有預設，官方建議設定在 `~/go`。
+裡面有一個 `GOPATH`，這是需要設定的環境變數。它代表著 go 程式的工作空間（workspace），Windows 預設會設定在 `~\Go`，Unix-like 則沒有預設，官方建議設定在 `~/go`。
 
 Workspace 裡，劃分成三個主要目錄：
 

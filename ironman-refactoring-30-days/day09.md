@@ -42,7 +42,7 @@ class XmlResource extends DataResource
 }
 ```
 
-這裡面，父類別是 `DataResource` ，子類別是 `XmlResource` 。現在有個 Model 物件需要把資料拿出來儲存，我們可以這樣寫：
+這裡面，父類別是 `DataResource`，子類別是 `XmlResource`。現在有個 Model 物件需要把資料拿出來儲存，我們可以這樣寫：
 
 ```php
 class Model
@@ -82,7 +82,7 @@ class JsonResource extends DataResource
 }
 ```
 
-可是 Model 傳入 `JsonResource` 是不能跑的！因為 Model 只認 `XmlResource` ，不認 `JsonResource` 。
+可是 Model 傳入 `JsonResource` 是不能跑的！因為 Model 只認 `XmlResource`，不認 `JsonResource`。
 
 ```php
 $model = new Model(new JsonResource());
@@ -115,7 +115,7 @@ $model = new Model(new XmlResource());
 
 因為 `save()` 使用的 `getData()` 是 `DataResource` 所定義的公開方法，因為繼承會把父類別的所有行為繼承到子類別，因此子類別也會有 `getData()` 而不會讓 `save()` 出錯，因此也有做到「不出現任何錯誤或異常」。
 
-原本程式的做法，是 Model 只能依賴 `XmlResource` ，這並不符合「里氏替換原則」；改依賴 `DataResource` 後，程式就符合原則了，接著就會發現程式的擴展性變好， Model 的 Resource 就可以有多樣化選擇，除了 `XmlResource` 與 `JsonResource` 之外，甚至還可以新加 `CsvResource` 讓 Model 也能讀取 CSV 檔。
+原本程式的做法，是 Model 只能依賴 `XmlResource`，這並不符合「里氏替換原則」；改依賴 `DataResource` 後，程式就符合原則了，接著就會發現程式的擴展性變好，Model 的 Resource 就可以有多樣化選擇，除了 `XmlResource` 與 `JsonResource` 之外，甚至還可以新加 `CsvResource` 讓 Model 也能讀取 CSV 檔。
 
 ## 遵守原則的要領
 
@@ -123,8 +123,8 @@ $model = new Model(new XmlResource());
 
 * 子類別必須完全實作父類別的方法
 * 子類別可以有屬於自己的屬性和方法
-* 覆寫或實作父類別的方法時，輸入參數要與父類別定義的一樣，或是更寬鬆。比方說：父類別是 `DataResource` ，子類別則可以是 `XmlResource` 或 `DataResource`
-* 覆寫或實作父類別的方法時，輸出結果可以縮小。比方說：父類別是 `JsonResource` ，子類別則可以是 `JsonResource` 或 `DataResource`
+* 覆寫或實作父類別的方法時，輸入參數要與父類別定義的一樣，或是更寬鬆。比方說：父類別是 `DataResource`，子類別則可以是 `XmlResource` 或 `DataResource`
+* 覆寫或實作父類別的方法時，輸出結果可以縮小。比方說：父類別是 `JsonResource`，子類別則可以是 `JsonResource` 或 `DataResource`
 
 ## 優點
 

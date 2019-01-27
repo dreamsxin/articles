@@ -56,9 +56,9 @@ define('DB_PASS', config('database.connections.mysql.password'));
 
 ## 升級 PHP
 
-升級 PHP 最主要的目的是為了要使用 [Laravel](https://laravel.com/) 框架的測試套件。以 Laravel 5.5 來說，它最低需求是 PHP 7 ，所以目標才會放在升級 PHP 7 上。
+升級 PHP 最主要的目的是為了要使用 [Laravel](https://laravel.com/) 框架的測試套件。以 Laravel 5.5 來說，它最低需求是 PHP 7，所以目標才會放在升級 PHP 7 上。
 
-除此之外，最重要的目的是為了 [Built-in web server](http://php.net/manual/en/features.commandline.webserver.php) 。
+除此之外，最重要的目的是為了 [Built-in web server](http://php.net/manual/en/features.commandline.webserver.php)。
 
 雖然它的行為與 Apache 有些許的不同，但大部分的功能都是一樣的。有了它，將可以減少許多建置測試環境的問題，讓時間都盡可能花在改善設計。
 
@@ -66,7 +66,7 @@ define('DB_PASS', config('database.connections.mysql.password'));
 
 Composer 除了提供了第三方套件管理功能之外，也提供了自動載入機制。
 
-必須要能在 Laravel 裡正常載入既有程式碼，才能使用 Laravel 當做 proxy 。 Composer 可以實作自動載入，讓 Laravel 可以正常載入。
+必須要能在 Laravel 裡正常載入既有程式碼，才能使用 Laravel 當做 proxy。Composer 可以實作自動載入，讓 Laravel 可以正常載入。
 
 實作自動載入後，同時也安裝 PHPUnit 做簡單測試，以確認 Composer 的自動載入是有效的：
 
@@ -93,7 +93,7 @@ require_once CLASS_PATH . 'shop.class.php';
 
 我們現在也可以試著修改看看，只要測試的結果是正確的，代表我們的修改是不影響正常行為的。
 
-1. 新增 Autoload 檔案： `class/Smarty/Smarty.class.php`
+1. 新增 Autoload 檔案：`class/Smarty/Smarty.class.php`
 2. 重新載入 Autoload `composer dump-autoload`
 3. 移除 `config.php` `index.php` `admin.php` 裡相關的引用
 
@@ -134,11 +134,11 @@ DB::table('product')->select();
 
 ## Database Migration
 
-程式碼要版控，資料庫的 Schema 也要版控，資料庫版控工具都通稱為 Database Migration 。
+程式碼要版控，資料庫的 Schema 也要版控，資料庫版控工具都通稱為 Database Migration。
 
 使用 Database Migration 的好處在，資料的遷移可以由程式進行。在遷移過程，如果有需要運算或是轉換的行為，程式的處理會遠比人為處理來的可靠很多。
 
-Schema 通常會被認為是基礎設施（infrastructure），如果 Schema 可以介由程式建立的話，這正是一種*基礎設施即程式碼*（[Infrastructure as Code][]）的概念。最明顯的好處是：只要有完整原始碼，不管是剛來的新同事，或是遠在雲端的 Travis CI ，任何地方都能做測試。
+Schema 通常會被認為是基礎設施（infrastructure），如果 Schema 可以介由程式建立的話，這正是一種*基礎設施即程式碼*（[Infrastructure as Code][]）的概念。最明顯的好處是：只要有完整原始碼，不管是剛來的新同事，或是遠在雲端的 Travis CI，任何地方都能做測試。
 
 ## 整合 CI
 
@@ -158,7 +158,7 @@ CI 會在程式碼改變的時候，建置（build）原始碼。它除了會檢
 
 ---
 
-今天相關的程式碼可以參考 [GitHub PR](https://github.com/MilesChou/book-refactoring-30-days/pull/10) 。
+今天相關的程式碼可以參考 [GitHub PR](https://github.com/MilesChou/book-refactoring-30-days/pull/10)。
 
 現在基本測試都有了，明天就能開始對程式敲敲打打了！
 

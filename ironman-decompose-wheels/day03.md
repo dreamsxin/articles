@@ -35,7 +35,7 @@ public function modify($modify)
 
 這裡可以注意到，建構子中間多了 [`if` 判斷](https://github.com/briannesbitt/Carbon/blob/1.22.1/src/Carbon/Carbon.php#L275)；後面在傳 `$tz` 前，還有做一層[手腳](https://github.com/briannesbitt/Carbon/blob/1.22.1/src/Carbon/Carbon.php#L291)，把這兩部分拿掉的話，就跟原本的 `DateTime` 完全一樣了。
  
-其中， `if` 判斷主要的任務是為了在測試階段時，要把「現在」替換成指定的時間點。而指定的時間是放在靜態變數裡，建構時再去取得靜態變數（[`getTestNow()`](https://github.com/briannesbitt/Carbon/blob/1.22.1/src/Carbon/Carbon.php#L1045-L1048)）。
+其中，`if` 判斷主要的任務是為了在測試階段時，要把「現在」替換成指定的時間點。而指定的時間是放在靜態變數裡，建構時再去取得靜態變數（[`getTestNow()`](https://github.com/briannesbitt/Carbon/blob/1.22.1/src/Carbon/Carbon.php#L1045-L1048)）。
 
 這要怎麼用呢？比方說，我們要測試跨年前 10 秒會不會自動啟動煙火機制，直接使用 `date` 指令調電腦時間實在是太蠢了，來看看 Carbon 怎麼做：
 
@@ -91,7 +91,7 @@ Real: 2017-12-22 18:55:45
 
 然而，它的啟動條件是先做設定「現在時間」（`Carbon::setTestNow()`），啟動前並不影響任何行為；啟動後則是位移時間，最終還是會傳正確 `$time` 格式給父類別。
 
-[`safeCreateDateTimeZone()`](https://github.com/briannesbitt/Carbon/blob/1.22.1/src/Carbon/Carbon.php#L228-L256) 則是在做正規化 [`DateTimeZone`](http://php.net/manual/en/class.datetimezone.php) 和一些 TimeZone 格式錯誤時的錯誤處理，而且避開了 [Bug #52063](https://bugs.php.net/bug.php?id=52063) 。
+[`safeCreateDateTimeZone()`](https://github.com/briannesbitt/Carbon/blob/1.22.1/src/Carbon/Carbon.php#L228-L256) 則是在做正規化 [`DateTimeZone`](http://php.net/manual/en/class.datetimezone.php) 和一些 TimeZone 格式錯誤時的錯誤處理，而且避開了 [Bug #52063](https://bugs.php.net/bug.php?id=52063)。
 
 因此這兩個功能都有加強原建構子的功能，並沒有破壞行為。
 
@@ -99,13 +99,13 @@ Real: 2017-12-22 18:55:45
 
 [原始碼](https://github.com/briannesbitt/Carbon/blob/1.22.1/src/Carbon/Carbon.php#L568-L583)
 
-開頭的 `if` 判斷和正規化 `DateTimeZone` ，與建構子 `safeCreateDateTimeZone()` 在做的事類似。
+開頭的 `if` 判斷和正規化 `DateTimeZone`，與建構子 `safeCreateDateTimeZone()` 在做的事類似。
 
-這邊會執行父類別建立 DateTime 的方法，接著 `setLastErrors()` 是存放建立時遇到的錯誤（`parent::getLastErrors()`）。會這麼做的理由在最後面：因為 Carbon 設計這個 function 預期錯誤會丟例外，而不是 DataTime 回傳 `false` 。
+這邊會執行父類別建立 DateTime 的方法，接著 `setLastErrors()` 是存放建立時遇到的錯誤（`parent::getLastErrors()`）。會這麼做的理由在最後面：因為 Carbon 設計這個 function 預期錯誤會丟例外，而不是 DataTime 回傳 `false`。
 
-如果是丟例外的話，需要有個地方取得錯誤訊息。是的，所以需要覆寫 `getLastErrors` ，來取得剛剛呼叫 `setLastErrors()` 時傳入的 `parent::getLastErrors()` 。這些過程有點繞，總之， Carbon 的目的是為了要把它改成「錯誤丟例外」。
+如果是丟例外的話，需要有個地方取得錯誤訊息。是的，所以需要覆寫 `getLastErrors`，來取得剛剛呼叫 `setLastErrors()` 時傳入的 `parent::getLastErrors()`。這些過程有點繞，總之，Carbon 的目的是為了要把它改成「錯誤丟例外」。
 
-如果 DateTime 成功建立，則會使用 `instance()` 轉換成 Carbon ，再回傳出去。
+如果 DateTime 成功建立，則會使用 `instance()` 轉換成 Carbon，再回傳出去。
 
 原則上，這是一個工廠方法，所以回傳的物件應該會是 Class 本身，因此行為有點不同（回傳的是 Carbon 而不是 DateTime），但使用上並不會有任何影響。
 
@@ -138,19 +138,19 @@ Data missing
 
 [原始碼](https://github.com/briannesbitt/Carbon/blob/1.22.1/src/Carbon/Carbon.php#L944-L947)
 
-正規化傳入的 Timezone ，減少問題發生的機率。 
+正規化傳入的 Timezone，減少問題發生的機率。
 
 #### `modify`
 
 [原始碼](https://github.com/briannesbitt/Carbon/blob/1.22.1/src/Carbon/Carbon.php#L3312-L3324)
 
-翻了一下 commit 記錄與 [issue](https://github.com/briannesbitt/Carbon/issues/88) ，這是為了修 DateTime 的 bug 。
+翻了一下 commit 記錄與 [issue](https://github.com/briannesbitt/Carbon/issues/88)，這是為了修 DateTime 的 bug。
 
-另外還有一個 `CarbonInterval` 類別繼承 [`DateInterval`][] 。它只有覆寫 [`__construct`](https://github.com/briannesbitt/Carbon/blob/1.22.1/src/Carbon/CarbonInterval.php#L120-L146) 的實作，換言之，它只改變了建立物件的方法，其他的行為都沒有改變。
+另外還有一個 `CarbonInterval` 類別繼承 [`DateInterval`][]。它只有覆寫 [`__construct`](https://github.com/briannesbitt/Carbon/blob/1.22.1/src/Carbon/CarbonInterval.php#L120-L146) 的實作，換言之，它只改變了建立物件的方法，其他的行為都沒有改變。
 
 ## 行為不變最安全
 
-由上面的分析看來， Carbon 並沒有改變原本物件的行為，因此我們甚至可以拿 Carbon 來取代任何需要使用 DateTime 的方法，達到里氏替換原則的精髓！
+由上面的分析看來，Carbon 並沒有改變原本物件的行為，因此我們甚至可以拿 Carbon 來取代任何需要使用 DateTime 的方法，達到里氏替換原則的精髓！
 
 ---
 

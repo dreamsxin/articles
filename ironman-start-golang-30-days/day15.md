@@ -27,7 +27,7 @@ func main() {
 }
 ```
 
-假設想要有新的結構是 `Taiwanese` 繼承 `People` ，寫法是這樣的：
+假設想要有新的結構是 `Taiwanese` 繼承 `People`，寫法是這樣的：
 
 ```go
 package main

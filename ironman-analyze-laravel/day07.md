@@ -71,7 +71,7 @@ public function send($passable)
 }
 ```
 
-再來 `through()`，則是定義有什麼樣的「水管」，HTTP Kernel 使用 middleware 作為水管。 
+再來 `through()`，則是定義有什麼樣的「水管」，HTTP Kernel 使用 middleware 作為水管。
 
 ```php
 public function through($pipes)
@@ -140,7 +140,7 @@ protected function carry()
                 $parameters = [$passable, $stack];
             }
 
-            // 預設的 `method` 是 handle ，如果有使用 via() 的話可以調整。如果物件沒實作這個方法的話，就會假設它有實作 __invoke。
+            // 預設的 `method` 是 handle，如果有使用 via() 的話可以調整。如果物件沒實作這個方法的話，就會假設它有實作 __invoke。
             $response = method_exists($pipe, $this->method)
                             ? $pipe->{$this->method}(...$parameters)
                             : $pipe(...$parameters);
@@ -154,7 +154,7 @@ protected function carry()
 }
 ```
 
-裡面的流程都很單純，難的地方在最外層是 Closure 包 Closure。先假設 array ，並用比較簡單的寫法把它改成 inline 試試：
+裡面的流程都很單純，難的地方在最外層是 Closure 包 Closure。先假設 array，並用比較簡單的寫法把它改成 inline 試試：
 
 ```php
 // 從上面的原始碼得知，這個其實是 middleware 的 handle 實作
@@ -185,7 +185,7 @@ $pipeline = array_reduce(
 $pipeline('request'); // return 'response321'
 ```
 
-由我們對 `array_reduce` 與 `array_reverse` 的理解，可以知道第二個 callback 被執行了三次 ，我們試著把執行過程展開來看看。
+由我們對 `array_reduce` 與 `array_reverse` 的理解，可以知道第二個 callback 被執行了三次，我們試著把執行過程展開來看看。
 
 第一次執行的情況是這樣的：
 
@@ -203,7 +203,7 @@ return function ($passable) use ($stack0, $pipe3) {
 };
 ```
 
-單看這段程式碼，可以知道 $pipe3 的 $next ，實際上就是 $stack0。所以回傳的 Closure 執行結果會是 `response3`。
+單看這段程式碼，可以知道 $pipe3 的 $next，實際上就是 $stack0。所以回傳的 Closure 執行結果會是 `response3`。
 
 根據 [Closure 的特性][Golang Day12]，我們可以知道回傳的 Closure 的變數會被包起來，接著再傳給下一個：
 
@@ -222,7 +222,7 @@ return function ($passable) use ($stack3, $pipe2) {
 };
 ```
 
-跟上面類似， $pipe2 的 $next 其實就是 $stack3，執行結果會是 `response32`。依此類推最後一次：
+跟上面類似，$pipe2 的 $next 其實就是 $stack3，執行結果會是 `response32`。依此類推最後一次：
 
 ```php
 $stack2 = function ($passable) {

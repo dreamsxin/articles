@@ -97,7 +97,7 @@ tap($this->createEmergencyLogger())
     ]);
 ```
 
-跟 [Higher Order Messages][Day39] 很像，可以省略掉一層 callback，但同時也有一樣的使用條件：以 callback 的寫法，只允許一行程式碼。 
+跟 [Higher Order Messages][Day39] 很像，可以省略掉一層 callback，但同時也有一樣的使用條件：以 callback 的寫法，只允許一行程式碼。
 
 [helpers.php]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Support/helpers.php
 [HigherOrderTapProxy]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Support/HigherOrderTapProxy.php

@@ -40,11 +40,11 @@ Illuminate\Config\Repository --> Support\Arr : static call
 
 > 註：上圖主要表示行為（Contract）與關係（Implement / Static Call），其他細節則忽略。
 
-從這張圖可以知道，`Config\Repository` 提供了數個基本方法如 `has()` `get()` `all()` `set()` ，來存取裡面的資訊，同時也提供 [ArrayAccess][] 功能。
+從這張圖可以知道，`Config\Repository` 提供了數個基本方法如 `has()` `get()` `all()` `set()`，來存取裡面的資訊，同時也提供 [ArrayAccess][] 功能。
 
 `prepend()` 和 `push()` 則是類似 [`array_unshift()`][array_unshift] 和 [`array_push()`][array_push] 的操作，不過是針對裡面的某個 key 的 value 操作。
 
-值得一提的是：它使用了 `Support\Arr` 來操作 array 的 has / get / set 。 `Support\Arr` 實作了特別的功能，是 key 可以使用 `.` 代表 array 的階層關係，就如同 JavaScript 一樣，舉例如下：
+值得一提的是：它使用了 `Support\Arr` 來操作 array 的 has / get / set。`Support\Arr` 實作了特別的功能，是 key 可以使用 `.` 代表 array 的階層關係，就如同 JavaScript 一樣，舉例如下：
 
 ```php
 $config = new Config\Repository([
@@ -160,9 +160,9 @@ function config($key = null, $default = null)
 
 上面已經了解 Config 怎麼用了，那想換用別家的，像 [`zend-config`](https://github.com/zendframework/zend-config) 看起來也不錯用，該如何做呢？主要會有兩個重點：實作與初始化
 
-我們知道 Config 它實作了兩個介面，一個是 `Contracts\Config\Repository` ，另一個是 `ArrayAccess` 。而事實上，整個 Framework 也只依賴這兩個介面。因此，只要實作一個 Adapter 去實作這兩個介面即可取代原有的 Config 。
+我們知道 Config 它實作了兩個介面，一個是 `Contracts\Config\Repository`，另一個是 `ArrayAccess`。而事實上，整個 Framework 也只依賴這兩個介面。因此，只要實作一個 Adapter 去實作這兩個介面即可取代原有的 Config。
 
-另一個問題是初始化，這就必須調整初始化的過程才行。一種方法是：Laravel 預設的樣版會實作一個 [Kernel](https://github.com/laravel/laravel/blob/v5.7.0/app/Http/Kernel.php#L7) 去繼承 `Foundation\Http\Kernel` ，只要在這個類別覆寫 `$bootstrappers` 屬性即可更改初始化過程，如：
+另一個問題是初始化，這就必須調整初始化的過程才行。一種方法是：Laravel 預設的樣版會實作一個 [Kernel](https://github.com/laravel/laravel/blob/v5.7.0/app/Http/Kernel.php#L7) 去繼承 `Foundation\Http\Kernel`，只要在這個類別覆寫 `$bootstrappers` 屬性即可更改初始化過程，如：
 
 ```php
 protected $bootstrappers = [
@@ -190,7 +190,7 @@ $app->singleton(
 );
 ```
 
-至於為什麼會成功呢？請再回頭複習一下 [bootstrap 流程][Day02] 與 [Container 分析][Day03]，就會理解了。 
+至於為什麼會成功呢？請再回頭複習一下 [bootstrap 流程][Day02] 與 [Container 分析][Day03]，就會理解了。
 
 ## 本日回顧
 

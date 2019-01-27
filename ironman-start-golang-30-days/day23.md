@@ -2,11 +2,11 @@
 
 因為參加的是 Modern Web 主題，不管怎樣，還是跟 Web 掛勾一下好了。
 
-今天的主題是如何起一個 Web Server 。
+今天的主題是如何起一個 Web Server。
 
 ## 分析
 
-Go 本身即有內帶一些可用的函式庫，廣大的 [GitHub][Awesome Go] 上也有非常多套件可以參考。今天會使用 [Gin](https://github.com/gin-gonic/gin) 。
+Go 本身即有內帶一些可用的函式庫，廣大的 [GitHub][Awesome Go] 上也有非常多套件可以參考。今天會使用 [Gin](https://github.com/gin-gonic/gin)。
 
 Gin 使用很簡單，官方範例如下：
 
@@ -54,7 +54,7 @@ GET /generate
 
 ## 開工
 
-首先先把範例程式碼加入 Command ：
+首先先把範例程式碼加入 Command：
 
 ```go
 package command
@@ -129,9 +129,9 @@ func serve(c *cli.Context) error {
 
 ## 問題
 
-上面的程式碼可以注意到： `c.JSON` 帶的第二個參數似乎是可以任意值的，這應該是 `interface` 的特色。
+上面的程式碼可以注意到：`c.JSON` 帶的第二個參數似乎是可以任意值的，這應該是 `interface` 的特色。
 
-YAML 在實作的時候也一直看到 `interface` ，所以看來有機會還是得好好研究一下它。
+YAML 在實作的時候也一直看到 `interface`，所以看來有機會還是得好好研究一下它。
 
 ## 展示
 

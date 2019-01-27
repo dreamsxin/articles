@@ -46,7 +46,7 @@ $debug = getenv('DEBUG');
 * Docker
 * CI Server
 
-開發通常會有支援檔案整合環境變數的套件，通常查 `dotenv` 都會有相關的資訊，這部分就跳過。 Docker 如果用 Docker Compose 可以這樣定義：
+開發通常會有支援檔案整合環境變數的套件，通常查 `dotenv` 都會有相關的資訊，這部分就跳過。Docker 如果用 Docker Compose 可以這樣定義：
 
 ```yaml
 server:
@@ -55,7 +55,7 @@ server:
     DEBUG: 1
 ```
 
-上例就是打開 debug 模式。 CI 也有類似的做法，如 CircleCI 是這樣定義的：
+上例就是打開 debug 模式。CI 也有類似的做法，如 CircleCI 是這樣定義的：
 
 ```yaml
 machine:
@@ -67,7 +67,7 @@ machine:
 
 CI 我不想開 debug 模式，那這樣設定即可。
 
-是的，不需要寫腳本去做字串 replace ，也不需要擔心機敏資料被別人發現，它只要在存在機器裡就能繼續被使用。理想上，佈署只要整包程式丟上去，設定不需要調整就能直接 work 了。
+是的，不需要寫腳本去做字串 replace，也不需要擔心機敏資料被別人發現，它只要在存在機器裡就能繼續被使用。理想上，佈署只要整包程式丟上去，設定不需要調整就能直接 work 了。
 
 ## 今日回顧
 

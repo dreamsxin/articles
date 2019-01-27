@@ -65,7 +65,7 @@ NullSessionHandler .up.|> SessionHandlerInterface
 
 雖然有很多關係連結，不過就先從 SessionManager 類別開始吧！SessionManager 繼承了 [`Illuminate\Support\Manager`](https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Support/Manager.php)。
 
-Manager 的用途很特別，通常我們在不同的場景會使用不同實作時，如 DB 在測試會使用 SQLite ，上線會使用 MySQL，這時為符合 open-closed principle，通常我們會選擇 strategy pattern。Manager 就是一個管理 strategy 實例的抽象類。
+Manager 的用途很特別，通常我們在不同的場景會使用不同實作時，如 DB 在測試會使用 SQLite，上線會使用 MySQL，這時為符合 open-closed principle，通常我們會選擇 strategy pattern。Manager 就是一個管理 strategy 實例的抽象類。
 
 一開始初始化，當然會需要 Container，因為後面要產生實例的時候會需要它。而今天一開始在講 service provider 時，有看到這段程式碼：
 
@@ -110,7 +110,7 @@ public function getDefaultDriver()
 
 這就是 Laravel [`config/session.php`](https://github.com/laravel/laravel/blob/v5.7.0/config/session.php#L19) 的 driver 設定。從這個設定檔的註解也可以知道，driver 有非常多種，如 `file`、`database`、`memcached` 等，這也剛好對應類別圖的 `SessionHandlerInterface` 實作。
 
-如果設定是 file 的話， driver 又是怎麼被建構出來的呢，接著繼續看 [`createDriver()`](https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Support/Manager.php#L85-L100)：
+如果設定是 file 的話，driver 又是怎麼被建構出來的呢，接著繼續看 [`createDriver()`](https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Support/Manager.php#L85-L100)：
 
 ```php
 protected function createDriver($driver)

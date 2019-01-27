@@ -6,17 +6,17 @@ Go 的資料型別有 11 種，今天先介紹 *Predeclared Type*　，它們也
 
 ## Boolean types
 
-最簡單的型別－－ `bool` ，它只有兩個預定義的常數 `true` 和 `false` 。
+最簡單的型別－－ `bool`，它只有兩個預定義的常數 `true` 和 `false`。
 
 ## Numeric types
 
-`numeric` 型態包含了 integer （整數）、 float（浮點數）、 complex（複數）三種。
+`numeric` 型態包含了 integer （整數）、float（浮點數）、complex（複數）三種。
 
-整數又分帶號 `int` 與不帶號 `uint` 兩類，也可以直接指定大小 `int8` 、 `int16` 、 `int32` 、 `int64` 或是不帶號的 `uint8` 、 `uint16` 、 `uint32` 、 `uint64` ，這些相信一看就知道佔了多少容量（bit）。至於 `int` 和 `uint` 會使用哪一個要看平台實作決定，有可能是 32 bit 也有可能是 64 bit。
+整數又分帶號 `int` 與不帶號 `uint` 兩類，也可以直接指定大小 `int8`、`int16`、`int32`、`int64` 或是不帶號的 `uint8`、`uint16`、`uint32`、`uint64`，這些相信一看就知道佔了多少容量（bit）。至於 `int` 和 `uint` 會使用哪一個要看平台實作決定，有可能是 32 bit 也有可能是 64 bit。
 
-而另外還有兩個整數型態： `rune` 是 `int32` 的別名， `byte` 是 `int8` 的別名。
+而另外還有兩個整數型態：`rune` 是 `int32` 的別名，`byte` 是 `int8` 的別名。
 
-float 有 `float32` 與 `float64` 兩種，但沒有 `float` 。
+float 有 `float32` 與 `float64` 兩種，但沒有 `float`。
 
 complex 則表示複數，以 RE + IMi 的方法表示，如：
 
@@ -60,7 +60,7 @@ func main() {
 }
 ```
 
-需要注意的是，不同的數字型態，是不能直接摻在一起操作的。如 int8 不能跟 uint8 相加。另外， int 有可能是 32 位元，但 int 也不能跟 int32 相加。
+需要注意的是，不同的數字型態，是不能直接摻在一起操作的。如 int8 不能跟 uint8 相加。另外，int 有可能是 32 位元，但 int 也不能跟 int32 相加。
 
 ## String types
 

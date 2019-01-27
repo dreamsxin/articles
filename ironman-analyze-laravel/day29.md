@@ -17,7 +17,7 @@ Gate::define('update-post', function ($user, $post) {
 });
 ```
 
-> 官方提供的範例都會有兩種：正常狀況與不需指定 Model 的操作（*Actions That Don't Require Models*），但分析起來其實沒什麼太大差異。 
+> 官方提供的範例都會有兩種：正常狀況與不需指定 Model 的操作（*Actions That Don't Require Models*），但分析起來其實沒什麼太大差異。
 
 ## User Model
 
@@ -84,7 +84,7 @@ public function authorize($ability, $arguments = [])
         return $result;
     }
 
-    // 不是的話，預期會是 true / false ，分別對應到 allow() 與 deny() 方法
+    // 不是的話，預期會是 true / false，分別對應到 allow() 與 deny() 方法
     return $result ? $this->allow() : $this->deny();
 }
 ```
@@ -137,7 +137,7 @@ public function authorize($ability, $arguments = [])
 }
 ```
 
-與 middleware 類似的，它也會先解析 ability 與 arguments ，才傳入 Gate 的 `authorize()` 方法。
+與 middleware 類似的，它也會先解析 ability 與 arguments，才傳入 Gate 的 `authorize()` 方法。
 
 到此，Authorization 的分析差不多就結束了，相信大家對於授權會有更進一步的了解。
 

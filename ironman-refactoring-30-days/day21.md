@@ -11,7 +11,7 @@
 
 ## Browser Tests
 
-Laravel 也有提供強大的瀏覽器測試套件， [Dusk](https://laravel.com/docs/5.5/dusk) 。今天就來實作 Dusk 的測試吧！
+Laravel 也有提供強大的瀏覽器測試套件，[Dusk](https://laravel.com/docs/5.5/dusk)。今天就來實作 Dusk 的測試吧！
 
 首先先安裝套件：
 
@@ -19,7 +19,7 @@ Laravel 也有提供強大的瀏覽器測試套件， [Dusk](https://laravel.com
 $ composer require laravel/dusk
 ```
 
-套件安裝完後，再初始化 Dusk ：
+套件安裝完後，再初始化 Dusk：
 
 ```
 $ php artisan dusk:install
@@ -27,7 +27,7 @@ $ php artisan dusk:install
 
 `tests/Browser/ExampleTest.php` 是它預設的範例測試。
 
-我們可以先來測試看看，不過這次測試得先做點準備工夫，首先要調整環境設定 `.env` ：
+我們可以先來測試看看，不過這次測試得先做點準備工夫，首先要調整環境設定 `.env`：
 
 ```
 APP_URL=http://localhost:8000
@@ -53,7 +53,7 @@ Failed asserting that false is true.
 
 什麼！居然出錯了？
 
-這是因為 Dusk 預設是測官方的預設頁面，裡面有大大的 `Laravel` ，現在官方的預設頁面被我們換成首頁了，所以我們需要修改測試檔 `tests/Browser/ExampleTest.php` ：
+這是因為 Dusk 預設是測官方的預設頁面，裡面有大大的 `Laravel`，現在官方的預設頁面被我們換成首頁了，所以我們需要修改測試檔 `tests/Browser/ExampleTest.php`：
 
 ```php
 <?php
@@ -121,7 +121,7 @@ OK (2 tests, 11 assertions)
 
 官方有提供如何串接 CI 的[範例](https://laravel.com/docs/5.5/dusk#continuous-integration)，裡面重要的關鍵有下面幾個：
 
-1.  要安裝 Chrome ，因此需要 sudo 權限
+1.  要安裝 Chrome，因此需要 sudo 權限
     ```
     sudo: required
     addons:

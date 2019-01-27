@@ -1,8 +1,8 @@
 # 來試著升級 PHP 吧
 
-我們接下來會使用 PHPConf 2016 的簡報「[使用 Slim 為 Legacy Code 重構][]」提到的 proxy pattern 方法來重構。而中間的 Route 會使用 [Laravel][] 。只是在使用 Laravel 之前，我們得先要升級 PHP 。
+我們接下來會使用 PHPConf 2016 的簡報「[使用 Slim 為 Legacy Code 重構][]」提到的 proxy pattern 方法來重構。而中間的 Route 會使用 [Laravel][]。只是在使用 Laravel 之前，我們得先要升級 PHP。
 
-[昨天][Day 14]是發現它沒有內建函式 `mysql_*` ，後面的版本都建議換用 `mysqli_*` 了。
+[昨天][Day 14]是發現它沒有內建函式 `mysql_*`，後面的版本都建議換用 `mysqli_*` 了。
 
 既然如此，我們就寫一堆 `mysql_*` 函式，轉接到 `mysqli_*` 函式就好了呀！
 
@@ -10,7 +10,7 @@
 
 ## 實驗看看
 
-觀查一下程式碼，原本的主要路由 `admin.php` 與 `index.php` 背後都會引用 `config.php` ，我們寫一個 `workaround.php` 在 `config.php` 裡載入即可。
+觀查一下程式碼，原本的主要路由 `admin.php` 與 `index.php` 背後都會引用 `config.php`，我們寫一個 `workaround.php` 在 `config.php` 裡載入即可。
 
 先來試試連線函式：
 
@@ -35,7 +35,7 @@ require_once __DIR__ . '/workaround.php';
 docker run --rm -it --link mysql -v `pwd`:/source -w /source -p 8080:8080 php:7.2-alpine php -S 0.0.0.0:8080
 ```
 
-發現居然沒有 `mysqli` ，上網可以查得到它有支援，所以看樣子是 alpine 預設沒安裝，來換個策略：先 `sh` 進去安裝後，再開伺服器：
+發現居然沒有 `mysqli`，上網可以查得到它有支援，所以看樣子是 alpine 預設沒安裝，來換個策略：先 `sh` 進去安裝後，再開伺服器：
 
 ```bash
 docker run --rm -it --link some-mysql:mysql -v `pwd`:/source -w /source -p 8080:8080 php:7.2-alpine sh
@@ -149,13 +149,13 @@ if (!function_exists('mysql_error')) {
 
 會有 `Workaround` class 的目的是為了暫存 `mysqli` 連線變數。且也在 function 先做好手腳了，這樣在之後調整程式碼會比較簡單一點。
 
-原始碼只有修改兩個地方，一個是 `config.php` 的引用，另一個是 `mysql.class.php` 有個地方把字串當陣列在用， PHP 7.2 不支援，因此只能修改了。
+原始碼只有修改兩個地方，一個是 `config.php` 的引用，另一個是 `mysql.class.php` 有個地方把字串當陣列在用，PHP 7.2 不支援，因此只能修改了。
 
 基本上，上面這樣就算完成了，未來就可以使用 PHP 7.2 開發了。
 
 ## 升級的過程還會有哪些雷？
 
-筆者目前有遇過的： 5.3 to 5.6 下面這個狀況會報錯：
+筆者目前有遇過的：5.3 to 5.6 下面這個狀況會報錯：
 
 ```php
 foo(&$bar);
@@ -173,7 +173,7 @@ function foo(&$bar) {
 }
 ```
 
-其他就沒有遇過了， PHP 算是相容性做很好的語言。但跟大多數語言和框架一樣，升級還是無法確定一切正常，只能靠亂點測試的運氣。更好的方法是寫自動化測試，在升級的時候跑一輪即可。
+其他就沒有遇過了，PHP 算是相容性做很好的語言。但跟大多數語言和框架一樣，升級還是無法確定一切正常，只能靠亂點測試的運氣。更好的方法是寫自動化測試，在升級的時候跑一輪即可。
 
 只是一個長久未重構的既有程式碼（legacy code），無法簡單地寫自動化測試，只能先使用硬上的方法讓程式變得比較好測之後，再開始把測試一個一個補上去。
 

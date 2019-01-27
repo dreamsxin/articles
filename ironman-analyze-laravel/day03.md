@@ -1,6 +1,6 @@
 # 分析 Container（1）
 
-昨天有提到 [Application][] 是 Laravel [Service Container][] 的實作，它繼承了 [Container][] ，是負責管理元件如何產生的元件。比方說：
+昨天有提到 [Application][] 是 Laravel [Service Container][] 的實作，它繼承了 [Container][]，是負責管理元件如何產生的元件。比方說：
 
 ```php
 $container = new Container();
@@ -10,7 +10,7 @@ $container->singleton(MyClass::class, function () {
 });
 ```
 
-如此一來，當使用 `make()` 時，它就會觸發 callback ，依照 callback 的寫法來產生對應的物件
+如此一來，當使用 `make()` 時，它就會觸發 callback，依照 callback 的寫法來產生對應的物件
 
 ```php
 $instance1 = $container->make(MyClass::class); // return instance of MyClass
@@ -42,7 +42,7 @@ $container->make(MyClass::class); // 這是 Work 的
 
 ## 類別圖
 
-首先，依賴很單純，它只依賴 [Contracts][] 並實作 [ArrayAccess][] ：
+首先，依賴很單純，它只依賴 [Contracts][] 並實作 [ArrayAccess][]：
 
 ![](http://www.plantuml.com/plantuml/png/fLDDazCm3BtdL_YGG_de_W06cDtkgGTc6Ax0GRMLnBEApLWoiBFqlwDD2TlW98NXuhZIqtloKtND0aboJvKFWga1Y-Ozfq-tCGZuW6Ut_M_0GsNC2_C01vO4LewcHTdKtZtxCzu1d-B7wenV6OSypwcKv8UOWzlKOw0G0VB0J_cNfXuY1KwWVKAnmZGmYsfHvVHRv0u-k8cGZS4c53HlJCX46k4E4ZhztG0npZBic__ZO1zQGebXZQQemk-2q-vlAN9EgAN3fHJoWGM2nOdE62pGtpeCcx6DCjte6TFzoXnxk9j8GKfmR-elaA1NniJwj8-VYp8BHAghvm7itLAPTkwmWKpo3gMBRiccX1pfAnR_jmAYGvWrSsnaIG0QmVJXtoXqUom1izaJvTu743nRdTtZVfnUDIuF2uYtlxmPwY_kzEiVs-twPbQhMIMukYeRd3BSFCxcnbfa_YlyUjfijsylM_BAdDmOpBZ4-5nDM8Je2cMWdGzE9xVBdfosU8t1vPv-0W00)
 
@@ -132,7 +132,7 @@ public function bind($abstract, $concrete = null, $shared = false)
         $concrete = $abstract;
     }
 
-    // 當 concrete 不是 Closure 的話，會預期它是 class 名稱， Laravel 會把它包裝成預設的 Closure
+    // 當 concrete 不是 Closure 的話，會預期它是 class 名稱，Laravel 會把它包裝成預設的 Closure
     if (! $concrete instanceof Closure) {
         $concrete = $this->getClosure($abstract, $concrete);
     }
@@ -163,17 +163,17 @@ protected function getClosure($abstract, $concrete)
 }
 ```
 
-這裡的 `$container` ，指的就是 `$this` 。剛剛 `bind()` 裡面有提到：
+這裡的 `$container`，指的就是 `$this`。剛剛 `bind()` 裡面有提到：
 
 > 當沒有給 concrete 的話，則會把 abstract 當 concrete 來處理
 
-這裡原始碼可以發現，如果上述情況的話，它會使用 `build()` 建置實例；不是的話，則會使用一開始提到的 `make()` 建置。 
+這裡原始碼可以發現，如果上述情況的話，它會使用 `build()` 建置實例；不是的話，則會使用一開始提到的 `make()` 建置。
 
 這兩個之間的差異，只要繼續看 `make()` 就會了解。
 
 ## `make()` 做了什麼事
 
-[`make()`](https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Container/Container.php#L599-L602) 跟 `singleton()` 類似，也是在呼叫另一個方法 `resolve()` ，不過這個做法會比較像是 proxy pattern。
+[`make()`](https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Container/Container.php#L599-L602) 跟 `singleton()` 類似，也是在呼叫另一個方法 `resolve()`，不過這個做法會比較像是 proxy pattern。
 
 ```php
 public function make($abstract, array $parameters = [])
@@ -200,10 +200,10 @@ protected function resolve($abstract, $parameters = [])
         return $this->instances[$abstract];
     }
 
-    // 屬性 `with` 是用拿暫存的，後面產生實例的過程會用到 parameters ，將會從 with 取得
+    // 屬性 `with` 是用拿暫存的，後面產生實例的過程會用到 parameters，將會從 with 取得
     $this->with[] = $parameters;
 
-    // 這裡會嘗試由 abstract 取得 concrete ，真的都找不到的話，將會回傳 abstract
+    // 這裡會嘗試由 abstract 取得 concrete，真的都找不到的話，將會回傳 abstract
     $concrete = $this->getConcrete($abstract);
 
     // 產生實例
@@ -256,9 +256,9 @@ protected function isBuildable($concrete, $abstract)
 
 回顧上面 `bind()` 曾提到的：
 
-> 當 concrete 不是 Closure 的話，會預期它是 class 名稱， Laravel 會把它包裝成預設的 Closure
+> 當 concrete 不是 Closure 的話，會預期它是 class 名稱，Laravel 會把它包裝成預設的 Closure
 
-換句話說，只要曾使用 `bind()` 定義過的類別，就一定會使用 `build()` ，舉幾個[官網的例子](https://laravel.com/docs/5.7/container)：
+換句話說，只要曾使用 `bind()` 定義過的類別，就一定會使用 `build()`，舉幾個[官網的例子](https://laravel.com/docs/5.7/container)：
 
 ```php
 $this->app->bind('HelpSpot\API', function ($app) {
@@ -266,7 +266,7 @@ $this->app->bind('HelpSpot\API', function ($app) {
 });
 ```
 
-這個情況因為 concrete 是 Closure ，所以會使用 `build()`。再看另一個例子：
+這個情況因為 concrete 是 Closure，所以會使用 `build()`。再看另一個例子：
 
 ```php
 $this->app->bind(
@@ -283,7 +283,7 @@ $this->app->bind(
 $container->make(MyClass::class);
 ```
 
-這時就得了解 concrete 的來源： [`getConcrete()`](https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Container/Container.php#L683-L697) 的實作了：
+這時就得了解 concrete 的來源：[`getConcrete()`](https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Container/Container.php#L683-L697) 的實作了：
 
 ```php
 protected function getConcrete($abstract)
@@ -293,12 +293,12 @@ protected function getConcrete($abstract)
         return $concrete;
     }
 
-    // 屬性 `bindings` 只有 bind() 才會 assign ，因此它必定為 Closure ，而流程會走 build()
+    // 屬性 `bindings` 只有 bind() 才會 assign，因此它必定為 Closure，而流程會走 build()
     if (isset($this->bindings[$abstract])) {
         return $this->bindings[$abstract]['concrete'];
     }
 
-    // 如果都不是，就回傳 abstract ，流程也會走 build()
+    // 如果都不是，就回傳 abstract，流程也會走 build()
     return $abstract;
 }
 ```
@@ -329,9 +329,9 @@ protected function getContextualConcrete($abstract)
 
 [Contextual Binding][] 是用在同一個類別，在不同地方會使用到不同的實例，這裡再講下去會太複雜，就先跳過。
 
-從以上追過原始碼的結果會發現，除非是使用 Contextual Binding ，它才會在 `resolve()` 的時候使用 `make()` ，其他都會使用 `build()`。
+從以上追過原始碼的結果會發現，除非是使用 Contextual Binding，它才會在 `resolve()` 的時候使用 `make()`，其他都會使用 `build()`。
 
-今天先到此結束，明天再繼續看 `build()` 做了什麼。 
+今天先到此結束，明天再繼續看 `build()` 做了什麼。
 
 [Application]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Foundation/Application.php
 [ArrayAccess]: http://php.net/manual/en/class.arrayaccess.php

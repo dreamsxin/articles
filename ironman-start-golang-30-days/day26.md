@@ -1,6 +1,6 @@
 # Refactoring Name Provider
 
-前面 25 天，我們已經成功寫出了一個 CLI App 以及 Web App ，包括交付與佈署都有實作，這次鐵人賽主題的基本要求已經算達標了。
+前面 25 天，我們已經成功寫出了一個 CLI App 以及 Web App，包括交付與佈署都有實作，這次鐵人賽主題的基本要求已經算達標了。
 
 剩下五天的目標將會是改善這個程式，無論是功能上的改進或是[重構][看到 code 寫成這樣我也是醉了，不如試試重構？]。
 
@@ -29,9 +29,9 @@ func (generator *Generator) FirstName() string {
 }
 ```
 
-我們可以發現， `LastName` 與 `FirstName` 有一個模式是一樣的：在某個 collection 裡面隨便取一筆資料。
+我們可以發現，`LastName` 與 `FirstName` 有一個模式是一樣的：在某個 collection 裡面隨便取一筆資料。
 
-因此第一步可以先把這個行為抽出，寫成另一個函式 `pickCharacter` ：
+因此第一步可以先把這個行為抽出，寫成另一個函式 `pickCharacter`：
 
 ```go
 func (generator *Generator) LastName() string {
@@ -77,7 +77,7 @@ func (generator *Generator) pickCharacter(collection []string, count int) (chars
 }
 ```
 
-接著要開放這個數字讓外界可以呼叫，才會有實際的價值，這裡的做法是先把原本的 `FirstName` 改名為 `firstName` 並加入 `count` 參數，接著開出三個接口 `FirstName` 、 `FirstNameSingle` 、 `FirstNameDouble` ：
+接著要開放這個數字讓外界可以呼叫，才會有實際的價值，這裡的做法是先把原本的 `FirstName` 改名為 `firstName` 並加入 `count` 參數，接著開出三個接口 `FirstName`、`FirstNameSingle`、`FirstNameDouble`：
 
 ```go
 func (generator *Generator) FirstName() string {
@@ -99,7 +99,7 @@ func (generator *Generator) firstName(count int) string {
 }
 ```
 
-原本的 `Name` 函式行為改成會亂數取單名與複名。如果要指定單名或複名的話，我們必須再加開兩個函式 `NameSingle` 與 `NameDouble` ：
+原本的 `Name` 函式行為改成會亂數取單名與複名。如果要指定單名或複名的話，我們必須再加開兩個函式 `NameSingle` 與 `NameDouble`：
 
 ```go
 func (generator *Generator) NameSingle() string {

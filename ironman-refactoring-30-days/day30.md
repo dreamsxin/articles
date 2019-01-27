@@ -20,11 +20,11 @@
 
 不管是好的程式或壞的程式，都會隨著時間過去，成等比級數的成長。
 
-如果平常一天能寫出 100% 有價值的程式碼，每天多努力 1% ， 一年後品質將會是原本的 1.01 ^ 365 ≅ 37.8 倍；相反地，每天偷懶 1% ，一年後的品質則會變成原本的 0.99 ^ 365 ≅ 0.03 倍！
+如果平常一天能寫出 100% 有價值的程式碼，每天多努力 1%，一年後品質將會是原本的 1.01 ^ 365 ≅ 37.8 倍；相反地，每天偷懶 1%，一年後的品質則會變成原本的 0.99 ^ 365 ≅ 0.03 倍！
 
 ![](http://i.imgur.com/fN1aVVx.jpg)
 
-> 圖片來源： [reddit](https://www.reddit.com/r/NoFap/comments/35ei80/heres_some_motivation_for_you_awesome_people/)
+> 圖片來源：[reddit](https://www.reddit.com/r/NoFap/comments/35ei80/heres_some_motivation_for_you_awesome_people/)
 
 品質會直接影響程式碼的可維護性。換句話說，多努力一點，系統就會好維護 30 倍；多偷懶就會難維護 30 倍。
 

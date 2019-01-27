@@ -1,12 +1,12 @@
 # Map Type
 
-許多語言都有提供 key-value 存放方法的 map 結構， Go 使用內建型態 `map` 實作。 
+許多語言都有提供 key-value 存放方法的 map 結構，Go 使用內建型態 `map` 實作。
 
-`map` 型態的表示方法為： `map[keyType]valueType` ， `map` 是關鍵字， `keyType` 必須是可比較（[Comparable][Comparison operators]）的型態，如 `string` 、 `int` 等， `valueType` 則是內容形態。
+`map` 型態的表示方法為：`map[keyType]valueType`，`map` 是關鍵字，`keyType` 必須是可比較（[Comparable][Comparison operators]）的型態，如 `string`、`int` 等，`valueType` 則是內容形態。
 
 ## 建立
 
-建立 Map 資料型態也是用 `make` ，設定與取值的方法跟大部分的語言（如 PHP ）都很像，範例如下：
+建立 Map 資料型態也是用 `make`，設定與取值的方法跟大部分的語言（如 PHP ）都很像，範例如下：
 
 ```go
 package main
@@ -27,7 +27,7 @@ func main() {
 }
 ```
 
-如果有初值的話，設定的方法很像 JSON ：
+如果有初值的話，設定的方法很像 JSON：
 
 ```go
 package main
@@ -90,7 +90,7 @@ func main() {
 
 ## 操作
 
-取值使用 `[]` 指定 key ，事實上它會回傳兩個值，如果 key 存在，會回傳值與 true ； key 不存在則回傳零值與 false ：
+取值使用 `[]` 指定 key，事實上它會回傳兩個值，如果 key 存在，會回傳值與 true；key 不存在則回傳零值與 false：
 
 ```go
 package main

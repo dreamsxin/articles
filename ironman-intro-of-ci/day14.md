@@ -1,6 +1,6 @@
 # 到處流浪的伺服器
 
-[昨天][Day 13]有提到，概念上是要開發人員每次測試的時候都自己建環境。但相信維運人員幫開發人員建一個專用的伺服器後，開發人員可能會為了 compile `.Sass` 檔，所以裝一個 Ruby + Node ；為了要切換版本，又裝了 rvm 和 nvm ，還裝了 gulp 之類的 global 套件，結果就開不了機了。相信維運人員很難照顧到開發人員求新求變的需求。
+[昨天][Day 13]有提到，概念上是要開發人員每次測試的時候都自己建環境。但相信維運人員幫開發人員建一個專用的伺服器後，開發人員可能會為了 compile `.Sass` 檔，所以裝一個 Ruby + Node；為了要切換版本，又裝了 rvm 和 nvm，還裝了 gulp 之類的 global 套件，結果就開不了機了。相信維運人員很難照顧到開發人員求新求變的需求。
 
 「什麼？難道開發人員沒辦法求新求變嗎？」當然可以，正所謂「自己的環境自己管」。環境建在自己電腦上不就好了嗎？
 
@@ -15,7 +15,7 @@
 
 ## Vagrant 基本 
 
-Vagrant 安裝需注意它要搭配虛擬化系統，通常是用 [VirtualBox][] 。裝好 VirtualBox 再裝 Vagrant 即可。
+Vagrant 安裝需注意它要搭配虛擬化系統，通常是用 [VirtualBox][]。裝好 VirtualBox 再裝 Vagrant 即可。
 
 Vagrant 操作並不難，首先要先了解它的啟動主要是參考 `Vagrantfile` 這個檔案，只要跟這個檔案同目錄或是子目錄，都會去認這個檔的設定做操作。那以下是一個練習，先建個子目錄，再初始化 Vagrantfile：
 
@@ -36,7 +36,7 @@ $ vagrant up
     default: /vagrant => /Users/miles/GitHub/MilesChou/book-intro-of-ci
 ```
 
-第一次執行會花比較久時間，它會把虛擬機的映像檔載下來並啟動它。訊息裡會看到它有掛載了一個共用資料夾，表示 `/Users/miles/GitHub/MilesChou/book-intro-of-ci` 的修改，會同步進虛擬機的 `/vagrant` 。代表主機寫的程式可以靠這個方法連結進虛擬機，或是虛擬機做的 compile 結果可以回傳至主機。
+第一次執行會花比較久時間，它會把虛擬機的映像檔載下來並啟動它。訊息裡會看到它有掛載了一個共用資料夾，表示 `/Users/miles/GitHub/MilesChou/book-intro-of-ci` 的修改，會同步進虛擬機的 `/vagrant`。代表主機寫的程式可以靠這個方法連結進虛擬機，或是虛擬機做的 compile 結果可以回傳至主機。
 
 另外可以看到它會開一個 ssh port 供連線，接著我們再下連結指令：
 
@@ -103,13 +103,13 @@ config.vm.network "private_network", ip: "10.10.10.10"
 config.vm.network "forwarded_port", guest: 80, host: 8080
 ```
 
-偶爾還是會有需求讓其他人能連線進來，這時就可以開 `forwarded_port` ，上面的設定代表連 Host 8080 port 會轉到 Guest 的 80 port 。因此假設虛擬機裝好 Apache （預設 80 port ），其他人連主機的 8080 就會看到 Apache 的預設首頁。 
+偶爾還是會有需求讓其他人能連線進來，這時就可以開 `forwarded_port`，上面的設定代表連 Host 8080 port 會轉到 Guest 的 80 port。因此假設虛擬機裝好 Apache （預設 80 port ），其他人連主機的 8080 就會看到 Apache 的預設首頁。
 
 ```
 config.vm.provision "shell", path: "install.sh"
 ```
 
-最後這就是關鍵了，當 `vagrant up` 的時候，預設會啟動 provision ，也就是預置環境。預置的方法有很多，通常我使用的是單純的 shell script ，如同範例這樣。 `install.sh` 預設會在虛擬機裡以 root 權限執行，範例如下：
+最後這就是關鍵了，當 `vagrant up` 的時候，預設會啟動 provision，也就是預置環境。預置的方法有很多，通常我使用的是單純的 shell script，如同範例這樣。`install.sh` 預設會在虛擬機裡以 root 權限執行，範例如下：
 
 ```bash
 #!/bin/bash

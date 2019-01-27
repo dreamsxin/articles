@@ -30,7 +30,7 @@ return (new Pipeline($this->container))
                 });
 ```
 
-根據 [Pipeline][Day07] 的分析， `$next($request)` 拿到的結果，正是 `prepareResponse()` 的回傳結果。換句話說，它就是建構 Response 的方法。
+根據 [Pipeline][Day07] 的分析，`$next($request)` 拿到的結果，正是 `prepareResponse()` 的回傳結果。換句話說，它就是建構 Response 的方法。
 
 回顧一下 [`prepareResponse()`][Day18] 的實作，事實上有機會對 Response 做處理的，只有下面這兩個方法：
 
@@ -66,7 +66,7 @@ Router::runRouteWithinStack();
 
 這過程中，還有另一次 `prepareResponse()`，但如同上面 `runRouteWithinStack()` 所說，其實對 header 並沒有特別修改什麼。
 
-因此可以知道建構與 Pipeline 過程，理論上不會影響 response header。 
+因此可以知道建構與 Pipeline 過程，理論上不會影響 response header。
 
 ---
 

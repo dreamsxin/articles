@@ -1,6 +1,6 @@
 # Monolog（3）－－Formatter 與 Handler 之間的關係
 
-打開 Monolog 的資料夾，會發現除了昨天提到的 Logger 與 Handler 之外，還有幾個沒提到的角色，如 `Formatter` 或是 `Processor` 。 
+打開 Monolog 的資料夾，會發現除了昨天提到的 Logger 與 Handler 之外，還有幾個沒提到的角色，如 `Formatter` 或是 `Processor`。
 
 今天我們就來看看 `Formatter` 裡面做了什麼事。
 
@@ -16,7 +16,7 @@ interface HandlerInterface
 
 ```
 
-這裡可以注意到，它的設計是「抽象依賴抽象」，這符合[依賴反轉原則][SOLID 之 依賴反轉原則（Dependency inversion principle）]；並且它的行為設計上，是做成抽象與抽象之間的一對一關係（因為它用 `set` ，而不是 `push`），所以它實際上是實作了 *Bridge Pattern* 。關係圖如下：
+這裡可以注意到，它的設計是「抽象依賴抽象」，這符合[依賴反轉原則][SOLID 之 依賴反轉原則（Dependency inversion principle）]；並且它的行為設計上，是做成抽象與抽象之間的一對一關係（因為它用 `set`，而不是 `push`），所以它實際上是實作了 *Bridge Pattern*。關係圖如下：
 
 ![](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuVBCAqajIajCJbNmICnBoKajYe7I28bgBWK5RONYr1At_ABSn1AWi4QQbGAS0rUeoLMBP1nSFWPJ9PTpJc9nCTn6v_oyvABKabGe7ogBC00c3nVXmkbMNJly5kFKQ5EZgulJGVYCXEZ4vrY7rBmKO5030000)
 
@@ -36,7 +36,7 @@ Formatter\FormatterInterface <|-- Formatter\ConcreteFormatter
 
 它們的實作之間並沒有直接耦合，而是透過抽象介面耦合；換句話說，只要物件有實作抽象介面的話，它就能正常的介接使用。
 
-我們先來看昨天使用的 `Handler\StreamHandler` 裡面是使用了哪種 Formatter 。追一下程式碼，會發現在 `Handler\AbstractHandler` 裡面：
+我們先來看昨天使用的 `Handler\StreamHandler` 裡面是使用了哪種 Formatter。追一下程式碼，會發現在 `Handler\AbstractHandler` 裡面：
 
 ```php
 abstract class AbstractHandler implements HandlerInterface
@@ -57,7 +57,7 @@ abstract class AbstractHandler implements HandlerInterface
 }
 ```
 
-因此預設會是 `LineFormatter` ，當然不是發 Log 到 [Line](https://line.me/zh-hant/) ，而是指單行的 log 。
+因此預設會是 `LineFormatter`，當然不是發 Log 到 [Line](https://line.me/zh-hant/)，而是指單行的 log。
 
 再來我們來寫一個測試程式如下：
 
@@ -91,7 +91,7 @@ $handler->setFormatter(new \Monolog\Formatter\JsonFormatter());
 
 ## 自由組合 1+1 = $50
 
-相信大家都去過黃色拱門， Formatter 與 Handler 之間的關係事實上就跟銅板輕鬆點很像，可以依需求任意搭配兩區的餐點，而店員都可以接受並結帳。
+相信大家都去過黃色拱門，Formatter 與 Handler 之間的關係事實上就跟銅板輕鬆點很像，可以依需求任意搭配兩區的餐點，而店員都可以接受並結帳。
 
 我們也可以使用 Slack 配 Json 或是 Mail 配 Html 等等，完全自由配。
 

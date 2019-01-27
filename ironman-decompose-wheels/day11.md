@@ -8,13 +8,13 @@
 
 [世間情][]是一部八點檔連續劇，我們來試看看能不能做出一個*世間情產生器*，可以產生世間情的角色名字。
 
-照 Faker 的設計，我們只需要寫一個 Provider ，再加入 `Generator` 即可。
+照 Faker 的設計，我們只需要寫一個 Provider，再加入 `Generator` 即可。
 
 我們會有兩種做法，一種是全新的 Provider 與方法，另一種是繼承 `Person` 並覆寫原本的 `name` 方法。
 
 ## 全新 Provider 
 
-這個方法非常簡單，先寫 Provider ，並定義好公開要讓 Generator 參考的方法（`loveName`）：
+這個方法非常簡單，先寫 Provider，並定義好公開要讓 Generator 參考的方法（`loveName`）：
 
 ```php
 use Faker\Provider\Base;
@@ -44,7 +44,7 @@ $generator = Faker\Factory::create('zh_TW');
 $generator->addProvider(new Love($generator));
 ```
 
-最後即可用剛剛公開的方法 `loveName` ，來產生世間情角色的名字：
+最後即可用剛剛公開的方法 `loveName`，來產生世間情角色的名字：
 
 ```php
 echo $generator->loveName . PHP_EOL;
@@ -54,7 +54,7 @@ echo $generator->loveName . PHP_EOL;
 
 全新的方法可以全都自己定義，因此可以定的非常簡單，像上面只有取得名字。而原有的 `Person` 有姓有名，我們必須要想辦法讓這些方法都能回傳世間情角色的名字，相對就有點麻煩。
 
-以下讓我們一步一步達成它吧！首先先繼承台灣版的 `Persion` ：
+以下讓我們一步一步達成它吧！首先先繼承台灣版的 `Persion`：
 
 ```php
 class Love extends \Faker\Provider\zh_TW\Person
@@ -72,7 +72,7 @@ echo $generator->firstNameFemale;   // 產生一個女性角色名
 echo $generator->lastName;          // 產生一個姓
 ```
 
-先從 `lastName` 、 `firstName` 與 `name` 的關係開始。我們 `name` 想要角色的全名，但 `lastName` 、 `firstName` 的卻是要它們拆開的，這代表我們可能需要一個二維陣列來存放這些資料：
+先從 `lastName`、`firstName` 與 `name` 的關係開始。我們 `name` 想要角色的全名，但 `lastName`、`firstName` 的卻是要它們拆開的，這代表我們可能需要一個二維陣列來存放這些資料：
 
 ```php
 protected static $name = array(
@@ -222,7 +222,7 @@ public static function firstNameFemale()
 }
 ```
 
-再來假設我們原本在用 Faker ，只要有這個 class ，把它放到 Generator 後，就可以產生世間情的角色名字了！
+再來假設我們原本在用 Faker，只要有這個 class，把它放到 Generator 後，就可以產生世間情的角色名字了！
 
 Faker 的介紹到此結束，它是一個值得參考設計的好套件，大家有空也可以翻翻。
 

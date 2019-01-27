@@ -8,7 +8,7 @@
 
 ## 開工
 
-Laravel 已經有預先幫我們建兩個 migration ，我們先把它們都刪掉，然後使用指令建立一個新的 migration 
+Laravel 已經有預先幫我們建兩個 migration，我們先把它們都刪掉，然後使用指令建立一個新的 migration 
 
 ```
 $ php artisan make:migration init_database
@@ -71,7 +71,7 @@ class InitDatabase extends Migration
 
 轉換成這樣會有一個好處，現在先賣個關子。
 
-因為 migration 不會建 database ，因此建立 Docker Container 的指令要調整：
+因為 migration 不會建 database，因此建立 Docker Container 的指令要調整：
 
 ```
 $ docker run -d -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=shopcart -p 3306:3306 -v `pwd`:/source --name some-mysql mysql:5.6
@@ -119,18 +119,18 @@ $ php artisan migrate:rollback
 
 ## 該怎麼幫正在飛的飛機換引擎？
 
-維運中的產品必須考慮線上的可用性，因此不能隨便調整 schema 。因此我們應當要調整 migration ，讓程式產出的 schema 盡可能跟線上相容，才不會發生奇妙的 bug 一直找不到。
+維運中的產品必須考慮線上的可用性，因此不能隨便調整 schema。因此我們應當要調整 migration，讓程式產出的 schema 盡可能跟線上相容，才不會發生奇妙的 bug 一直找不到。
 
-現在已經有自動化建 SQL 的方法了，再來我們只要能輸出現有的 schema 即可，我們可以下這個指令得知目前的 schema ：
+現在已經有自動化建 SQL 的方法了，再來我們只要能輸出現有的 schema 即可，我們可以下這個指令得知目前的 schema：
 
 ```
 $ docker exec -it some-mysql mysqldump -u root -ppassword shopcart
 ...
 ```
 
-跟原本 SQL 比較，會發現主要都是長度不一致，這時要思考一些問題：哪些是必要要調整的？如： `int` 長度問題並不大，但 `varchar` 長度比線上的大，就有可能造成測試正常，但線上出現文字被截斷的問題。
+跟原本 SQL 比較，會發現主要都是長度不一致，這時要思考一些問題：哪些是必要要調整的？如：`int` 長度問題並不大，但 `varchar` 長度比線上的大，就有可能造成測試正常，但線上出現文字被截斷的問題。
 
-至於 `ENGINE` 跟編碼筆者就不確定了，但本專案單純只是 CRUD ，這兩個設定不一樣應該不會有什麼問題。
+至於 `ENGINE` 跟編碼筆者就不確定了，但本專案單純只是 CRUD，這兩個設定不一樣應該不會有什麼問題。
 
 這裡的調整就不列出來，程式碼詳細可以參考 [GitHub PR](https://github.com/MilesChou/book-refactoring-30-days/pull/5)
 

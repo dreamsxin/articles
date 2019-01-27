@@ -10,18 +10,18 @@
 
 > 開源專案用起來開心的話，不妨去 GitHub 按個 Star 支持一下吧！
 
-PHP 的測試框架裡，我最常使用的是 [Codeception][] ，它是以 [PHPUnit][] 為基礎打造出來的。會常用是因為它支援非常多框架與外掛，可以依個人喜好去調整。
+PHP 的測試框架裡，我最常使用的是 [Codeception][]，它是以 [PHPUnit][] 為基礎打造出來的。會常用是因為它支援非常多框架與外掛，可以依個人喜好去調整。
 
 ## 建置環境
 
-使用 PHP 要裝套件的話，首推當然是 [Composer][] 。安裝方法的懶人包如下：
+使用 PHP 要裝套件的話，首推當然是 [Composer][]。安裝方法的懶人包如下：
 
 ```
 $ curl -sS https://getcomposer.org/installer | php
 $ chmod +x composer.phar
 ```
 
-這兩個指令會產生可執行的 `composer.phar` ，然後可以直接執行。想要用全域的方式執行需要再下這個指令：（以下會以全域的方式當範例） 
+這兩個指令會產生可執行的 `composer.phar`，然後可以直接執行。想要用全域的方式執行需要再下這個指令：（以下會以全域的方式當範例） 
 
 ```
 $ sudo mv composer.phar /usr/local/bin/composer
@@ -35,7 +35,7 @@ $ cd /path/to/project
 $ composer require --dev codeception/codeception
 ```
 
-這個指令會產生 `composer.json` 、 `composer.lock` 兩個檔案與 `vendor` 目錄。目前的結構如下：
+這個指令會產生 `composer.json`、`composer.lock` 兩個檔案與 `vendor` 目錄。目前的結構如下：
 
 ```yaml
 ProjectRoot:
@@ -44,7 +44,7 @@ ProjectRoot:
   - composer.lock
 ```
 
-其中 `composer.json` 是定義這個專案（也就是這個目錄）所需要安裝的套件為何，可以使用 `composer require <vendor>/<package>` 的指令或手動修改 JSON 新增。 `--dev` 參數則是標記此套件是開發階段才會使用。不可能上線了才在測試，一定是開發的時候測，所以 Codeception 會加 `--dev` 參數。
+其中 `composer.json` 是定義這個專案（也就是這個目錄）所需要安裝的套件為何，可以使用 `composer require <vendor>/<package>` 的指令或手動修改 JSON 新增。`--dev` 參數則是標記此套件是開發階段才會使用。不可能上線了才在測試，一定是開發的時候測，所以 Codeception 會加 `--dev` 參數。
 
 當一切就绪時，可以下這個指令確認是否有安裝成功：
 
@@ -125,7 +125,7 @@ class NumberTest extends \Codeception\Test\Unit
 }
 ```
 
-`$this->assertTrue($actual)` 講白話一點指的是：假設 `$actual` 這個變數的內容是 true ，若是 false 的話，假設就錯了。以這個例子，這個假設是永遠正確的。我們來看執行結果：
+`$this->assertTrue($actual)` 講白話一點指的是：假設 `$actual` 這個變數的內容是 true，若是 false 的話，假設就錯了。以這個例子，這個假設是永遠正確的。我們來看執行結果：
 
 ![Second Run][]
 
@@ -133,7 +133,7 @@ class NumberTest extends \Codeception\Test\Unit
 
 ## 正式寫測試程式
 
-首先要設定 `Namespace` ， PHP 的 namespace 可以使用 `composer.json` 設定，設定檔範例如下：
+首先要設定 `Namespace`，PHP 的 namespace 可以使用 `composer.json` 設定，設定檔範例如下：
 
 ```json
 {
@@ -148,7 +148,7 @@ class NumberTest extends \Codeception\Test\Unit
 }
 ```
 
-再來先把昨天的 Number 類別加到專案裡，程式如下： (注意要加 `namespace`)
+再來先把昨天的 Number 類別加到專案裡，程式如下：(注意要加 `namespace`)
 
 ```php
 <?php // src/Number.php
@@ -196,10 +196,10 @@ ProjectRoot:
 
 需要注意的是，上面三個都是互有關聯，關聯如下：
 
-* composer.json 檔裡，使用 PSR4 ，設定為 `"HelloWorld\\": "src"` ，代表 `HelloWorld` 的 Namespace 會進來 `src` 找
+* composer.json 檔裡，使用 PSR4，設定為 `"HelloWorld\\": "src"`，代表 `HelloWorld` 的 Namespace 會進來 `src` 找
 * `Number.php` 自然就是放在 src 下面了
 
-設定好之後，下 `composer dump-autoload` 會重新產生 autoload 規則檔。只要程式一開始有載入 `vendor/autoload.php` ，之後就可以在任何地方 `new \HelloWorld\Number()` 了。
+設定好之後，下 `composer dump-autoload` 會重新產生 autoload 規則檔。只要程式一開始有載入 `vendor/autoload.php`，之後就可以在任何地方 `new \HelloWorld\Number()` 了。
 
 Codeception 在開始執行前，會先載入 `_bootstrap.php` 做初始化，如載入 `autoload.php` 就是一個可以做的事，它的樣板檔也是這麼說的：
 
@@ -210,7 +210,7 @@ Codeception 在開始執行前，會先載入 `_bootstrap.php` 做初始化，�
 require __DIR__ . '/../vendor/autoload.php';
 ```
 
-再來回到剛剛的測什麼都能過的測試檔 `NumberTest.php` ，我們來加第一個真正的測試：
+再來回到剛剛的測什麼都能過的測試檔 `NumberTest.php`，我們來加第一個真正的測試：
 
 ```php
 <?php // tests/unit/NumberTest.php
@@ -235,7 +235,7 @@ class NumberTest extends \Codeception\Test\Unit
 這邊解釋一下：
 
 * Function 名稱習慣上會寫的很口語，如同上面所看到的，因為測試結果看到的都是 function 名稱居多。
-* 測試套件通常會提供許多 assert 供選擇，上例是最常用的 `assertEquals()` ，判斷兩個值是否相等。
+* 測試套件通常會提供許多 assert 供選擇，上例是最常用的 `assertEquals()`，判斷兩個值是否相等。
 
 執行一下，如果看到下面這張圖，代表你第一個測試寫成功了。
 

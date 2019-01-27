@@ -51,7 +51,7 @@ array_map(function($value, $key) {
     
 }, $items);
 
-// 可以拿到 $key ，可是產生的新 array 並非是以 $key 為 key
+// 可以拿到 $key，可是產生的新 array 並非是以 $key 為 key
 $newItems = array_map(function($value, $key) {
 
 }, $items, array_keys($items));

@@ -128,7 +128,7 @@ public static function merge($new, $old)
 
 簡單來說這個方法的任務是：四個屬性 `namespace`、`prefix`、`where`、`as` 與舊設定會有特別的合併方法，然後再用新設定覆蓋舊設定。至於合併的方法都不難，可以直接參考原始碼吧。
 
-取得合併後的資料就推入 stack 中，使用 `group()` 方法才會推 stack ，因此數量與呼叫次數會是一樣的，`loadRoutes()` 之後就會移除。而 `loadRoutes()` 長這樣：  
+取得合併後的資料就推入 stack 中，使用 `group()` 方法才會推 stack，因此數量與呼叫次數會是一樣的，`loadRoutes()` 之後就會移除。而 `loadRoutes()` 長這樣：
 
 ```php
 protected function loadRoutes($routes)

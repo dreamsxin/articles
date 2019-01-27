@@ -78,14 +78,14 @@ $this->app->rebinding('request', function ($app, $request) {
 });
 ```
 
-另外，因為已經知道 Facade 的用法了，裡面有一個 Auth Facade 是對應到 Container 綁定的 `auth`，也就是 [AuthManager][]。 
+另外，因為已經知道 Facade 的用法了，裡面有一個 Auth Facade 是對應到 Container 綁定的 `auth`，也就是 [AuthManager][]。
 
 ## Authenticate Middleware
 
 知道類別如何綁定後，再來了解它如何被使用。[Authenticate Middleware][] 會檢查使用者是否有驗證，從 `handle()` 與 `authenticate()` 可以大概知道需要呼叫哪些參數
 
 ```php
-// 額外參數使用 ... ，代表 guards 是可以設定很多筆的
+// 額外參數使用 ...，代表 guards 是可以設定很多筆的
 public function handle($request, Closure $next, ...$guards)
 {
     $this->authenticate($request, $guards);
@@ -95,7 +95,7 @@ public function handle($request, Closure $next, ...$guards)
 
 protected function authenticate($request, array $guards)
 {
-    // 如果 middleware 沒有設定的話，就使用 null ，也就是預設值
+    // 如果 middleware 沒有設定的話，就使用 null，也就是預設值
     if (empty($guards)) {
         $guards = [null];
     }

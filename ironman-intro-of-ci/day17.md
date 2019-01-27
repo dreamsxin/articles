@@ -6,7 +6,7 @@ Docker 讓建置服務變得非常簡單，但相對馬上會面臨另一個困�
 
 ## 安裝
 
-安裝可以參考 Docker Compose 的 [GitHub Release][Docker Compose Release] 。目前看到的是 1.9.0 版，安裝指令如下：
+安裝可以參考 Docker Compose 的 [GitHub Release][Docker Compose Release]。目前看到的是 1.9.0 版，安裝指令如下：
 
 ```
 $ curl -L https://github.com/docker/compose/releases/download/1.9.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
@@ -18,7 +18,7 @@ CPython version: 2.7.12
 OpenSSL version: OpenSSL 1.0.2j  26 Sep 2016
 ```
 
-> Docker Compose 的設定檔有分 version 1 與 version 2 ，以下範例使用 version 1 。
+> Docker Compose 的設定檔有分 version 1 與 version 2，以下範例使用 version 1。
 
 # Hello Compose
 
@@ -48,18 +48,18 @@ Creating bookintroofci_web_1
 
 > `-d` 代表會在背景執行
 
-現在 PHP Apache 容器已經開好了，並且資料夾也同步， port 也開出去，可以開始開發了。
+現在 PHP Apache 容器已經開好了，並且資料夾也同步，port 也開出去，可以開始開發了。
 
 ## Docker Link
 
-PHP 開發大部分都需要連 MySQL ，那該怎麼設定？ Docker 原生的指令需要先建 MySQL ，建 PHP 的時候再設定 Link ：
+PHP 開發大部分都需要連 MySQL，那該怎麼設定？ Docker 原生的指令需要先建 MySQL，建 PHP 的時候再設定 Link：
 
 ```
 $ docker run -d --name my-mysql -e MYSQL_ROOT_PASSWORD=password mysql:5.6
 $ docker run -d --name web -p 8080:80 -v $PWD:/var/www/html --link my-mysql php:7.0-apache
 ```
 
-接著就可以在 Apache 裡面使用 `my-mysql` 這個 hostname 連到 MySQL ：
+接著就可以在 Apache 裡面使用 `my-mysql` 這個 hostname 連到 MySQL：
 
 ```
 $ docker exec -it web ping my-mysql
@@ -94,11 +94,11 @@ Docker Compose 其他常用的指令如下：
 
 ### `docker-compose logs`
 
-在 `up` 之後，可以用這個指令去查看容器的 Log ，這對 debug 或 monitor 是非常方便的。
+在 `up` 之後，可以用這個指令去查看容器的 Log，這對 debug 或 monitor 是非常方便的。
 
 ### `docker-compose build`
 
-每個服務（指的是上例的 `web` 與 `mysql` ）下面一定要有定義 `image` 或是 `build` ， `image` 表示要拉別人上傳好的， `build` 表示要自己來。這個指令可以直接執行全部有 build 元素的服務。
+每個服務（指的是上例的 `web` 與 `mysql` ）下面一定要有定義 `image` 或是 `build`，`image` 表示要拉別人上傳好的，`build` 表示要自己來。這個指令可以直接執行全部有 build 元素的服務。
 
 ### `docker-compose pull`
 
@@ -114,7 +114,7 @@ Docker Compose 其他常用的指令如下：
 
 ## 今日回顧
 
-Docker Compose 主要是方便處理容器的管理，但本質上依然是執行 Docker ，因此許多設定的概念跟 Docker 是一致的，如果使用上有問題，不妨參考 Docker 原生指令的說明，或許找得到解答。
+Docker Compose 主要是方便處理容器的管理，但本質上依然是執行 Docker，因此許多設定的概念跟 Docker 是一致的，如果使用上有問題，不妨參考 Docker 原生指令的說明，或許找得到解答。
 
 ## 相關連結
 

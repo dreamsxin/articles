@@ -121,7 +121,7 @@ protected function addLookups($route)
 
     $action = $route->getAction();
 
-    // 如果是 Controller ，也設定對照表
+    // 如果是 Controller，也設定對照表
     if (isset($action['controller'])) {
         $this->addToActionList($action, $route);
     }

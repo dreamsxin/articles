@@ -65,7 +65,7 @@ protected function createRoute($methods, $uri, $action)
 ```php
 protected function actionReferencesController($action)
 {
-    // 當不是 Closure ，而且是 string 或者是 ['uses' => string] 的話，就假定它是 Controller
+    // 當不是 Closure，而且是 string 或者是 ['uses' => string] 的話，就假定它是 Controller
     if (! $action instanceof Closure) {
         return is_string($action) || (isset($action['uses']) && is_string($action['uses']));
     }

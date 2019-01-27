@@ -10,20 +10,20 @@
 var num int = 10
 ```
 
-使用 IDE 會提示說， `int` 可以省略，因為 Go 會自動推斷 10 的型態為 `int` ，因此也可以這樣宣告：
+使用 IDE 會提示說，`int` 可以省略，因為 Go 會自動推斷 10 的型態為 `int`，因此也可以這樣宣告：
 
 ```go
 var num = 10
 ```
 
-如果不給初始值的話，預定義變數都會有預設值， Go 語言稱之為零值（[The zero value][]） ， `int` 的零值是 0 ，所以下面兩行宣告是等價的：
+如果不給初始值的話，預定義變數都會有預設值，Go 語言稱之為零值（[The zero value][]），`int` 的零值是 0，所以下面兩行宣告是等價的：
 
 ```go
 var num int = 0
 var num int
 ```
 
-Go 可以一次宣告多個變數，下面的型態分別會推斷為 `string` 、 `int` 、 `float64`：
+Go 可以一次宣告多個變數，下面的型態分別會推斷為 `string`、`int`、`float64`：
 
 ```go
 var name, age, height = "Miles", 18, 169.9
@@ -122,7 +122,7 @@ const (
 
 ## 宣告後沒使用會？
 
-變數宣告了就是要用，不然要幹嘛？如果宣告了一個 num 變數沒使用， Go 會在編譯時期出錯：
+變數宣告了就是要用，不然要幹嘛？如果宣告了一個 num 變數沒使用，Go 會在編譯時期出錯：
 
 ```
 ./hello.go:8:6: num declared and not used

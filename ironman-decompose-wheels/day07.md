@@ -8,7 +8,7 @@ Faker 套件使用方法非常單純－－使用工廠（`Factory`）建構產�
 
 ## 負責生產線的 Factory
 
-[`Factory`](https://github.com/fzaninotto/Faker/blob/v1.7.1/src/Faker/Factory.php) 是標準的 *Simple Factory Pattern* 實作，它使用靜態方法 `create()` 取得固定一種類型的物件－－ `Generator` 。類別圖如下：
+[`Factory`](https://github.com/fzaninotto/Faker/blob/v1.7.1/src/Faker/Factory.php) 是標準的 *Simple Factory Pattern* 實作，它使用靜態方法 `create()` 取得固定一種類型的物件－－ `Generator`。類別圖如下：
 
 ![](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuNBEIImkLd3EoKpDAu5ot1AJI_ABAg4yzzIyrA94e00NH962hYwI2gY87KAPWfL2QN4g5rI90ffKSb5gOaagbqDgNWhGTW00)
 
@@ -25,7 +25,7 @@ Factory -> Generator : create
 
 `Generator` 是需要經過組裝的，因客戶要求的 `$locale` 不同，而會有不同的組裝內容。跟現實生活的生產線一樣，組裝 `Generator` 的任務是交由 `Factory` 負責的。
 
-`Client` ，也就是使用 Faker 套件的客戶端，只要使用 `Factory::create()` 就能保證一定會拿到 `Generator` 。如果物件組裝過程有問題的話，則會丟例外。
+`Client`，也就是使用 Faker 套件的客戶端，只要使用 `Factory::create()` 就能保證一定會拿到 `Generator`。如果物件組裝過程有問題的話，則會丟例外。
 
 ## 負責產生假資料的 Generator
 
@@ -43,7 +43,7 @@ public function __call($method, $attributes)
 }
 ```
 
-接著我們會發現它們裡面用不同的方法呼叫了同一個方法 [`format()`](https://github.com/fzaninotto/Faker/blob/v1.7.1/src/Faker/Generator.php#L220-L223) ：
+接著我們會發現它們裡面用不同的方法呼叫了同一個方法 [`format()`](https://github.com/fzaninotto/Faker/blob/v1.7.1/src/Faker/Generator.php#L220-L223)：
 
 ```php
 public function format($formatter, $arguments = array())
@@ -52,7 +52,7 @@ public function format($formatter, $arguments = array())
 }
 ```
 
-這裡因為 method 參數命名的關係，筆者也搞混了一陣子。後來才發現是這樣的：我們來找 doc block 裡屬性與方法名字一樣的，如 `name` 與 `name()` ，然後代入上面的 Magic Method 試試：
+這裡因為 method 參數命名的關係，筆者也搞混了一陣子。後來才發現是這樣的：我們來找 doc block 裡屬性與方法名字一樣的，如 `name` 與 `name()`，然後代入上面的 Magic Method 試試：
 
 
 ```php
@@ -100,7 +100,7 @@ if (isset($this->formatters[$formatter])) {
 }
 ```
 
-第二段的 `foreach` 會把所有的 Provider 拿出來一個一個找看看有沒有同名的 method 。  
+第二段的 `foreach` 會把所有的 Provider 拿出來一個一個找看看有沒有同名的 method。
 
 ```php
 foreach ($this->providers as $provider) {
@@ -133,7 +133,7 @@ public function parse($string)
 }
 ```
 
-看 [`preg_replace_callback`](http://php.net/manual/en/function.preg-replace-callback.php) 函式文件說明，第二個參數是 callback ，實際呼叫的函式是下面這一個：
+看 [`preg_replace_callback`](http://php.net/manual/en/function.preg-replace-callback.php) 函式文件說明，第二個參數是 callback，實際呼叫的函式是下面這一個：
 
 ```php
 protected function callFormatWithMatches($matches)
@@ -142,7 +142,7 @@ protected function callFormatWithMatches($matches)
 }
 ```
 
-這個[正則](https://regexper.com/#%2F%5C%7B%5C%7B%5Cs%3F(%5Cw%2B)%5Cs%3F%5C%7D%5C%7D%2F)主要會把下面的文字抓出來，然後一個一個丟到 callback ：
+這個[正則](https://regexper.com/#%2F%5C%7B%5C%7B%5Cs%3F(%5Cw%2B)%5Cs%3F%5C%7D%5C%7D%2F)主要會把下面的文字抓出來，然後一個一個丟到 callback：
 
 ```php
 // 原始文字
@@ -160,7 +160,7 @@ $this->callFormatWithMatches([
 ])
 ```
 
-`format()` 會接到陣列第二個值，也就是 `word1` 和 `word2` ，取代則是整個 pattern 取代。而 `format()` 前面也追過原始碼了，它會轉接到 Provider 對應的方法。
+`format()` 會接到陣列第二個值，也就是 `word1` 和 `word2`，取代則是整個 pattern 取代。而 `format()` 前面也追過原始碼了，它會轉接到 Provider 對應的方法。
 
 也許有點難理解，來看看它的[測試案例](https://github.com/fzaninotto/Faker/blob/v1.7.1/test/Faker/GeneratorTest.php#L76-L82)好了：
 
@@ -174,7 +174,7 @@ public function testParseReturnsStringWithTokensReplacedByFormatters()
 }
 ```
 
-它裡面用了一個自定義的 [`FooProvider`](https://github.com/fzaninotto/Faker/blob/v1.7.1/test/Faker/GeneratorTest.php#L128-L139) ，裡面長這樣：
+它裡面用了一個自定義的 [`FooProvider`](https://github.com/fzaninotto/Faker/blob/v1.7.1/test/Faker/GeneratorTest.php#L128-L139)，裡面長這樣：
 
 ```php
 class FooProvider
@@ -212,16 +212,16 @@ $generator->parse('This is {{fooFormatter}} a text with {{ fooFormatter }}');
 講這麼多，其實結論就是：下面這兩段程式碼的效果是一樣的：
 
 ```php
-echo "你好我是 {$generator->name} ，這位 {$generator->name} 是我的好朋友\n";
+echo "你好我是 {$generator->name}，這位 {$generator->name} 是我的好朋友\n";
 
-echo $generator->parse("你好我是 {{ name }} ，這位 {{ name }} 是我的好朋友\n");
+echo $generator->parse("你好我是 {{ name }}，這位 {{ name }} 是我的好朋友\n");
 ```
 
 輸出結果：
 
 ```
-你好我是 Ms. Elissa Schinner ，這位 Miss Dannie Mraz II 是我的好朋友
-你好我是 Candelario Leffler ，這位 Robyn Lubowitz 是我的好朋友
+你好我是 Ms. Elissa Schinner，這位 Miss Dannie Mraz II 是我的好朋友
+你好我是 Candelario Leffler，這位 Robyn Lubowitz 是我的好朋友
 ```
 
 ---

@@ -61,7 +61,7 @@ public function __get($key)
 
 這裡直接建構出 [HigherOrderCollectionProxy][] 出來用，而帶入的 `$key` 以上例來說，會是 `each`。這個元件的實作超級簡單，除了建構子單純是保存狀態之外，就只有實作兩個 magic method：
 
-> 註：下面原始碼的 `$this->method`，即為上面建構帶入的的 `$key`。 
+> 註：下面原始碼的 `$this->method`，即為上面建構帶入的的 `$key`。
 
 ```php
 public function __get($key)

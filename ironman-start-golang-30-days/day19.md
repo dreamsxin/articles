@@ -8,9 +8,9 @@
 
 另外程式應該要從哪載入文字清單？固定位置？或是 Flags 參數帶給程式？
 
-格式的部分，會以好閱讀與修改為主，因此會選擇 [YAML](http://www.yaml.org/) ，套件使用 [`go-yaml`](https://github.com/go-yaml/yaml) ，載入路徑會使用 Flags 參數帶入。
+格式的部分，會以好閱讀與修改為主，因此會選擇 [YAML](http://www.yaml.org/)，套件使用 [`go-yaml`](https://github.com/go-yaml/yaml)，載入路徑會使用 Flags 參數帶入。
 
-`go-yaml` 試了一下，它支援輸出 Struct 或是 Map 。 Struct 的參數必須要定義公開，而且要跟 YAML 格式相符，不然會存放失敗， Map 則是進來什麼都吃，沒有這些限制。目前情境還很單純，使用 Struct 是個可行的選擇。
+`go-yaml` 試了一下，它支援輸出 Struct 或是 Map。Struct 的參數必須要定義公開，而且要跟 YAML 格式相符，不然會存放失敗，Map 則是進來什麼都吃，沒有這些限制。目前情境還很單純，使用 Struct 是個可行的選擇。
 
 但它只吃字串，所以必須要寫一段讀檔程式，今天就來試試 Flags 參數加讀檔串接吧。
 
@@ -18,7 +18,7 @@
 
 因為 command 要做的事，目前是硬塞到 `main.go` 裡，這樣會違反[單一職責原則][Refactoring Day 7]。在開始前先重構，把職責分離清楚，不然後面應該會更難搞。
 
-做法很簡單：開一個 `command` 的目錄，新增兩個 `generate.go` 與 `status.go` ，把 Command 原本要給的值，換到這兩個檔案裡面定義即可。
+做法很簡單：開一個 `command` 的目錄，新增兩個 `generate.go` 與 `status.go`，把 Command 原本要給的值，換到這兩個檔案裡面定義即可。
 
 `command/generate.go` 的內容如下：
 

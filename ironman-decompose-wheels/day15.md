@@ -1,6 +1,6 @@
 # Monolog（4）－－Processor 又是哪位？
 
-昨天了解 `Formatter` 的運作方法了，而資料夾還有另一個角色 `Processor` ，今天來看看它到底裡面賣的是什麼藥。
+昨天了解 `Formatter` 的運作方法了，而資料夾還有另一個角色 `Processor`，今天來看看它到底裡面賣的是什麼藥。
 
 ## 從使用它到了解它
 
@@ -32,7 +32,7 @@ class Logger implements LoggerInterface
 }
 ``` 
 
-這裡可以看到，它跟 Handler 一樣是使用 Array Stack 實作儲存。而要成為 `Processor` 的一員條件是 `is_callable` 。
+這裡可以看到，它跟 Handler 一樣是使用 Array Stack 實作儲存。而要成為 `Processor` 的一員條件是 `is_callable`。
 
 而 `HandlerInterface` 的定義也相差不遠：
 
@@ -45,7 +45,7 @@ interface HandlerInterface
 }
 ```
 
-`HandlerInterface` 可以依需求實作不同的邏輯，所以我們先來看 `Logger` 已經寫好的實作。 `Logger` 是這樣使用 `Processor` 的：
+`HandlerInterface` 可以依需求實作不同的邏輯，所以我們先來看 `Logger` 已經寫好的實作。`Logger` 是這樣使用 `Processor` 的：
 
 ```php
 public function addRecord($level, $message, array $context = array())
@@ -79,11 +79,11 @@ class MemoryUsageProcessor extends MemoryProcessor
 
 這樣我們就能動態為 `$record` 加上額外需要的系統資訊了。
 
-而在 Logger 裡，是先跑 `Processor` ，才跑 `Handler` 的 `handle` 方法，因此在 Logger 的 `Processor` ，實際上會作用在全部的 Handler 。
+而在 Logger 裡，是先跑 `Processor`，才跑 `Handler` 的 `handle` 方法，因此在 Logger 的 `Processor`，實際上會作用在全部的 Handler。
 
 ## Handler 的實作
 
-使用 IDE 可以簡單找得到，實作的地方在 `AbstractHandler` 與 `HandlerWrapper` 。後者是使用類似 *Proxy Pattern* 的方法在包裝其他的 Handler ，所以本質上還是在使用 `AbstractHandler` 的實作。
+使用 IDE 可以簡單找得到，實作的地方在 `AbstractHandler` 與 `HandlerWrapper`。後者是使用類似 *Proxy Pattern* 的方法在包裝其他的 Handler，所以本質上還是在使用 `AbstractHandler` 的實作。
 
 `AbstractHandler` 的實作如下：
 

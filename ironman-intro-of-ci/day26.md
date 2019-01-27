@@ -1,16 +1,16 @@
 # 功能強大的 －－ GitLab CI
 
-[GitLab][] 本身功能非常豐富，加上它又是開源可以自行架設的，通常會是企業選擇版控的首選。後來又追加 [GitLab CI][] 與 [Pipeline][GitLab Pipeline] 功能，讓它的戰場跨越到 CI ，並成為一個企業內部管理開發流程的好選擇。
+[GitLab][] 本身功能非常豐富，加上它又是開源可以自行架設的，通常會是企業選擇版控的首選。後來又追加 [GitLab CI][] 與 [Pipeline][GitLab Pipeline] 功能，讓它的戰場跨越到 CI，並成為一個企業內部管理開發流程的好選擇。
 
-CI Server 跟版控通常會是不一樣的 server ， CI 會執行 Build ，並通知版控說，目前提交是否成功。那 GitLab CI 與 GitLab 的概念也一樣，它是另外獨立且可選的元件。打個比方， [Bitbucket][] 之於 [Circle CI][Day 25] ，就類似 GitLab 之於 GitLab CI 一樣。
+CI Server 跟版控通常會是不一樣的 server，CI 會執行 Build，並通知版控說，目前提交是否成功。那 GitLab CI 與 GitLab 的概念也一樣，它是另外獨立且可選的元件。打個比方，[Bitbucket][] 之於 [Circle CI][Day 25]，就類似 GitLab 之於 GitLab CI 一樣。
 
 以下將使用 GitLab.com 服務當作範例。
 
-**注意**，如果是自己架設 GitLab 的話， 8.0 之後才支援 GitLab CI 。另外功能會參考目前最新版介紹，使用之前記得確認自己家的版本是否有支援。
+**注意**，如果是自己架設 GitLab 的話，8.0 之後才支援 GitLab CI。另外功能會參考目前最新版介紹，使用之前記得確認自己家的版本是否有支援。
 
 ## 設定專案
 
-之前用的專案都是在 GitHub 上執行，要換到 GitLab 有很多種方法，那這邊示範比較簡單的 [Mirror Repository][GitLab Mirror Repository] 。如果想直接用 GitLab 上的專案直接開始的可以跳過這一小節。
+之前用的專案都是在 GitHub 上執行，要換到 GitLab 有很多種方法，那這邊示範比較簡單的 [Mirror Repository][GitLab Mirror Repository]。如果想直接用 GitLab 上的專案直接開始的可以跳過這一小節。
 
 首先先登入 GitLab 帳號，建立一個空的新專案。
 
@@ -20,17 +20,17 @@ CI Server 跟版控通常會是不一樣的 server ， CI 會執行 Build ，並
 
 ![day26 step1-2][]
 
-這裡要填的是可以 `git clone` 下來的地方，那因為專案是 public ，直接使用 https 會單純許多。
+這裡要填的是可以 `git clone` 下來的地方，那因為專案是 public，直接使用 https 會單純許多。
 
 > 如果是 private 可參考 [Mirror Repository][GitLab Mirror Repository] 文件說明
 
 ![day26 step1-3][]
 
-記得下面 *Trigger builds for mirror updates* 要打勾，因為我們是要靠 GitHub 的更新來觸發 GitLab CI 執行 Build 。
+記得下面 *Trigger builds for mirror updates* 要打勾，因為我們是要靠 GitHub 的更新來觸發 GitLab CI 執行 Build。
 
 ![day26 step1-4][]
 
-再來進到專案抬頭的右下角，會有個 *Set up CI* 。
+再來進到專案抬頭的右下角，會有個 *Set up CI*。
 
 ![day26 step1-5][]
 
@@ -94,7 +94,7 @@ deploy_job:
 
 > 有興趣可以翻翻看[連結網頁](https://gitlab.com/MilesChou/book-intro-of-ci/pipelines)裡面有什麼。
 
-GitLab 的功能比較複雜，先簡單說明。 GitLab 的 build 都是在 Docker 上執行的，因此一開始會需要定義 image 名稱，而它將會成為下面執行 build 的環境。
+GitLab 的功能比較複雜，先簡單說明。GitLab 的 build 都是在 Docker 上執行的，因此一開始會需要定義 image 名稱，而它將會成為下面執行 build 的環境。
 
 > 下面這個例子是我自己寫來測試用的，有興趣可以參考 [GitHub 原始碼](https://github.com/MilesChou/php-testing-base)。
 
@@ -102,7 +102,7 @@ GitLab 的功能比較複雜，先簡單說明。 GitLab 的 build 都是在 Doc
 image: mileschou/php-testing-base:7.0
 ```
 
-接著 GitLab CI 預定義有三個階段，也就是 `stages` ：
+接著 GitLab CI 預定義有三個階段，也就是 `stages`：
 
 ```yaml
 stages:
@@ -111,7 +111,7 @@ stages:
   - deploy
 ```
 
-一個 stages 可以定義一個或多個 job ，而 job 是定義在 yaml 最外層。比方說，上例的 `build_job` 階段對應的是 `build` stage 
+一個 stages 可以定義一個或多個 job，而 job 是定義在 yaml 最外層。比方說，上例的 `build_job` 階段對應的是 `build` stage 
 
 ```yaml
 build:
@@ -143,7 +143,7 @@ test_job:
     - build_job
 ```
 
-這邊 `dependencies` 設定意思是指，它這個測試要取用 `build_job` 的 `artifacts` 。別忘了，每個 job 都是獨立的 container ，互不相關，因此要靠這些設定來傳遞 Artifacts
+這邊 `dependencies` 設定意思是指，它這個測試要取用 `build_job` 的 `artifacts`。別忘了，每個 job 都是獨立的 container，互不相關，因此要靠這些設定來傳遞 Artifacts
 
 `deploy_job` 的定義：
 
@@ -162,16 +162,16 @@ deploy_job:
 
 ### 使用 Docker
 
-GitLab CI 上要使用 Docker 需要多做一些事，首先 Docker 是 Client / Server 架構，所以代表兩邊都需要準備一些東西才行。 Server 比較簡單，只要最上面定義全域服務即可：
+GitLab CI 上要使用 Docker 需要多做一些事，首先 Docker 是 Client / Server 架構，所以代表兩邊都需要準備一些東西才行。Server 比較簡單，只要最上面定義全域服務即可：
 
 ```yaml
 services:
   - docker:dind
 ```
 
-它的做法會用 docker run 啟動 `docker:dind` 並把上面定義的 image 起的容器連結至 `docker:dind` 。所以另一個比較麻煩相信已經發現了，上面定義的 image 必須要有 Docker Client 與設定才能正常的連接。
+它的做法會用 docker run 啟動 `docker:dind` 並把上面定義的 image 起的容器連結至 `docker:dind`。所以另一個比較麻煩相信已經發現了，上面定義的 image 必須要有 Docker Client 與設定才能正常的連接。
 
-因此，如果只是要 build image ，利用 `artifacts` 和參考[官方說明文件](https://docs.gitlab.com/ce/ci/docker/using_docker_build.html)應該很容易達成，以下是個簡單的範例：
+因此，如果只是要 build image，利用 `artifacts` 和參考[官方說明文件](https://docs.gitlab.com/ce/ci/docker/using_docker_build.html)應該很容易達成，以下是個簡單的範例：
 
 > 注意 image 和 service 雖然有全域定義，但也能 job 各自定義
 
@@ -189,7 +189,7 @@ deploy_job:
 
 ## 特異功能
 
-GitLab CI 設計的蠻有彈性的，因此可以做的變化也不少。這裡提兩個小技巧：自定義 Stage 與 Job 自由對應，當 CI 流程需要很長的時候， GitLab 提供自定義 stage 的功能，舉例可以有五個 stage：
+GitLab CI 設計的蠻有彈性的，因此可以做的變化也不少。這裡提兩個小技巧：自定義 Stage 與 Job 自由對應，當 CI 流程需要很長的時候，GitLab 提供自定義 stage 的功能，舉例可以有五個 stage：
 
 ```yaml
 stages:
@@ -259,9 +259,9 @@ deploy_job:
   when: manual
 ```
 
-> 上述設定執行結果： https://gitlab.com/MilesChou/book-intro-of-ci/pipelines/5546894
+> 上述設定執行結果：https://gitlab.com/MilesChou/book-intro-of-ci/pipelines/5546894
 
-另外，因為是 GitLab 本家出的 CI ，因此它跟 GitLab 的版控與 issue tracker 功能整合都不錯。
+另外，因為是 GitLab 本家出的 CI，因此它跟 GitLab 的版控與 issue tracker 功能整合都不錯。
 
 ---
 

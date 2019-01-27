@@ -24,13 +24,13 @@
 
 ## 分析
 
-首先，在那之前，你要先有 dep ：
+首先，在那之前，你要先有 dep：
 
 ```bash
 $ brew install dep
 ```
 
-再來找現有程式參考。 [Dapper][] 是一個不錯且夠簡單的 CLI 專案，它的 `main.go` 裡面用了 [urfave/cli][] （有改名過）框架，今天就來試著建置起來吧。
+再來找現有程式參考。[Dapper][] 是一個不錯且夠簡單的 CLI 專案，它的 `main.go` 裡面用了 [urfave/cli][] （有改名過）框架，今天就來試著建置起來吧。
 
 ## 開工
 
@@ -94,7 +94,7 @@ $ dep init
 
 ## 問題
 
-`vendor` 要不要 commit ，可以參考[官方文件](https://github.com/golang/dep/blob/master/docs/FAQ.md#should-i-commit-my-vendor-directory)，它是說隨意，同時也很負責的說明了優缺點。而筆者決定 commit 。
+`vendor` 要不要 commit，可以參考[官方文件](https://github.com/golang/dep/blob/master/docs/FAQ.md#should-i-commit-my-vendor-directory)，它是說隨意，同時也很負責的說明了優缺點。而筆者決定 commit。
 
 ## 展示
 

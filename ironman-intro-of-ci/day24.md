@@ -1,16 +1,16 @@
 # 開源專案的好選擇 －－ Travis CI 
 
-Travis CI 有分 .org 的[免費版][travis-ci.org]跟 .com 的[企業版][travis-ci.com] 。
+Travis CI 有分 .org 的[免費版][travis-ci.org]跟 .com 的[企業版][travis-ci.com]。
 
 > 以下會拿過去寫的測試程式來做實驗
 
 ## 版控串接
 
-Travis CI 有一點個人覺得可惜的是，它只能接 [GitHub][] ，但沒關係，它還是有特異功能後面會提到。
+Travis CI 有一點個人覺得可惜的是，它只能接 [GitHub][]，但沒關係，它還是有特異功能後面會提到。
 
-首先當然是要登入進 Travis CI ，它登入被限制只能使用 GitHub 帳號，所以記得要申請並決定好要使用哪個 GitHub 帳號。
+首先當然是要登入進 Travis CI，它登入被限制只能使用 GitHub 帳號，所以記得要申請並決定好要使用哪個 GitHub 帳號。
 
-再來進來後左邊 Repository 的旁邊會看到一個 `+` ，這是新增要連動的 Project ，按下去吧！
+再來進來後左邊 Repository 的旁邊會看到一個 `+`，這是新增要連動的 Project，按下去吧！
 
 ![day24 step1][]
 
@@ -18,7 +18,7 @@ Travis CI 有一點個人覺得可惜的是，它只能接 [GitHub][] ，但沒�
 
 ![day24 step2][]
 
-到此， repository 與 CI 的連動就做好了。下一步就是要建立 `.travis.yml` 檔：
+到此，repository 與 CI 的連動就做好了。下一步就是要建立 `.travis.yml` 檔：
 
 ```yaml
 language: php
@@ -50,7 +50,7 @@ php:
   - 7.0
 ```
 
-> 其他語言參考： https://docs.travis-ci.com/user/getting-started/
+> 其他語言參考：https://docs.travis-ci.com/user/getting-started/
 
 接著 `before_script` 與 `script` 是 lifecycle 一部分：
 
@@ -62,9 +62,9 @@ script:
   - php vendor/bin/codecept run
 ```
 
-> Lifecycle 參考文件： https://docs.travis-ci.com/user/customizing-the-build/
+> Lifecycle 參考文件：https://docs.travis-ci.com/user/customizing-the-build/
 
-`cache` 可以定義 build 的過程會產生某些檔案是可以在下一次 build 利用的。 Composer 應該就會是 `vendor` ， npm 則是 `node_modules` ，等等。
+`cache` 可以定義 build 的過程會產生某些檔案是可以在下一次 build 利用的。Composer 應該就會是 `vendor`，npm 則是 `node_modules`，等等。
 
 ```yaml
 cache:
@@ -72,9 +72,9 @@ cache:
     - vendor
 ```
 
-> Cache 參考文件： https://docs.travis-ci.com/user/caching
+> Cache 參考文件：https://docs.travis-ci.com/user/caching
 
-最後定義它只測 release branch ，因為不一定每個 branch 都會想跑測試 
+最後定義它只測 release branch，因為不一定每個 branch 都會想跑測試 
 
 ```yaml
 branches:
@@ -82,13 +82,13 @@ branches:
     - release
 ```
 
-> Branch 參考文件： https://docs.travis-ci.com/user/customizing-the-build/#Building-Specific-Branches
+> Branch 參考文件：https://docs.travis-ci.com/user/customizing-the-build/#Building-Specific-Branches
 
 準備好就可以 commit push 了！然後就可以在 Travis CI 網站上的 dashboard 看測試跑呀跑的，除了準備環境和預定義會做的事以外，還有剛剛設定的 lifecycle 都會執行到：
 
 ![day24 step3][]
 
-最後的結果一定會是 pass / fail ，這些結果都會被記錄下來，上例的結果可以來[這個網頁](https://travis-ci.org/MilesChou/book-intro-of-ci/builds/186528953)查看。
+最後的結果一定會是 pass / fail，這些結果都會被記錄下來，上例的結果可以來[這個網頁](https://travis-ci.org/MilesChou/book-intro-of-ci/builds/186528953)查看。
 
 ## 特異功能
 
@@ -114,15 +114,15 @@ php:
 
 ## Docker
 
-有了 Docker 等於有了滿滿的大平台可以用。如果要使用 Docker ，官方也有提供[使用的方法](https://docs.travis-ci.com/user/docker/) 。
+有了 Docker 等於有了滿滿的大平台可以用。如果要使用 Docker，官方也有提供[使用的方法](https://docs.travis-ci.com/user/docker/)。
 
 ---
 
 ## 今日回顧
 
-除了上面基本的測試功能外， Travis CI 還有提供測試完之後的後續處理，如[佈署](https://docs.travis-ci.com/user/deployment/)、 [Artifacts 處理](https://docs.travis-ci.com/user/uploading-artifacts/)、[通知](https://docs.travis-ci.com/user/notifications)，等。
+除了上面基本的測試功能外，Travis CI 還有提供測試完之後的後續處理，如[佈署](https://docs.travis-ci.com/user/deployment/)、[Artifacts 處理](https://docs.travis-ci.com/user/uploading-artifacts/)、[通知](https://docs.travis-ci.com/user/notifications)，等。
 
-最後， Travis CI 的功能非常簡單，但也因為簡單，要把它安插進 [Pipeline][Day 21] 裡是非常容易的。別看了，一起來 CI 吧！
+最後，Travis CI 的功能非常簡單，但也因為簡單，要把它安插進 [Pipeline][Day 21] 裡是非常容易的。別看了，一起來 CI 吧！
 
 [travis-ci.org]: https://travis-ci.org/
 [travis-ci.com]: https://travis-ci.com/

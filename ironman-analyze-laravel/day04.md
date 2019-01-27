@@ -7,7 +7,7 @@
 ```php
 public function build($concrete)
 {
-    // 如果是 Closure ，就直接執行吧。 getLastParameterOverride() 是取得昨天提到的屬性 `with` 所存放的 parameters 
+    // 如果是 Closure，就直接執行吧。getLastParameterOverride() 是取得昨天提到的屬性 `with` 所存放的 parameters 
     if ($concrete instanceof Closure) {
         return $concrete($this, $this->getLastParameterOverride());
     }
@@ -68,7 +68,7 @@ protected function resolveDependencies(array $dependencies)
             continue;
         }
 
-        // 如果取不到類別名稱，代表它是 primitive 類型的變數， 會使用 resolvePrimitive() 解析；取得到，就使用 resolveClass() 解析
+        // 如果取不到類別名稱，代表它是 primitive 類型的變數，會使用 resolvePrimitive() 解析；取得到，就使用 resolveClass() 解析
         $results[] = is_null($dependency->getClass())
                         ? $this->resolvePrimitive($dependency)
                         : $this->resolveClass($dependency);
@@ -83,7 +83,7 @@ protected function resolveDependencies(array $dependencies)
 ```php
 protected function resolvePrimitive(ReflectionParameter $parameter)
 {
-    // 如果有設定 contextual binding ，則回傳該內容 
+    // 如果有設定 contextual binding，則回傳該內容 
     if (! is_null($concrete = $this->getContextualConcrete('$'.$parameter->name))) {
         return $concrete instanceof Closure ? $concrete($this) : $concrete;
     }
@@ -138,11 +138,11 @@ $this->app->when([VideoController::class, UploadController::class])
           });
 ```
 
-這裡有使用 fluent pattern ，讓表達更加接近自然語言，如：「當 PhotoController 需要 Filesystem 時，就給 local storage」
+這裡有使用 fluent pattern，讓表達更加接近自然語言，如：「當 PhotoController 需要 Filesystem 時，就給 local storage」
 
 [`when()`](https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Container/Container.php#L142) 的實作很單純：
 
-> 同 `build()`，`when()` 的參數也是 `$concrete` ，所以這裡要傳的是實作的 class。
+> 同 `build()`，`when()` 的參數也是 `$concrete`，所以這裡要傳的是實作的 class。
 
 ```php
 return new ContextualBindingBuilder($this, $this->getAlias($concrete));
@@ -173,7 +173,7 @@ if (isset($this->contextual[end($this->buildStack)][$abstract])) {
 }
 ```
 
-`findInContextualBindings()` 的意思正是找尋看看，現在正在 `build()` 的類別，有沒有哪個依賴有被綁定過，有被綁定的話就回傳這個綁定內容。昨天提到的 `resolve()` 與今天提到的 `resolvePrimitive()` 都會使用這個方法來取得可能有被綁定過的實例。 
+`findInContextualBindings()` 的意思正是找尋看看，現在正在 `build()` 的類別，有沒有哪個依賴有被綁定過，有被綁定的話就回傳這個綁定內容。昨天提到的 `resolve()` 與今天提到的 `resolvePrimitive()` 都會使用這個方法來取得可能有被綁定過的實例。
 
 ## BoundMethod
 
@@ -184,7 +184,7 @@ Container [`call()`](https://github.com/laravel/framework/blob/v5.7.6/src/Illumi
 裡面呼叫的 [`BoundMethod::call()`](https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Container/BoundMethod.php#L21-L32) 實作很簡單：
 
 ```php
-// 假如 $callback 是特殊模式的字串，或是 $defaultMethod 不是 null ，則呼叫 callClass()
+// 假如 $callback 是特殊模式的字串，或是 $defaultMethod 不是 null，則呼叫 callClass()
 if (static::isCallableWithAtSign($callback) || $defaultMethod) {
     return static::callClass($container, $callback, $parameters, $defaultMethod);
 }
@@ -231,7 +231,7 @@ Route::get('/user', 'UserController@index');
 ```php
 protected static function callBoundMethod($container, $callback, $default)
 {
-    // 如果 callback 不是 Array，比方說 Closure 的話，就回傳預設值，不過預設是固定給 Closure ，所以會拿來跑出結果後再回傳 
+    // 如果 callback 不是 Array，比方說 Closure 的話，就回傳預設值，不過預設是固定給 Closure，所以會拿來跑出結果後再回傳 
     if (! is_array($callback)) {
         return $default instanceof Closure ? $default() : $default;
     }
@@ -239,7 +239,7 @@ protected static function callBoundMethod($container, $callback, $default)
     // 這裡會把 Array 型式的 callable 轉換原 class@method 型式，這也正好就是 5.7 的新功能
     $method = static::normalizeMethod($callback);
 
-    // 回頭看 Container 有沒有做 method binding ，有的話就 call。
+    // 回頭看 Container 有沒有做 method binding，有的話就 call。
     if ($container->hasMethodBinding($method)) {
         return $container->callMethodBinding($method, $callback[0]);
     }
@@ -259,7 +259,7 @@ function () use ($container, $callback, $parameters) {
 }
 ```
 
-它會拿 callback 來執行，並把 dependencies 全都解析完後帶入。解析的方法跟 `make()` 類似，但較為簡單，所以這邊就不再分析了。 
+它會拿 callback 來執行，並把 dependencies 全都解析完後帶入。解析的方法跟 `make()` 類似，但較為簡單，所以這邊就不再分析了。
 
 ## 今日總結
 

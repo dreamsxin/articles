@@ -36,7 +36,7 @@ public function abort($code, $message = '', array $headers = [])
 
 ## Error Handler
 
-在 [Pipeline][Day08] 曾提到， [Routing\Pipeline][] 繼承 [Pipeline][] 後有覆寫一段程式，正是在做錯誤處理：
+在 [Pipeline][Day08] 曾提到，[Routing\Pipeline][] 繼承 [Pipeline][] 後有覆寫一段程式，正是在做錯誤處理：
 
 ```php
 try {
@@ -57,7 +57,7 @@ return (new Pipeline($this->app))
             ->then($this->dispatchToRouter());
 ```
 
-從以上兩點可以得知， Routing\Pipeline 所做的錯誤處理的有效範圍，從進全域的 middleware 開始，到全域的 middleware 回傳最後的 response 之後結束。
+從以上兩點可以得知，Routing\Pipeline 所做的錯誤處理的有效範圍，從進全域的 middleware 開始，到全域的 middleware 回傳最後的 response 之後結束。
 
 `handleException()` 回顧如下：
 
@@ -198,7 +198,7 @@ protected function renderHttpException(HttpException $e)
 
 從上面的分析可以知道，當 debug 模式開啟的時候，隨意丟例外是會符合 `prepareResponse()` 第一個判斷，並輸出預設的 call stack trace 頁面；丟 HttpException 才有辦法進到自定義錯誤頁。
 
-了解了 Laravel 錯誤處理機制之後可以發現，大部分可預期的狀況丟 HttpException 或使用 `abort()` 處理錯誤比較適合，這也是 Laravel 預期的。自定義例外可以實作 `render()` 讓 Handler 自動處理。筆者遇到的狀況則是第三方 library 使用過程中丟例外，使用 try catch 配合 `abort()` 來處理錯誤即可。 
+了解了 Laravel 錯誤處理機制之後可以發現，大部分可預期的狀況丟 HttpException 或使用 `abort()` 處理錯誤比較適合，這也是 Laravel 預期的。自定義例外可以實作 `render()` 讓 Handler 自動處理。筆者遇到的狀況則是第三方 library 使用過程中丟例外，使用 try catch 配合 `abort()` 來處理錯誤即可。
 
 [Routing\Pipeline]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Routing/Pipeline.php
 [Pipeline]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Pipeline/Pipeline.php

@@ -2,11 +2,11 @@
 
 做完交付後，下一個目標就是要做佈署了！不過佈署做簡單一點，在 Docker 上能跑就行了！
 
-最後期望的結果是，只要機器有 Docker Daemon ，程式就能正常在機器上跑！
+最後期望的結果是，只要機器有 Docker Daemon，程式就能正常在機器上跑！
 
 ## 分析
 
-理論上， Go 執行檔的依賴都在執行檔上，或許放到 [alpine](https://hub.docker.com/_/alpine/) 上是可行的
+理論上，Go 執行檔的依賴都在執行檔上，或許放到 [alpine](https://hub.docker.com/_/alpine/) 上是可行的
 
 來試看看吧！
 
@@ -41,11 +41,11 @@ $ ./namer
 bash: ./namer: cannot execute binary file: Exec format error
 ```
 
-咦，這不科學啊！不是說好了依賴都放在裡面了嗎？後來才想到，原來是因為筆者編譯環境是 Mac ，才會造成這樣的結果。
+咦，這不科學啊！不是說好了依賴都放在裡面了嗎？後來才想到，原來是因為筆者編譯環境是 Mac，才會造成這樣的結果。
 
 雖然可以把昨天丟到 GitHub Release 的結果下載回來，在放到 Docker 裡面，不過這也太麻煩了。原始碼都在手上了，應該產生執行檔會是件簡單的事呀！
 
-Go 有支援 cross compile ，不過目前只讓它在 Travis 上運行，我們來用 [Dapper][] 實現目的。
+Go 有支援 cross compile，不過目前只讓它在 Travis 上運行，我們來用 [Dapper][] 實現目的。
 
 ### 解決 Dapper 的問題
 
@@ -86,7 +86,7 @@ dapper
 PATH=$PATH:$GOPATH/bin
 ```
 
-> 同樣的概念， Namer 裡使用 `go install` 也會多一個指令是 `namer` 唷。
+> 同樣的概念，Namer 裡使用 `go install` 也會多一個指令是 `namer` 唷。
 
 ### 撰寫 Dapper
 
@@ -109,7 +109,7 @@ CMD ["go", "build", "-o", "./bin/namer", "main.go"]
 
 ### 撰寫 Dockerfile
 
-因為只有 `namer` 執行檔就行， Dockerfile 相對非常簡單，如下：
+因為只有 `namer` 執行檔就行，Dockerfile 相對非常簡單，如下：
 
 ```dockerfile
 FROM alpine:3.7
@@ -139,7 +139,7 @@ Namer version 0.0.0
 
 ## 問題
 
-在建置的過程發現， `namer` 執行檔一個就要 14MB 之多，有點可怕。
+在建置的過程發現，`namer` 執行檔一個就要 14MB 之多，有點可怕。
 
 暫時還不知道該如何解決，目前先讓它可以用就好。
 

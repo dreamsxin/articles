@@ -54,7 +54,7 @@ fmt.Println(r2.Int())
 
 ## 開工
 
-首先建目錄 `provider` ，在下面先建資源檔 `resource.go` ：
+首先建目錄 `provider`，在下面先建資源檔 `resource.go`：
 
 ```go
 package provider
@@ -66,7 +66,7 @@ var names = []string{
 }
 ```
 
-這個檔比較沒什麼問題，下一個建主要產生器 `generator` ：
+這個檔比較沒什麼問題，下一個建主要產生器 `generator`：
 
 ```go
 package provider
@@ -95,11 +95,11 @@ func Create() Generator {
 }
 ```
 
-這裡說明一下， `Create()` 是建立 `Generator` 結構，類似工廠方法。
+這裡說明一下，`Create()` 是建立 `Generator` 結構，類似工廠方法。
 
 `Generator` 則有著亂數產生器，可以自行建立亂數，也可以依亂數取得資源內的內容。
 
-其中 `rand.Intn(length)` 會回傳 0 ~ length 中的一個數字。剛好可以拿來當 key 。
+其中 `rand.Intn(length)` 會回傳 0 ~ length 中的一個數字。剛好可以拿來當 key。
 
 原始碼的 Action 函式如下：
 

@@ -102,7 +102,7 @@ public function getSession(Request $request)
 {
     // 使用預設 driver 取得實例
     return tap($this->manager->driver(), function ($session) use ($request) {
-        // 設定 session id ，這個 id 是從 cookie 取得的，key 是在 config 裡面設定的
+        // 設定 session id，這個 id 是從 cookie 取得的，key 是在 config 裡面設定的
         $session->setId($request->cookies->get($session->getName()));
     });
 }

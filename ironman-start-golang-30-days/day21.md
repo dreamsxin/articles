@@ -8,7 +8,7 @@
 
 首先要先有目標網站，以網址簡單來說的話，[萌典][]應該是好選擇。
 
-套件本來想找 Curl ，不過想想還是找簡單的就好： [GoReq](https://github.com/franela/goreq)
+套件本來想找 Curl，不過想想還是找簡單的就好：[GoReq](https://github.com/franela/goreq)
 
 看說明應該非常簡單：
 
@@ -117,7 +117,7 @@ $ go run main.go query 字
 
 ## 問題
 
-發現裡面都是 head 的區塊，沒有 body ，看來要爬這個網站會有點麻煩。
+發現裡面都是 head 的區塊，沒有 body，看來要爬這個網站會有點麻煩。
 
 ## 參考資料
 

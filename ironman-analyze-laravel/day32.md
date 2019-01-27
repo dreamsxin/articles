@@ -71,7 +71,7 @@ public function route($name, $parameters = [], $absolute = true)
 }
 ```
 
-接著來看看 [Redirector][]。Laravel 也有提供 helper 函式 ：
+接著來看看 [Redirector][]。Laravel 也有提供 helper 函式：
 
 ```php
 function redirect($to = null, $status = 302, $headers = [], $secure = null)

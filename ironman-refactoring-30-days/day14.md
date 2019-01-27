@@ -33,7 +33,7 @@ Fatal error: Uncaught Error: Call to undefined function mysql_connect() in /User
 1. 使用 5.4 啟動
 2. 改程式
 
-先使用 5.4 啟動好了， 5.4 開始也支援 built-in server 上面的啟動過程應該不大會有問題； [Docker Hub](https://hub.docker.com/) 有 5.4 的 image 可以用，來使用 Docker 起服務吧：
+先使用 5.4 啟動好了，5.4 開始也支援 built-in server 上面的啟動過程應該不大會有問題；[Docker Hub](https://hub.docker.com/) 有 5.4 的 image 可以用，來使用 Docker 起服務吧：
 
 ```
 $ docker run --rm -it -v `pwd`:/source -w /source -p 8080:8080 php:5.4 php -S 0.0.0.0:8080
@@ -41,7 +41,7 @@ $ docker run --rm -it -v `pwd`:/source -w /source -p 8080:8080 php:5.4 php -S 0.
 
 ## 再換 PHP 5.3 + Apache
 
-但 5.4 起來後，它還是說 `mysql_connect` 找不到？算了換 5.3 ，不過 5.3 就沒有 built-in server ，必須換 apache ：
+但 5.4 起來後，它還是說 `mysql_connect` 找不到？算了換 5.3，不過 5.3 就沒有 built-in server，必須換 apache：
 
 ```
 $ docker run --rm -it -v `pwd`:/var/www/html -w /var/www/html -p 8080:80 php:5.3-apache

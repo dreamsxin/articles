@@ -20,13 +20,13 @@
 
 ---
 
-重構一詞，如同 DevOps 或 Agile ，大家對它的認知都有點不大一樣，有的人認為是砍掉重練、也有人說是效能優化。
+重構一詞，如同 DevOps 或 Agile，大家對它的認知都有點不大一樣，有的人認為是砍掉重練、也有人說是效能優化。
 
-一位知名的軟體工程大師－－ [Martin Fowler][] ，它寫了一本書： [Refactoring - Improving the Design of Existing Code][] （中譯「[重構：改善即有程式的設計][]」）
+一位知名的軟體工程大師－－ [Martin Fowler][]，它寫了一本書：[Refactoring - Improving the Design of Existing Code][] （中譯「[重構：改善即有程式的設計][]」）
 
 ![](https://martinfowler.com/books/refactoringBook.jpg)
 
-在這本書裡， Martin 是這樣定義重構的：
+在這本書裡，Martin 是這樣定義重構的：
 
 > Refactoring is the process of changing a software system in such a way that it does not alter the external behavior of the code yet improves its internal structure.
 
@@ -46,7 +46,7 @@
 
 第一、解決不了需求，那只好解決提出需求的人。但通常有很高的機率被提出需求的人（如老闆）解決掉。
 
-第二、在現有設計下，硬是把跟設計不合的功能實作出來。這個方法又稱為 *workaround* ，因省下重新設計的時間，通常都能以較短的時間完成需求，但這些省下的時間都會在未來付出代價。
+第二、在現有設計下，硬是把跟設計不合的功能實作出來。這個方法又稱為 *workaround*，因省下重新設計的時間，通常都能以較短的時間完成需求，但這些省下的時間都會在未來付出代價。
 
 第三、山不轉，路轉！那我們把程式改成「可以輕易滿足需求的設計」就好了呀！這方法跟 workaround 剛好相反，當下花時間設計，但會省下未來修改的時間。是的，這就是本次鐵人賽的主題－－**重構**！
 

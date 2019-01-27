@@ -2,22 +2,22 @@
 
 Go 語言的常數有分幾種類型：
 
-* *boolean constants* ，布林常數。
-* *rune constants* ，表示字元的常數。
-* *integer constants* ，整數常數
-* *floating-point constants* ，浮點數常數
-* *complex constants* ，複數常數
-* *string constants* ，字串常數
+* *boolean constants*，布林常數。
+* *rune constants*，表示字元的常數。
+* *integer constants*，整數常數
+* *floating-point constants*，浮點數常數
+* *complex constants*，複數常數
+* *string constants*，字串常數
 
 這些常數都可以用實字（literal）表示，實字又分成下面幾種：
 
-* *rune literal* ， Rune 實字
-* *integer literal* ，整數實字
-* *floating-point literal* ，浮點數實字
-* *imaginary literal* ，虛數實字
-* *string literal* ，字串實字
+* *rune literal*，Rune 實字
+* *integer literal*，整數實字
+* *floating-point literal*，浮點數實字
+* *imaginary literal*，虛數實字
+* *string literal*，字串實字
 
-常數有可能是已定義型態（typed）或是未定型態（untyped），實字常數、 `true` 、 `false` 、 `iota` 都屬於未定型態。
+常數有可能是已定義型態（typed）或是未定型態（untyped），實字常數、`true`、`false`、`iota` 都屬於未定型態。
 
 另外較特別的是，常數運算式裡的運算元都是未定型態時，運算完的結果也會是未定型態。比方說，下面都是未定型態：
 
@@ -37,7 +37,7 @@ float64(10) / 20    // 0.5, type float64
 
 ## Boolean constants
 
-布林常數是內建的常數，就只有兩個： `true` 和 `false`
+布林常數是內建的常數，就只有兩個：`true` 和 `false`
 
 原始碼實作也蠻有趣的（程式碼來自 [`builtin.go`](https://github.com/golang/go/blob/master/src/builtin/builtin.go#L16-L20)）：
 
@@ -84,15 +84,15 @@ Unicode 表示方法：
 * 直接給字元 `中`
 * `\u` 開頭，後面必須是 4 個十六進位的字元（`[0-9a-f]{4}`）
 * `\U` 開頭，後面必須是 8 個十六進位的字元（`[0-9a-f]{8}`）
-* 跳脫字元： `\` 後面接 `a` `b` `f` `n` `r` `t` `v` `\` `'` `"` 。
+* 跳脫字元：`\` 後面接 `a` `b` `f` `n` `r` `t` `v` `\` `'` `"`。
 
 ## Integer constants
 
 數字常數使用數字實字（integer literal）表示。數字實字有三種表示法：
 
 * 十進位，跟大部分的程式碼一樣，為非 `0` 開頭的連續數字（`[1-9][0-9]+`）
-* 八進位， `0` 開頭，後面接八進位數字（`0[0-9]+`）
-* 十六進位， `0` 開頭，後面接八進位數字（`0[x|X][0-9a-fA-F]+`）
+* 八進位，`0` 開頭，後面接八進位數字（`0[0-9]+`）
+* 十六進位，`0` 開頭，後面接八進位數字（`0[x|X][0-9a-fA-F]+`）
 
 ## Floating-point constants
 
@@ -130,8 +130,8 @@ func main() {
 
 虛數實字的表示法為：
 
-* 十進位 + 小寫 `i` ，如 `10i`
-* 浮點數 + 小寫 `i` ，如 `1E1i`
+* 十進位 + 小寫 `i`，如 `10i`
+* 浮點數 + 小寫 `i`，如 `1E1i`
 
 而複數常數的範例如下：
 

@@ -4,9 +4,9 @@
 
 ## HTTP Tests
 
-Laravel 的測試套件相當完整， [HTTP Tests](https://laravel.com/docs/5.5/http-tests) 是 Laravel 測 HTML 的說明文件。
+Laravel 的測試套件相當完整，[HTTP Tests](https://laravel.com/docs/5.5/http-tests) 是 Laravel 測 HTML 的說明文件。
 
-我們先試著修改 `tests/Feature/ExampleTest.php` ，寫看看首頁的測試：
+我們先試著修改 `tests/Feature/ExampleTest.php`，寫看看首頁的測試：
 
 ```php
 class ExampleTest extends TestCase
@@ -36,9 +36,9 @@ $ php vendor/bin/phpunit
 
 這裡大家可以試著做一件事：把 Server 關掉，再跑一次測試看看。
 
-大家會發現，其實測試還是能正常執行的。這是因為 Laravel 把輸出頁面的方法，包成了物件，直到 route 處理到某個階段的時候，才輸出網頁； Laravel 的測試則是在輸出到網頁前，把物件擋下來然後拿來當字串（HTML）驗證。
+大家會發現，其實測試還是能正常執行的。這是因為 Laravel 把輸出頁面的方法，包成了物件，直到 route 處理到某個階段的時候，才輸出網頁；Laravel 的測試則是在輸出到網頁前，把物件擋下來然後拿來當字串（HTML）驗證。
 
-這個做法好處當然很多，最大的好處是：只要能跑 PHP ，不需要起伺服器就能執行測試。這執行測試的機會變得更大（因為需要的條件變少了）；同樣的，不起伺服器，就少了非常多傳輸成本，速度肯定是更快的。
+這個做法好處當然很多，最大的好處是：只要能跑 PHP，不需要起伺服器就能執行測試。這執行測試的機會變得更大（因為需要的條件變少了）；同樣的，不起伺服器，就少了非常多傳輸成本，速度肯定是更快的。
 
 有一好沒兩好，它的壞處就是無法完全模擬真實的環境，包括 HTTP Server 或是瀏覽器執行 Javascript 等。除此之外，因為會使用一個 process 執行所有測試，這代表所有測試的記憶體是共享的，那就得小心**單例模式**全域影響的問題或是**自動載入**的問題等。
 
@@ -65,7 +65,7 @@ public function shouldBeOkWhenSeeAdminPage()
 Expected status code 200 but received 404.
 ```
 
-它說「預期會拿到 status code 200 但事實上拿到了 404 」，這很有可能是因為我們 Route 並沒有設定好，來調整一下 `routes/web.php` ：
+它說「預期會拿到 status code 200 但事實上拿到了 404 」，這很有可能是因為我們 Route 並沒有設定好，來調整一下 `routes/web.php`：
 
 ```php
 // 忘了在後面加 .php
@@ -83,13 +83,13 @@ Route::get('/admin.php', function () {
 Expected status code 200 but received 500.
 ```
 
-它說「預期會拿到 status code 200 但事實上拿到了 404 」，查了一下 log ，它說找不到 tpl 這個變數：
+它說「預期會拿到 status code 200 但事實上拿到了 404 」，查了一下 log，它說找不到 tpl 這個變數：
 
 ```
 Undefined variable: tpl at /Users/miles.chou/GitHub/MilesChou/book-refactoring-30-days/admin.php:194
 ```
 
-往源頭找 `$tpl` 是在 `config.php` 設定的，找不到代表沒有載入過。這正是前面有提到的「自動載入」問題，因為 `config.php` 曾被 require 過，所以這裡就不會再 require 了，才會找不到變數。最簡單的解法是：把 `require_once` 改成 `require` ，不過十之八九都有可能出事，就先試看看。
+往源頭找 `$tpl` 是在 `config.php` 設定的，找不到代表沒有載入過。這正是前面有提到的「自動載入」問題，因為 `config.php` 曾被 require 過，所以這裡就不會再 require 了，才會找不到變數。最簡單的解法是：把 `require_once` 改成 `require`，不過十之八九都有可能出事，就先試看看。
 
 改完跑完之後，出現別的錯誤了：
 

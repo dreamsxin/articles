@@ -2,15 +2,15 @@
 
 從開始拿到程式後，花了五天在調整程式，目的就是為了今天！
 
-CI 的原文是 *Continuous Integration* ，也就是要「常常做整合」。如果整合能夠自動化，我們甚至也可以把任務交付給 [CI server][CI 工具大亂鬥] 處理。新的專案可以一開始就考慮自動化，但 legacy code 通常會因為自動化不完整，而讓接 CI server 不是那麼容易。
+CI 的原文是 *Continuous Integration*，也就是要「常常做整合」。如果整合能夠自動化，我們甚至也可以把任務交付給 [CI server][CI 工具大亂鬥] 處理。新的專案可以一開始就考慮自動化，但 legacy code 通常會因為自動化不完整，而讓接 CI server 不是那麼容易。
 
 前五天最大的目的就是要讓整合的過程盡可能自動化，這樣我們才能讓 [legacy code 接 CI server][為 Legacy Code 接 CI Server] 變得比較容易一點。
 
 ---
 
-因程式碼是放在 GitHub Public Repo ，因此決定選擇 [Travis CI](https://travis-ci.org/) 。
+因程式碼是放在 GitHub Public Repo，因此決定選擇 [Travis CI](https://travis-ci.org/)。
 
-簡單的串接方法可以參考「[開源專案的好選擇 －－ Travis CI][]」，本文章就不多介紹，直接給 `.travis.yml` ：
+簡單的串接方法可以參考「[開源專案的好選擇 －－ Travis CI][]」，本文章就不多介紹，直接給 `.travis.yml`：
 
 ```yaml
 sudo: false
@@ -54,7 +54,7 @@ cache:
   - vendor
 ```
 
-順帶一提， Laravel 專案大概都可以用這樣的 template 作為串 Travis CI 的開始。
+順帶一提，Laravel 專案大概都可以用這樣的 template 作為串 Travis CI 的開始。
 
 但 CI 這樣會回報錯誤，原因是因為下面這行出錯了：
 
@@ -62,12 +62,12 @@ cache:
 $ php vendor/bin/phpunit
 ```
 
-拿到本機跑也是會出錯，而這也是我們做 CI 所期望的－－CI 錯， Local 就要有一樣的錯，反之亦然。
+拿到本機跑也是會出錯，而這也是我們做 CI 所期望的－－CI 錯，Local 就要有一樣的錯，反之亦然。
 
 它的錯誤大致上是因為 `config.php` 有三個不能在 PHPUnit 跑的問題：
 
 1.  `session_start()` 不能在輸出後才執行，不過事實上 CLI 跑 session 總是很多問題，拿掉還是比較簡單的選擇
-2.  `$_SERVER` 最好不要使用，不過程式並沒有使用到 `ROOT_URL` ，所以直接移除吧
+2.  `$_SERVER` 最好不要使用，不過程式並沒有使用到 `ROOT_URL`，所以直接移除吧
 3.  `define()` 被重覆定義一樣的常數，因為 PHPUnit 會重覆載入 `config.php` 導致有這樣的問題。使用 `defined` 即可順利解決：
     ```php
 	defined('DB_TYPE') or define('DB_TYPE', 'mysql');
@@ -92,9 +92,9 @@ Route::get('/', function () {
 
 ### 調整設定檔
 
-現在可以比較放心的改程式了，因為 CI 會把關一部分的功能。首先設定檔有個問題是， Laravel 吃的資料庫連線設定與 config.php 的設定是不一致的，這容易發生一邊改，另一邊忘了改的問題。因此我們必須要重構調整設計。
+現在可以比較放心的改程式了，因為 CI 會把關一部分的功能。首先設定檔有個問題是，Laravel 吃的資料庫連線設定與 config.php 的設定是不一致的，這容易發生一邊改，另一邊忘了改的問題。因此我們必須要重構調整設計。
 
-首先 `DB_TYPE` 是多餘的，因此我們可以把它刪掉。再來，進到 config.php 時，已經可以使用 `config()` ，所以我們可以這樣取得 MySQL 的連線資訊：
+首先 `DB_TYPE` 是多餘的，因此我們可以把它刪掉。再來，進到 config.php 時，已經可以使用 `config()`，所以我們可以這樣取得 MySQL 的連線資訊：
 
 ```php
 defined('DB_CHARSET') or define('DB_CHARSET', config('database.connections.mysql.charset'));
@@ -125,7 +125,7 @@ OK (4 tests, 4 assertions)
 define('DEBUG_MODE', env('APP_DEBUG'));
 ```
 
-改完一樣測試、 commit 、 push 。
+改完一樣測試、commit、push。
 
 ### 重構的 SOP
 

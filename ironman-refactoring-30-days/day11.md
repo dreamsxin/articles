@@ -10,7 +10,7 @@
 * 高層模組不應該依賴底層模組，它們都應該依賴抽象。
 * 抽象不應該依賴細節。細節應該依賴抽象。
 
-會稱之為依賴反轉，是因為我們習慣上是由高層模組直接依賴底層模組，比方說：某某血汗企業的慣老闆（Boss）不會寫 code ，所以他需要依賴一群工程師（Engineer）幫助寫程式實作需求，這個關係實作如下：
+會稱之為依賴反轉，是因為我們習慣上是由高層模組直接依賴底層模組，比方說：某某血汗企業的慣老闆（Boss）不會寫 code，所以他需要依賴一群工程師（Engineer）幫助寫程式實作需求，這個關係實作如下：
 
 ```php
 <?php
@@ -163,7 +163,7 @@ class Engineer extends Employee
 
     public function pay($properSalary)
     {
-        print "{$this->name} 感謝老闆的薪資 {$properSalary} ，未來繼續一起努力！\n";        
+        print "{$this->name} 感謝老闆的薪資 {$properSalary}，未來繼續一起努力！\n";        
     }
 
     public function workHard($demand)
@@ -181,7 +181,7 @@ class Designer extends Employee
 
     public function pay($properSalary)
     {
-        print "{$this->name} 感謝老闆的薪資 {$properSalary} ，未來繼續一起努力！\n";
+        print "{$this->name} 感謝老闆的薪資 {$properSalary}，未來繼續一起努力！\n";
     }
 
     public function workHard($demand)
@@ -264,10 +264,10 @@ Miles 休息中，請稍候 ...
 阿狗 努力實作需求 登入留言功能，要能商品下留言 ...
 阿狗 努力實作需求 這個需求不知道難不難，要麻煩你做了 ...
 Miles 努力實作需求 需求目前是這樣，文件不夠請跟我說 ...
-Miles 感謝老闆的薪資 220000 ，未來繼續一起努力！
-阿貓 感謝老闆的薪資 220000 ，未來繼續一起努力！
-阿狗 感謝老闆的薪資 220000 ，未來繼續一起努力！
-美美 感謝老闆的薪資 220000 ，未來繼續一起努力！
+Miles 感謝老闆的薪資 220000，未來繼續一起努力！
+阿貓 感謝老闆的薪資 220000，未來繼續一起努力！
+阿狗 感謝老闆的薪資 220000，未來繼續一起努力！
+美美 感謝老闆的薪資 220000，未來繼續一起努力！
 ```
 
 程式的依賴關係如下：
@@ -302,7 +302,7 @@ class Tester extends Employee
 
     public function pay($properSalary)
     {
-        print "{$this->name} 感謝老闆的薪資 {$properSalary} ，未來繼續一起努力！\n";        
+        print "{$this->name} 感謝老闆的薪資 {$properSalary}，未來繼續一起努力！\n";        
     }
 
     public function workHard($demand)
@@ -319,9 +319,9 @@ $boss->recruit(new Tester('測測'));
 
 原本慣老闆直接依賴工程師（依賴細節），所以只有工程師才能幫他；改變想法之後，變成依賴肯拿肯做的員工（依賴抽象），不管是設計師或是測試，只要肯拿肯做（細節依賴抽象），都能加入老闆的團隊。
 
-軟體上的應用像是：原本 PHP 要操作 MySQL ，需要呼叫 `mysql_*` 系列的 function ，但在換底層模組時，比方說要換資料庫，就得把所有相關的 function 全換掉，非常痛苦。使用 PDO 則是呼叫它提供的抽象方法如 `exec()` ，不同的資料庫都一樣用 `exec()` 方法來執行 SQL 語法，轉換資料庫只要轉換背後所接的 Driver 即可，簡單非常多。
+軟體上的應用像是：原本 PHP 要操作 MySQL，需要呼叫 `mysql_*` 系列的 function，但在換底層模組時，比方說要換資料庫，就得把所有相關的 function 全換掉，非常痛苦。使用 PDO 則是呼叫它提供的抽象方法如 `exec()`，不同的資料庫都一樣用 `exec()` 方法來執行 SQL 語法，轉換資料庫只要轉換背後所接的 Driver 即可，簡單非常多。
 
-> Teddy ：「避免上層模組因為底層模組改變而被迫改變」－－ [SOLID：五則皆變][]
+> Teddy：「避免上層模組因為底層模組改變而被迫改變」－－ [SOLID：五則皆變][]
 
 這就是依賴反轉原則。
 

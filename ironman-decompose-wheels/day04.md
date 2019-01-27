@@ -2,7 +2,7 @@
 
 [昨天][Day 3]了解 Carbon 套件是利用繼承來擴充物件的行為，我們今天一起來看看它是怎麼設計的。
 
-首先原始碼註解很明確的分很多實作區塊，如 [GETTERS AND SETTERS](https://github.com/briannesbitt/Carbon/blob/1.22.1/src/Carbon/Carbon.php#L640-L642) ，接下來會以這些區塊來說明它擴充的方法。
+首先原始碼註解很明確的分很多實作區塊，如 [GETTERS AND SETTERS](https://github.com/briannesbitt/Carbon/blob/1.22.1/src/Carbon/Carbon.php#L640-L642)，接下來會以這些區塊來說明它擴充的方法。
 
 ## CONSTRUCTORS
 
@@ -25,7 +25,7 @@
 
 這個方法會先判斷是不是自己（`Carbon`）的實例，再決定要如何做事。
 
-如果是的話會使用 `clone` ，不過事實上改成使用 `copy()` 這樣也是可行的：
+如果是的話會使用 `clone`，不過事實上改成使用 `copy()` 這樣也是可行的：
 
 ```php
 if ($dt instanceof static) {
@@ -50,7 +50,7 @@ echo (new Carbon($time))->addDay();
 
 ### `today()` `tomorrow()` `yesterday()`
 
-`today()` 是先取得 `now()` 的物件後，再設定時間為 `00:00:00` ；`tomorrow()` 和 `yesterday()` 則是先取得 `today()` 物件後再加或減一天。
+`today()` 是先取得 `now()` 的物件後，再設定時間為 `00:00:00`；`tomorrow()` 和 `yesterday()` 則是先取得 `today()` 物件後再加或減一天。
 
 從這裡的原始碼，會發現物件提供許多語意化的方法，會很容易了解並重用物件所提供的行為。
 
@@ -68,16 +68,16 @@ echo PHP_INT_MIN . ' ~ ' . PHP_INT_MAX;
 
 ### `create()` `createFromDate()` `createFromTime()`
 
-> 注意： create() 也會受到 *$testNow* 的影響。
+> 注意：create() 也會受到 *$testNow* 的影響。
 
-Carbon 對 `create()` 的設計是，各別的年月日值，如果有給 `null` ，它就會各別設計當下的年月日。
+Carbon 對 `create()` 的設計是，各別的年月日值，如果有給 `null`，它就會各別設計當下的年月日。
 
 ```php
 echo Carbon::now();                     // 2017-12-23 18:55:36
 echo Carbon::create(2018, null, 31);    // 2018-12-31 18:55:36
 ```
 
-但時間比較特別，如果「時」給了 `null` ，分秒會跟年月日情況一樣；如果「時」不是給 `null` ，分秒的預設值則會變 `0` ： 
+但時間比較特別，如果「時」給了 `null`，分秒會跟年月日情況一樣；如果「時」不是給 `null`，分秒的預設值則會變 `0`：
 
 ```php
 echo Carbon::now();                           // 2017-12-23 18:58:38
@@ -85,9 +85,9 @@ echo Carbon::create(2018, null, 31, null);    // 2018-12-31 18:58:38
 echo Carbon::create(2018, null, 31, 12);      // 2018-12-31 12:00:00
 ```
 
-因為時間與日期的特性不同：時間的預設值可以給 `0` ，但日期不行。這樣設計的話， `createFromDate()` 與 `createFromTime()` 就能重用這個方法了。 
+因為時間與日期的特性不同：時間的預設值可以給 `0`，但日期不行。這樣設計的話，`createFromDate()` 與 `createFromTime()` 就能重用這個方法了。
 
-雖然這樣設計的話， `create()` 方法會有例外行為，使用起來可能不是那麼方便。但是當使用者看到這三個方法與它們的參數時，自然會預期使用方法如下：
+雖然這樣設計的話，`create()` 方法會有例外行為，使用起來可能不是那麼方便。但是當使用者看到這三個方法與它們的參數時，自然會預期使用方法如下：
 
 ```php
 echo Carbon::now();                              // 2017-12-23 18:58:38
@@ -98,7 +98,7 @@ echo Carbon::createFromDate(null, null, 31);     // 2017-12-31 18:58:38
 echo Carbon::create(2017, 12, 31, 23, 59, 50);   // 2017-12-31 23:59:50
 ```
 
-簡單來說當想省略一些參數時，自然不會選擇 `create()` ；使用 `createFromDate()` ， `null` 很明顯預設會是當下的日期；在使用 `createFromTime()` 的情境下，通常很少人給「時」，但分秒要當下的分秒。 
+簡單來說當想省略一些參數時，自然不會選擇 `create()`；使用 `createFromDate()`，`null` 很明顯預設會是當下的日期；在使用 `createFromTime()` 的情境下，通常很少人給「時」，但分秒要當下的分秒。
 
 ### `createFromFormat()`
 
@@ -110,7 +110,7 @@ echo Carbon::create(2017, 12, 31, 23, 59, 50);   // 2017-12-31 23:59:50
 
 ## GETTERS AND SETTERS
 
-這裡有許多取值與設值的方法，還有 Magic Method 。但有趣的是， Carbon 並沒有宣告自己的屬性，只有使用繼承的設定方法而已。這樣的設計可以減少狀態處理上的問題，但同時就會有效能上的問題。
+這裡有許多取值與設值的方法，還有 Magic Method。但有趣的是，Carbon 並沒有宣告自己的屬性，只有使用繼承的設定方法而已。這樣的設計可以減少狀態處理上的問題，但同時就會有效能上的問題。
 
 ### `year()` `month()` ...
 
@@ -146,7 +146,7 @@ echo $date->month    // 1
 
 ### `setDate()` `setDateTime()` `setTimeFromTimeString()`
 
-`setDate()` [昨天][Day 3]有提過。 `setDateTime()` 與 `setTimeFromTimeString()` 則是擴充 DataTime 原本的 `setDate()` 與 `setTime()` 行為。
+`setDate()` [昨天][Day 3]有提過。`setDateTime()` 與 `setTimeFromTimeString()` 則是擴充 DataTime 原本的 `setDate()` 與 `setTime()` 行為。
 
 ### `timezone()` `tz()`
 
@@ -164,7 +164,7 @@ echo $date->month    // 1
 
 ## LOCALIZATION
 
-這裡可以設定全域的語系，語系的翻譯套件是使用 [`symfony/translation`](http://symfony.com/doc/current/translation.html) 。 
+這裡可以設定全域的語系，語系的翻譯套件是使用 [`symfony/translation`](http://symfony.com/doc/current/translation.html)。
 
 ## STRING FORMATTING
 

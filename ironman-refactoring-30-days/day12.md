@@ -92,7 +92,7 @@ Legacy code + Manager code 程式建置完畢
 Legacy code + Manager code + Engineer code 程式建置完畢
 ```
 
-雖然看似能解決問題，但這樣其實已經違反[單一職責原則][Day 7]了，因為 `Code` 只要內容物有變化，比方說 `content` 改成 `source` ，這樣會同時影響到 `Manager` 與 `Engineer` 的實作。
+雖然看似能解決問題，但這樣其實已經違反[單一職責原則][Day 7]了，因為 `Code` 只要內容物有變化，比方說 `content` 改成 `source`，這樣會同時影響到 `Manager` 與 `Engineer` 的實作。
 
 為什麼會這樣呢？因為主管和工程師對於程式碼的可控權限都太高了，造成程式碼的行為變化會同時影響大家操作方法。相信大家也有這樣的經驗，改流程、改框架、改佈署、改測試、改寫法等等，都會對其他人造成不小的困擾。
 
@@ -162,7 +162,7 @@ Legacy code + Manager code + Engineer code 程式建置完畢
 
 但重構後，我們會發現對 `content` 的細部處理改在 `Code` 裡面解決，其他人則使用 `Code` 提供的方法來達成任務。這樣的結果是讓 `Code` 的內聚性提高，程式碼就會越穩定。
 
-今天不管是誰，只要會寫 code ，會使用 `Code` 提供的 `build()` 方法，就能參與開發。
+今天不管是誰，只要會寫 code，會使用 `Code` 提供的 `build()` 方法，就能參與開發。
 
 > 這就有點像把 [Makefile][] 使用在團隊規範一樣。
 

@@ -4,7 +4,7 @@
 
 ## 分析
 
-昨天有提到會使用 `go-yaml` 解析 YAML 資料，資料格式參考 [Faker](https://github.com/fzaninotto/Faker/blob/v1.7.1/src/Faker/Provider/zh_TW/Person.php) ，大概會長像下面這樣：
+昨天有提到會使用 `go-yaml` 解析 YAML 資料，資料格式參考 [Faker](https://github.com/fzaninotto/Faker/blob/v1.7.1/src/Faker/Provider/zh_TW/Person.php)，大概會長像下面這樣：
 
 ```yaml
 lastNames:
@@ -71,7 +71,7 @@ func ParseFile(file string) (res NamesResource, err error) {
 }
 ```
 
-其中需注意的是， go-yaml 預設會先把 field 轉全小寫，再去 YAML 的資料裡面找。而 LastNames field 預設會找 `lastnames` 的欄位，然後就找不到，這時會需要用 `yaml:"lastNames"` 指定要找的欄位。
+其中需注意的是，go-yaml 預設會先把 field 轉全小寫，再去 YAML 的資料裡面找。而 LastNames field 預設會找 `lastnames` 的欄位，然後就找不到，這時會需要用 `yaml:"lastNames"` 指定要找的欄位。
 
 其他兩個 Command 開頭先執行吧！之後有空再來想想該怎麼重構：
 
@@ -95,7 +95,7 @@ func (generator *Generator) Name() string {
 }
 ```
 
-這裡是用 `generator.rand` 取得亂數，再去口袋名單裡面取。但現在口袋名單變成了 `NameResource` ，最簡單的做法就是在 Generator 加一個 Resource field ：
+這裡是用 `generator.rand` 取得亂數，再去口袋名單裡面取。但現在口袋名單變成了 `NameResource`，最簡單的做法就是在 Generator 加一個 Resource field：
 
 ```go
 type Generator struct {

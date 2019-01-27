@@ -4,7 +4,7 @@
 
 PHP 的世界裡，有 *[PHP-FIG][]* （PHP Framework Interoperability Group）提出了一些建議的標準 PSR （PHP Standards Recommendations），其中有一項 PSR-2 正是在規定程式碼風格的，也有蠻多套件是遵守這個規範開發，如 *[The League of Extraordinary Packages][]* 出的套件。
 
-PSR-2 大部分都是定義排版，有很多套件支援自動排版，如 *[PHP_CodeSniffer][]* 。以下將使用 PHP_CodeSniffer 來當作範例。
+PSR-2 大部分都是定義排版，有很多套件支援自動排版，如 *[PHP_CodeSniffer][]*。以下將使用 PHP_CodeSniffer 來當作範例。
 
 ## 安裝與設定
 
@@ -96,11 +96,11 @@ if (!isset($_GET['act'])) {
 
 還是會有很多規範是無法自動修正的，如變數與方法的命名規範，這需要靠人工調整。
 
-人工調整跟自動調整一樣：調整完，跑 `phpcs` ，跑測試，不斷的循環，直到 `phpcs` 沒有發生錯誤。
+人工調整跟自動調整一樣：調整完，跑 `phpcs`，跑測試，不斷的循環，直到 `phpcs` 沒有發生錯誤。
 
 > 人工調整其實也可以做任何事，像筆者有調成短 array 表示法 `[]`
 
-記得 `phpcs` 也要加到 `.travis.yml` ：
+記得 `phpcs` 也要加到 `.travis.yml`：
 
 ```yaml
 script:
@@ -118,7 +118,7 @@ script:
 </rule>
 ```
 
-現在調整完後， Travis CI 應該會是正確的。接下來我們就能調整更多東西，如有些 return 是多餘的，或是單引號和雙引號的互轉等等。只要有任何錯誤， Travis CI 都會忠實的回報讓我們知道，太方便了。
+現在調整完後，Travis CI 應該會是正確的。接下來我們就能調整更多東西，如有些 return 是多餘的，或是單引號和雙引號的互轉等等。只要有任何錯誤，Travis CI 都會忠實的回報讓我們知道，太方便了。
 
 程式碼可以參考 [GitHub PR](https://github.com/MilesChou/book-refactoring-30-days/pull/11)
 

@@ -149,7 +149,7 @@ public function shouldUse($name)
 
 昨天有提到 middleware 可以傳入多個 guard 驗證。因驗證 user 這件事，對 PHP 的生命週期來說，會是全域唯一的設定；這個方法則是用來設定目前全域唯一要用哪一個 guard。
 
-接著，有登入，也要有登出。來看一下如何登出。 
+接著，有登入，也要有登出。來看一下如何登出。
 
 剛剛有看到有一個屬性 `loggedOut` 是在代表是否執行過登出的 flag。反查了一下，找到 `logout()` 方法正是在設定這個屬性為 true：
 

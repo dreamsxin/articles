@@ -1,12 +1,12 @@
 # Parse JSON
 
-昨天把網頁載好，不過裡面的資料似乎很難處理。後來有找到另一個 API ：
+昨天把網頁載好，不過裡面的資料似乎很難處理。後來有找到另一個 API：
 
 ```
 https://www.moedict.tw/a/字.json
 ```
 
-它會回傳 JSON 格式的字串，解析簡單很多。而 [YAML][Day 20] 套件也能解析 JSON ，直接上吧！
+它會回傳 JSON 格式的字串，解析簡單很多。而 [YAML][Day 20] 套件也能解析 JSON，直接上吧！
 
 ## 開工
 
@@ -18,7 +18,7 @@ const (
 )
 ```
 
-呼叫改使用 `fmt.Sprintf()` ：
+呼叫改使用 `fmt.Sprintf()`：
 
 ```go
 req := goreq.Request{
