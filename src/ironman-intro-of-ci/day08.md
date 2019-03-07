@@ -21,7 +21,7 @@ $ curl -sS https://getcomposer.org/installer | php
 $ chmod +x composer.phar
 ```
 
-這兩個指令會產生可執行的 `composer.phar`，然後可以直接執行。想要用全域的方式執行需要再下這個指令：（以下會以全域的方式當範例） 
+這兩個指令會產生可執行的 `composer.phar`，然後可以直接執行。想要用全域的方式執行需要再下這個指令：（以下會以全域的方式當範例）
 
 ```
 $ sudo mv composer.phar /usr/local/bin/composer

@@ -1,4 +1,4 @@
-# 功能強大的 －－ GitLab CI
+# 功能強大的－－GitLab CI
 
 [GitLab][] 本身功能非常豐富，加上它又是開源可以自行架設的，通常會是企業選擇版控的首選。後來又追加 [GitLab CI][] 與 [Pipeline][GitLab Pipeline] 功能，讓它的戰場跨越到 CI，並成為一個企業內部管理開發流程的好選擇。
 

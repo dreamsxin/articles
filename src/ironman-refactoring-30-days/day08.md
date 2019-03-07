@@ -107,7 +107,7 @@ $dataResource = new DataResource();
 $data = $dataResource->getData();
 ```
 
-如果還記得[單一職責原則][Day 7]的話，會發現它有濃濃的[壞味道][Day 4]－－ XML 處理是一種職責、JSON 處理應該是另一種職責。
+如果還記得[單一職責原則][Day 7]的話，會發現它有濃濃的[壞味道][Day 4]－－XML 處理是一種職責、JSON 處理應該是另一種職責。
 
 因為它們都是在解析 `$content` 因此我們可以抽出一個抽象方法 `parse`：
 

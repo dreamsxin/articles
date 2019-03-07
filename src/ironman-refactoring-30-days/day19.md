@@ -10,7 +10,7 @@ CI 的原文是 *Continuous Integration*，也就是要「常常做整合」。�
 
 因程式碼是放在 GitHub Public Repo，因此決定選擇 [Travis CI](https://travis-ci.org/)。
 
-簡單的串接方法可以參考「[開源專案的好選擇 －－ Travis CI][]」，本文章就不多介紹，直接給 `.travis.yml`：
+簡單的串接方法可以參考「[開源專案的好選擇－－Travis CI][]」，本文章就不多介紹，直接給 `.travis.yml`：
 
 ```yaml
 sudo: false
@@ -146,7 +146,7 @@ define('DEBUG_MODE', env('APP_DEBUG'));
 ## 參考資料
 
 * [CI 工具大亂鬥][]
-* [開源專案的好選擇 －－ Travis CI][]
+* [開源專案的好選擇－－Travis CI][]
 * [為 Legacy Code 接 CI Server][]
 
 * * *
@@ -154,5 +154,5 @@ Go to next:
 [day20](day20.md)
 
 [CI 工具大亂鬥]: /src/ironman-intro-of-ci/day22.md
-[開源專案的好選擇 －－ Travis CI]: /src/ironman-intro-of-ci/day24.md
+[開源專案的好選擇－－Travis CI]: /src/ironman-intro-of-ci/day24.md
 [為 Legacy Code 接 CI Server]: /src/ironman-intro-of-ci/day28.md

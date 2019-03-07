@@ -85,7 +85,7 @@ Workspace 裡，劃分成三個主要目錄：
 * `pkg` - go package
 * `bin` - 編譯好的執行檔，有需要也可以加入 `PATH` 環境變數
 
-接著可以使用 go 的第一個指令－－ `go get`，它會把目標下載回來放在 src 裡，如：
+接著可以使用 go 的第一個指令－－`go get`，它會把目標下載回來放在 src 裡，如：
 
     go get github.com/MilesChou/book-start-golang-30-days
 

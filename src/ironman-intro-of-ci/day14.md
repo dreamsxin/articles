@@ -103,7 +103,7 @@ config.vm.network "private_network", ip: "10.10.10.10"
 config.vm.network "forwarded_port", guest: 80, host: 8080
 ```
 
-偶爾還是會有需求讓其他人能連線進來，這時就可以開 `forwarded_port`，上面的設定代表連 Host 8080 port 會轉到 Guest 的 80 port。因此假設虛擬機裝好 Apache （預設 80 port ），其他人連主機的 8080 就會看到 Apache 的預設首頁。
+偶爾還是會有需求讓其他人能連線進來，這時就可以開 `forwarded_port`，上面的設定代表連 Host 8080 port 會轉到 Guest 的 80 port。因此假設虛擬機裝好 Apache（預設 80 port），其他人連主機的 8080 就會看到 Apache 的預設首頁。
 
 ```
 config.vm.provision "shell", path: "install.sh"

@@ -2,7 +2,7 @@
 
 雖然程式碼風格跟設計沒有關係，但是程式碼風格不一致，對理解程式是一個很大的阻礙。調整程式碼風格，是不會影響功能的，因此很適合拿來當重構的暖身。
 
-PHP 的世界裡，有 *[PHP-FIG][]* （PHP Framework Interoperability Group）提出了一些建議的標準 PSR （PHP Standards Recommendations），其中有一項 PSR-2 正是在規定程式碼風格的，也有蠻多套件是遵守這個規範開發，如 *[The League of Extraordinary Packages][]* 出的套件。
+PHP 的世界裡，有 *[PHP-FIG][]*（PHP Framework Interoperability Group）提出了一些建議的標準 PSR（PHP Standards Recommendations），其中有一項 PSR-2 正是在規定程式碼風格的，也有蠻多套件是遵守這個規範開發，如 *[The League of Extraordinary Packages][]* 出的套件。
 
 PSR-2 大部分都是定義排版，有很多套件支援自動排版，如 *[PHP_CodeSniffer][]*。以下將使用 PHP_CodeSniffer 來當作範例。
 

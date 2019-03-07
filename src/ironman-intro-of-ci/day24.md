@@ -1,4 +1,4 @@
-# 開源專案的好選擇 －－ Travis CI 
+# 開源專案的好選擇－－Travis CI 
 
 Travis CI 有分 .org 的[免費版][travis-ci.org]跟 .com 的[企業版][travis-ci.com]。
 

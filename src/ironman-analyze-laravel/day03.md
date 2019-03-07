@@ -88,9 +88,9 @@ Illuminate\Container\Container *-- Illuminate\Container\ContextualBindingBuilder
 
 從類別圖可以了解：
 
-* 核心角色為 `Illuminate\Container\Container` （下稱 `Container`）
-* `Illuminate\Container\BoundMethod` （下稱 `BoundMethod`）為類似 helper 的輔助角色
-* `Illuminate\Container\ContextualBindingBuilder` （下稱 `ContextualBindingBuilder`）也是輔助角色，協助產生 container 的設定。
+* 核心角色為 `Illuminate\Container\Container`（下稱 `Container`）
+* `Illuminate\Container\BoundMethod`（下稱 `BoundMethod`）為類似 helper 的輔助角色
+* `Illuminate\Container\ContextualBindingBuilder`（下稱 `ContextualBindingBuilder`）也是輔助角色，協助產生 container 的設定。
 
 ## `singleton()` 做了什麼事
 
@@ -240,8 +240,8 @@ protected function resolve($abstract, $parameters = [])
 
 * `make()` or `build()`
 * Registry singleton pattern
-* Extenders （或 decorator pattern）
-* Fire callback （或 observer pattern）
+* Extenders（或 decorator pattern）
+* Fire callback（或 observer pattern）
 
 後面三個有設計模式可以參考，都很好理解它們的目的甚至實作；建置如果使用 `make()` 的話，就會發生遞迴呼叫（recursive call），因此要先了解 [`isBuildable()`](https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Container/Container.php#L745-L748) 實作，先知道什麼情況會發生遞迴呼叫，什麼情況會終止。
 

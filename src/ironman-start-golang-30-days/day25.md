@@ -90,7 +90,7 @@ PATH=$PATH:$GOPATH/bin
 
 ### 撰寫 Dapper
 
-Dapper 的用法可以參考[官網][Dapper]或是[教學文章][自己來的好選擇 －－ Dapper]，這邊就不贅述了。
+Dapper 的用法可以參考[官網][Dapper]或是[教學文章][自己來的好選擇－－Dapper]，這邊就不贅述了。
 
 寫完內容如下：
 
@@ -146,7 +146,7 @@ Namer version 0.0.0
 ## 參考資料
 
 * [Dapper][]
-* [自己來的好選擇 －－ Dapper][] | CI 從入門到入坑
+* [自己來的好選擇－－Dapper][] | CI 從入門到入坑
 
 [Dapper]: https://github.com/rancher/dapper
-[自己來的好選擇 －－ Dapper]: https://ithelp.ithome.com.tw/articles/10187177
+[自己來的好選擇－－Dapper]: https://ithelp.ithome.com.tw/articles/10187177

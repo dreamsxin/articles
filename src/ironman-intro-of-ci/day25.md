@@ -1,4 +1,4 @@
-# 不公開專案的好選擇 －－ Circle CI
+# 不公開專案的好選擇－－Circle CI
 
 跟 [Travis CI][Day 24] 最大不同的是，[Circle CI][] 除了內建 [GitHub][] 整合外，也能整合 [Bitbucket][]。另外 build 的能見度，會看版控的能見度來決定。換句話說，只要是私有的 repository，其他路人就無法看到 build 的結果，這會是一般企業所想要的功能。
 

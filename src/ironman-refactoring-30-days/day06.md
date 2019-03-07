@@ -16,7 +16,7 @@
 
 ## 原始碼行數（Line of Code）
 
-這應該是最好懂的指標，它會把註解去除後，計算所有程式碼的行數。也有其他衍生的指標如 LLOC （Logical lines of code）、CLOC （Comment lines of code）、Volume 等等。
+這應該是最好懂的指標，它會把註解去除後，計算所有程式碼的行數。也有其他衍生的指標如 LLOC（Logical lines of code）、CLOC（Comment lines of code）、Volume 等等。
 
 程式碼行數越多，閱讀理論上會花比較多時間，但不是絕對，比方說下面這段程式碼 LOC 是 2：
 
@@ -46,7 +46,7 @@ echo 'world';
 
 另外，循環複雜度也跟 coverage 有關係。如果想達到 100%，理論上就必須寫出循環複雜度 + 1 個 test case。
 
-## 程式碼覆蓋率 （Code Coverage）
+## 程式碼覆蓋率（Code Coverage）
 
 它代表著單元測試曾經走過哪些路或走過哪幾個路徑。通常會用 C1 與 C2 來表示，C1 是行數的覆蓋率，C2 則是路徑的覆蓋率。
 

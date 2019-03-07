@@ -148,7 +148,7 @@ $this->app->when([VideoController::class, UploadController::class])
 return new ContextualBindingBuilder($this, $this->getAlias($concrete));
 ```
 
-只回傳 [ContextualBindingBuilder][] 實例，建構子和 `needs()` 單純只是把傳入值保存下來，就不提了。[`given()`](https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Container/ContextualBindingBuilder.php#L62-L67) 則會呼叫 Container 真的在處理 Contextual Binding 的方法－－ `addContextualBinding()`：
+只回傳 [ContextualBindingBuilder][] 實例，建構子和 `needs()` 單純只是把傳入值保存下來，就不提了。[`given()`](https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Container/ContextualBindingBuilder.php#L62-L67) 則會呼叫 Container 真的在處理 Contextual Binding 的方法－－`addContextualBinding()`：
 
 ```php
 public function give($implementation)

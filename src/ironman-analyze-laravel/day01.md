@@ -29,7 +29,7 @@
 
 它也有許多相關原始碼如 [Laravel Echo][] 或是 [Laravel Nova][] 等。因此第一天，要先來定義未來三十天要討論的原始碼是什麼。
 
-預計主要會討論的將會是 Laravel 核心－－ [Laravel Framework][laravel/framework]，另外還有大家第一次用 Laravel 會使用的安裝工具 [`laravel/installer`][laravel/installer] 會下載的原始碼－－ [`laravel/laravel`][laravel/laravel]；另外在討論 Laravel Framework 時，也會配合 subtree 切分出來 [`illuminate`][illuminate] 裡的獨立元件做說明。
+預計主要會討論的將會是 Laravel 核心－－[Laravel Framework][laravel/framework]，另外還有大家第一次用 Laravel 會使用的安裝工具 [`laravel/installer`][laravel/installer] 會下載的原始碼－－[`laravel/laravel`][laravel/laravel]；另外在討論 Laravel Framework 時，也會配合 subtree 切分出來 [`illuminate`][illuminate] 裡的獨立元件做說明。
 
 採用的版本如下：
  

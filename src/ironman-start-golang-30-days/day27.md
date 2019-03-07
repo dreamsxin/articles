@@ -104,7 +104,7 @@ func serve(c *cli.Context) error {
 
 同樣的重構方法也可以用在 `QueryCommand`，後面就不贅述了。
 
-> 另外兩個 Command：`ServeCommand` 目前不知道該怎麼拆出來好（因為裡面也有用到 Facade ）；`StatusCommand` 則是因為太簡單，所以沒拆出來的必要。
+> 另外兩個 Command：`ServeCommand` 目前不知道該怎麼拆出來好（因為裡面也有用到 Facade）；`StatusCommand` 則是因為太簡單，所以沒拆出來的必要。
 
 ### 效能改善
 

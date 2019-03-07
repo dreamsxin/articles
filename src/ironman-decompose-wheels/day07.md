@@ -8,7 +8,7 @@ Faker 套件使用方法非常單純－－使用工廠（`Factory`）建構產�
 
 ## 負責生產線的 Factory
 
-[`Factory`](https://github.com/fzaninotto/Faker/blob/v1.7.1/src/Faker/Factory.php) 是標準的 *Simple Factory Pattern* 實作，它使用靜態方法 `create()` 取得固定一種類型的物件－－ `Generator`。類別圖如下：
+[`Factory`](https://github.com/fzaninotto/Faker/blob/v1.7.1/src/Faker/Factory.php) 是標準的 *Simple Factory Pattern* 實作，它使用靜態方法 `create()` 取得固定一種類型的物件－－`Generator`。類別圖如下：
 
 ![](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuNBEIImkLd3EoKpDAu5ot1AJI_ABAg4yzzIyrA94e00NH962hYwI2gY87KAPWfL2QN4g5rI90ffKSb5gOaagbqDgNWhGTW00)
 
@@ -92,7 +92,7 @@ public function getFormatter($formatter)
 }
 ```
 
-首先最開頭的 if 實作方法，有點類似 [*Registry of Singleton Pattern*]() －－手邊有一系列的物件，但想確保每個物件都是單例。
+首先最開頭的 if 實作方法，有點類似 [*Registry of Singleton Pattern*]()－－手邊有一系列的物件，但想確保每個物件都是單例。
 
 ```php
 if (isset($this->formatters[$formatter])) {
@@ -114,7 +114,7 @@ foreach ($this->providers as $provider) {
 
 像剛剛的 `name` 屬性或方法，實際呼叫會找到 [`Provider\Person`](https://github.com/fzaninotto/Faker/blob/v1.7.1/src/Faker/Provider/Person.php#L47) 的 `name` 方法。接下來會把 callback 設定單例，之後 `Client` 就能經由 `Generator` 直接轉接到 `Provider\Person` 裡的同名函式了。
 
-這是標準 *Facade Pattern* －－所有對 Provider 操作的行為，都隱藏在 Generator 的 [`getFormatter()`](https://github.com/fzaninotto/Faker/blob/v1.7.1/src/Faker/Generator.php#L230-L243) 裡面。
+這是標準 *Facade Pattern*－－所有對 Provider 操作的行為，都隱藏在 Generator 的 [`getFormatter()`](https://github.com/fzaninotto/Faker/blob/v1.7.1/src/Faker/Generator.php#L230-L243) 裡面。
 
 而最後如果都找不到的話，就會丟例外：
 

@@ -22,7 +22,7 @@
 
 重構一詞，如同 DevOps 或 Agile，大家對它的認知都有點不大一樣，有的人認為是砍掉重練、也有人說是效能優化。
 
-一位知名的軟體工程大師－－ [Martin Fowler][]，它寫了一本書：[Refactoring - Improving the Design of Existing Code][] （中譯「[重構：改善即有程式的設計][]」）
+一位知名的軟體工程大師－－[Martin Fowler][]，它寫了一本書：[Refactoring - Improving the Design of Existing Code][]（中譯「[重構：改善即有程式的設計][]」）
 
 ![](https://martinfowler.com/books/refactoringBook.jpg)
 

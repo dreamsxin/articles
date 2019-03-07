@@ -1,4 +1,4 @@
-# 管理貨櫃的碼頭工人－－ Docker （ 3/3 ）
+# 管理貨櫃的碼頭工人－－Docker（3/3）
 
 Docker 讓建置服務變得非常簡單，但相對馬上會面臨另一個困難－－如何管理？
 
@@ -98,7 +98,7 @@ Docker Compose 其他常用的指令如下：
 
 ### `docker-compose build`
 
-每個服務（指的是上例的 `web` 與 `mysql` ）下面一定要有定義 `image` 或是 `build`，`image` 表示要拉別人上傳好的，`build` 表示要自己來。這個指令可以直接執行全部有 build 元素的服務。
+每個服務（指的是上例的 `web` 與 `mysql`）下面一定要有定義 `image` 或是 `build`，`image` 表示要拉別人上傳好的，`build` 表示要自己來。這個指令可以直接執行全部有 build 元素的服務。
 
 ### `docker-compose pull`
 

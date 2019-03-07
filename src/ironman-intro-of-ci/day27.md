@@ -1,4 +1,4 @@
-# 多樣服務整合 －－ Pipelines
+# 多樣服務整合－－Pipelines
 
 [Pipelines][] 是 [Bitbucket][] 提供的線上 CI 服務。至於為何說是「多樣的服務整合」，因為 Bitbucket 出自於 [Atlassian][] 家，他們還有出許多常見的企業解決方案如 [JIRA][]、[HipChat][] 等。除此之外，它還支援了 [Mercurial][]，當團隊如果使用 Mercurial 的話，也是個不錯的選擇。
 

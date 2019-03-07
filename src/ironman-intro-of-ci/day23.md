@@ -1,4 +1,4 @@
-# 自己來的好選擇 －－ Dapper
+# 自己來的好選擇－－Dapper
 
 [Dapper][] 是 [Rancher Labs, Inc.][Rancher Labs] 的一個開源工具，它的簡介也非常的簡單好了解：
 

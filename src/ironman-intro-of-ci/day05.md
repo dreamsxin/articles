@@ -92,7 +92,7 @@ var_dump($val);
 
 ## 參考書籍
 
-前面提到的一些要領，是參考自 CI 的經典名著－－ [Continuous Integration](https://www.amazon.com/Continuous-Integration-Improving-Software-Reducing/dp/0321336380) 並用個人想法表達出來的，原文裡面有提到開發人員所要遵守的七大要領：
+前面提到的一些要領，是參考自 CI 的經典名著－－[Continuous Integration](https://www.amazon.com/Continuous-Integration-Improving-Software-Reducing/dp/0321336380) 並用個人想法表達出來的，原文裡面有提到開發人員所要遵守的七大要領：
 
 * Commit code frequently
 * Don’t commit broken code

@@ -16,7 +16,7 @@
 * 快速相對時間，如今天（`Carbon::today()`）、昨天（`Carbon::yesterday()`）、明天（`Carbon::tomorrow()`）。
 * Carbon 支援的最大值（`Carbon::maxValue()`）與最小值（`Carbon::minValue()`）
 * 給「年月日時分秒」的建立方法（`Carbon::create()`）與經過把關的建立方法（`Carbon::createSafe()`）
-* 特定來源資料的建立方法（`Carbon::createFrom*()`） 
+* 特定來源資料的建立方法（`Carbon::createFrom*()`）
 * 從現有物件複製物件（`Carbon::copy()`）
 
 以下會挑幾個特別的方法做說明：
