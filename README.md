@@ -10,4 +10,4 @@
 
 外部連結：
 
-* [身分驗證與授權](https://mileschou.gitbook.io/auth-notes/)
+* [身分驗證與授權](https://mileschou.github.io/auth-notes/)
