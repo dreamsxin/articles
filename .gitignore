@@ -18,3 +18,9 @@ Desktop.ini
 
 # IntelliJ IDEA project files
 /.idea
+
+# Node modules
+/node_modules
+
+# build files
+/dist
