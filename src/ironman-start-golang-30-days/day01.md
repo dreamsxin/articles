@@ -32,8 +32,6 @@ PHP 是目前筆者最熟悉的語言，當跟一個語言越熟，就越會了�
 * [值得注意的程式語言：D、Go、Rust](http://blog.cwchen.tw/programming/2016/12/02/the-languages-worth-noting-d-go-rust/) | Michael Talks
 * [D、GO、Rust 誰會在未來取代 C？為什麼？](https://buzzorange.com/techorange/2015/11/18/which-can-replace-language-c/) | TechOrange - BuzzOrange
 
-[下一篇](day02.md)
-
 [Docker]: https://www.docker.com/
 [Drone CI]: https://drone.io/
 [Go]: https://zh.wikipedia.org/wiki/Go

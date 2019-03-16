@@ -103,7 +103,5 @@ Go 語言有套件庫的概念，同時的函式也有能見度的規範。Go �
 * [The Go Programming Language](https://golang.org)
 * [語言技術：Go 語言](https://openhome.cc/Gossip/Go/index.html) | 良葛格學習筆記
 
-[上一篇][昨天] | [下一篇](day04.md)
-
 [昨天]: day02.md
 [官方首頁]: https://golang.org

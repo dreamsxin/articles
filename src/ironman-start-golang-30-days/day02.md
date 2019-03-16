@@ -101,6 +101,4 @@ Workspace 裡，劃分成三個主要目錄：
 
 * [Getting Started](https://golang.org/doc/install) | The Go Programming Language
 
-[上一篇](day01.md) | [下一篇](day03.md)
-
 [Homebrew]: https://brew.sh
