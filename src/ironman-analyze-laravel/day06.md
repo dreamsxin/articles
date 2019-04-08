@@ -12,7 +12,7 @@
 
 PlantUML 原始碼如下：
 
-```uml
+```
 @startuml
 interface Contracts\Config\Repository {
   + {abstract} has($key)

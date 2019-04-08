@@ -93,7 +93,7 @@ Miles 很不願地實作需求 圖片麻煩置中 ...
 
 PlantUML 源碼
 
-```puml
+```
 @startuml
 Class Boss
 Class Engineer
@@ -276,7 +276,7 @@ Miles 感謝老闆的薪資 220000，未來繼續一起努力！
 
 PlantUML 源碼
 
-```puml
+```
 @startuml
 Class Boss
 Class Engineer

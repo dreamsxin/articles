@@ -28,7 +28,7 @@ Laravel 5.7 裡，跟 Pipeline 相關的主要角色有三個：
 
 PlantUML 原始碼：
 
-```uml
+```
 @startuml
 interface Illuminate\Contracts\Pipeline {
   + {abstract} send($traveler)

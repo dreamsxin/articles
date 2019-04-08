@@ -25,7 +25,7 @@ $log->addError('Bar');
 
 ![](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuNBEIImkLl39JqzFBLAevb9Gq5OeA2tEy4ZCIyb9BTB8i5A0CcEWj6TUIMfHMc9ogYP4SNu1JAqcRhLSjL2BO0g2IufI4tEXF3Gv3CrGr-dQuLQ2IqB1faPN5uUj3gbvAS0W0000)
 
-```puml
+```
 @startuml
 Class Logger {
   + pushHandler(h: Handler\HandlerInterface)

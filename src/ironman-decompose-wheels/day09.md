@@ -9,7 +9,7 @@
 
 ![](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuNBEIImkLWWeoY_BJ4ajYd5AB4w5YhcdvgKM9PRa5t71MGeskcXA4LAwTcXI3gbvAK0R0000)
 
-```puml
+```
 @startuml
 Class Provider\Base
 Class Generator
@@ -109,7 +109,7 @@ echo $uniqueGenerator->name('male') . PHP_EOL;
 
 ![](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuNBEIImkLd3EoKpDA-7op2j9BKfBJ4vLy4rCpqpsJIt9o4zHgEPIKD1MY8zFJotHq8IoanDpSe2SMgX-zzIyrAB4almYA3yqBxEmD1LP56I-WfuTii5So9ROrEZg8Xc38OLk8XfVGTSEIRT3QbuAq7C0)
 
-```puml
+```
 @startuml
 Class Client
 Interface MagicMethod {

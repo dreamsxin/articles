@@ -12,7 +12,7 @@ Faker 提供的 Provider 非常多，除了預設之外，還有不同語系實�
 
 ![](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuNBEIImkLd3EoKpDAu5od1ABKnMgkHGKb1NIK_DIYn9Byeki5DnXJAvQgBg0eloop9JK8aCqlX6KZz01CLv1rmv936oBJOskBf8vc696N70T2ZQw4ATPAVXcfcI23K580ir6c8Cah8iaOSJba9gN0lGr0000)
 
-```puml
+```
 @startuml
 Class Client
 Class Base {

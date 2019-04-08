@@ -20,7 +20,7 @@ interface HandlerInterface
 
 ![](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuVBCAqajIajCJbNmICnBoKajYe7I28bgBWK5RONYr1At_ABSn1AWi4QQbGAS0rUeoLMBP1nSFWPJ9PTpJc9nCTn6v_oyvABKabGe7ogBC00c3nVXmkbMNJly5kFKQ5EZgulJGVYCXEZ4vrY7rBmKO5030000)
 
-```puml
+```
 @startuml
 Interface Handler\HandlerInterface {
   + setFormatter(f: FormatterInterface)

@@ -12,7 +12,7 @@ Faker 套件使用方法非常單純－－使用工廠（`Factory`）建構產�
 
 ![](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuNBEIImkLd3EoKpDAu5ot1AJI_ABAg4yzzIyrA94e00NH962hYwI2gY87KAPWfL2QN4g5rI90ffKSb5gOaagbqDgNWhGTW00)
 
-```puml
+```
 @startuml
 Class Client
 Class Factory
