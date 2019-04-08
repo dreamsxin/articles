@@ -163,9 +163,9 @@ public function setRequestOnHandler($request)
 
 Session 雖然類別多，但結構算簡單，並且也有些設計理念存在，是個練習分析原始碼的好目標。
 
-[Refactoring Day07]: /src/ironman-refactoring-30-daysdays/day07.md
-[Refactoring Day08]: /src/ironman-refactoring-30-daysdays/day08.md
-[Refactoring Day12]: /src/ironman-refactoring-30-daysdays/day12.md
+[Refactoring Day07]: /src/ironman-refactoring-30-days/day07.md
+[Refactoring Day08]: /src/ironman-refactoring-30-days/day08.md
+[Refactoring Day12]: /src/ironman-refactoring-30-days/day12.md
 
 [Day02]: day02.md
 [Day07]: day07.md

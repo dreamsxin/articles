@@ -246,9 +246,9 @@ $pipe1 的 $next 其實就是 $stack2，執行結果就是 `response321`。
 
 今天先看到這裡，明天繼續看 `Routing\Pipeline`。
 
-[CI Day21]: /src/ironman-intro-of-cif-ci/day21.md
-[Refactoring Day09]: /src/ironman-refactoring-30-daysdays/day09.md
-[Golang Day12]: /src/ironman-start-golang-30-daysdays/day12.md#closure
+[CI Day21]: /src/ironman-intro-of-ci/day21.md
+[Refactoring Day09]: /src/ironman-refactoring-30-days/day09.md
+[Golang Day12]: /src/ironman-start-golang-30-days/day12.md#closure
 
 [Day02]: day02.md
 [Day05]: day05.md

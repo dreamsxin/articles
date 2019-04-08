@@ -245,7 +245,7 @@ protected function compileManifest($providers)
 [Package Discovery]: https://laravel.com/docs/5.5/releases#laravel-5.5
 [Application]: https://github.com/laravel/framework/blob/v5.7.6/src/Illuminate/Foundation/Application.php
 
-[Refactoring Day09]: /src/ironman-refactoring-30-daysdays/day09.md
+[Refactoring Day09]: /src/ironman-refactoring-30-days/day09.md
 
 [Day02]: day02.md
 [Day03]: day03.md
