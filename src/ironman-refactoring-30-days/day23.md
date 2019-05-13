@@ -122,10 +122,6 @@ script:
 
 程式碼可以參考 [GitHub PR](https://github.com/MilesChou/book-refactoring-30-days/pull/11)
 
-* * *
-Go to next:
-[day24](day24.md)
-
 [PHP-FIG]: http://www.php-fig.org/
 [The League of Extraordinary Packages]: http://thephpleague.com/
 [PHP_CodeSniffer]: https://github.com/squizlabs/PHP_CodeSniffer

@@ -139,7 +139,3 @@ $tpl->assign('config', [
 
 [Smarty]: https://www.smarty.net/
 [Blade]: https://laravel.com/docs/5.5/blade
-
-* * *
-Go to next:
-[day26](day26.md)

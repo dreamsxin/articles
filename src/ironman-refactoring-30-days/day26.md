@@ -168,9 +168,5 @@ public function shouldGetOneCategoryWhenSeedFactoryCategory()
 * [Eloquent][]
 * [Factories][]
 
-* * *
-Go to next:
-[day27](day27.md)
-
 [Eloquent]: https://laravel.com/docs/5.5/eloquent
 [Factories]: https://laravel.com/docs/5.5/database-testing#writing-factories

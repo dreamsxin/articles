@@ -146,10 +146,6 @@ Route::get('/', 'ShopController@index');
 
 * [codecov][]
 
-* * *
-Go to next:
-[day28](day28.md)
-
 [codecov]: https://codecov.io/
  
 [codecov-report]: images/codecov-report.png

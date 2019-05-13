@@ -114,10 +114,6 @@
 [火影忍者]: https://zh.wikipedia./wiki/%E7%81%AB%E5%BD%B1%E5%BF%8D%E8%80%85
 [漩渦鳴人]: https://zh.wikipedia.org/wiki/%E6%BC%A9%E6%B8%A6%E9%B3%B4%E4%BA%BA
 
-* * *
-Go to next:
-[day06](day06.md)
-
 [Day 1]: day01.md
 [Day 2]: day02.md
 [Day 3]: day03.md

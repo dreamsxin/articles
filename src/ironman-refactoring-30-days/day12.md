@@ -195,8 +195,4 @@ class Newbie
 [Makefile]: https://github.com/104corp/guideline/blob/master/build/makefile.md
 [DevOps]: /src/ironman-intro-of-ci/day01.md
 
-* * *
-Go to next:
-[day13](day13.md)
-
 [Day 7]: day07.md

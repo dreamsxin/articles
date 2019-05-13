@@ -332,8 +332,4 @@ $boss->recruit(new Tester('測測'));
 
 [SOLID：五則皆變]: http://teddy-chen-tw.blogspot.tw/2014/04/solid.html
 
-* * *
-Go to next:
-[day12](day12.md)
-
 [Day 9]: day09.md

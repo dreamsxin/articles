@@ -149,10 +149,6 @@ define('DEBUG_MODE', env('APP_DEBUG'));
 * [開源專案的好選擇－－Travis CI][]
 * [為 Legacy Code 接 CI Server][]
 
-* * *
-Go to next:
-[day20](day20.md)
-
 [CI 工具大亂鬥]: /src/ironman-intro-of-ci/day22.md
 [開源專案的好選擇－－Travis CI]: /src/ironman-intro-of-ci/day24.md
 [為 Legacy Code 接 CI Server]: /src/ironman-intro-of-ci/day28.md

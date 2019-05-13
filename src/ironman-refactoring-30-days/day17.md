@@ -113,8 +113,4 @@ $ php artisan serve
 
 程式碼可以參考 [GitHub PR](https://github.com/MilesChou/book-refactoring-30-days/pull/4)
 
-* * *
-Go to next:
-[day18](day18.md)
-
 [導入 Composer]: day16.md

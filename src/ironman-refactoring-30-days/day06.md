@@ -75,8 +75,4 @@ echo 'world';
 [Code coverage]: https://en.wikipedia.org/wiki/Code_coverage
 [loc]: https://en.wikipedia.org/wiki/Source_lines_of_code
 
-* * *
-Go to next:
-[day07](day07.md)
-
 [Day 4]: day04.md

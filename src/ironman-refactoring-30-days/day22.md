@@ -168,10 +168,6 @@ CI 會在程式碼改變的時候，建置（build）原始碼。它除了會檢
 * [先求有，再求好？][] | CI 從入門到入坑
 * [有了 CI Server，然後呢？][] | CI 從入門到入坑
 
-* * *
-Go to next:
-[day23](day23.md)
-
 [Infrastructure as Code]: https://en.wikipedia.org/wiki/Infrastructure_as_Code
 
 [先求有，再求好？]: /src/ironman-intro-of-ci/day04.md

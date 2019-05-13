@@ -165,9 +165,5 @@ $context->play(new Maltese());
 
 * [介面隔離原則](https://en.wikipedia.org/wiki/Interface_segregation_principle) | 維基百科
 
-* * *
-Go to next:
-[day11](day11.md)
-
 [Day 7]: day07.md
 [Day 9]: day09.md

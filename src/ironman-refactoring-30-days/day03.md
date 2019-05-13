@@ -52,10 +52,6 @@ Teddy [再談技術債][]一文有提到，軟體品質有分「外在品質」�
 * [再談技術債][] | 搞笑談軟工
 * [先求有，再求好][] | CI 從入門到入坑
 
-* * *
-Go to next:
-[day04](day04.md)
-
 [再談技術債]: http://teddy-chen-tw.blogspot.tw/2016/08/blog-post_5.html
 [先求有，再求好]: /src/ironman-intro-of-ci/day04.md
 

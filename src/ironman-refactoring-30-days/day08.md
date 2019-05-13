@@ -194,9 +194,5 @@ $data = $dataResource->getData();
 
 * [亂談軟體設計（2）：Open-Closed Principle](http://teddy-chen-tw.blogspot.tw/2011/12/2.html)
 
-* * *
-Go to next:
-[day09](day09.md)
-
 [Day 4]: day04.md
 [Day 7]: day07.md
