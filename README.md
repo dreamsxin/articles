@@ -14,3 +14,6 @@
 外部連結：
 
 * [身分驗證與授權](https://mileschou.github.io/auth-notes/)
+* [Elixir 學習筆記](https://mileschou.github.io/elixir-notes/)
+* [Framins' Wiki](http://wiki.framins.com/)
+* [Docker Workshop](https://104corp.github.io/docker-workshop/) | 104 Corp.
