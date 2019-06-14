@@ -12,8 +12,6 @@
 正因為有這個設計，所以預設 `routes` 下的設定可以這樣寫：
 
 ```php
-<?php
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -41,7 +39,7 @@ AliasLoader::getInstance(array_merge(
 ];
 ```
 
-再來就看 `getInstance()` 是如何處理這份設定：
+再來看 `getInstance()` 是如何處理這份設定的：
 
 ```php
 public static function getInstance(array $aliases = [])
@@ -67,9 +65,9 @@ private function __clone()
 }
 ```
 
-其實它也沒做什麼，單純產生實例，與將設定更新而已。一般單例很單純，就是產生實例而已，不過這裡有個特別的設計是：它會更新實例的設定。會這麼做的理由也很明顯，正是為了測試。
+它實作了單例模式，以及把設定更新。會更新實例的設定理由很明顯，正是為了測試。
 
-只是一樣是產實例，為何它是特別設計一個單例，而不是被 Container 管控了，接著看下去就會了解了。
+只是一樣是產實例，為何它要特別使用單例，而不是被 Container 管控？接著看下去就會了解了。
 
 產生實例後，會呼叫 `register()` 方法：
 
