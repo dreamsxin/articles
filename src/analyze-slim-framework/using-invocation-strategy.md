@@ -23,7 +23,7 @@ public function __invoke(
 );
 ```
 
-這裡的 $callable，是從存裡 Route 的 callable 解析出來的。因為有可能會這樣打：
+這裡的 `$callable`，是從存裡 Route 的 callable 解析出來的。因為有可能會這樣打：
 
 ```php
 $app->get('/', '\HomeController:home');
@@ -31,7 +31,7 @@ $app->get('/', '\HomeController:home');
 
 必須要從字串解析成 callable，當然這就會是另一個角色－－[`CallableResolverInterface`][] 的任務。而另外三個參數則是官方文件 [Route callbacks](http://www.slimframework.com/docs/v3/objects/router.html#route-callbacks) 所提到的三個參數。
 
-Slim 提供兩個預設實作，分別是 [`RequestResponse`][] 與 [`RequestResponseArgs`][]。只是前者才是預設的行為，後者是可選的行為。如同 Strategy Pattern 的優點，行為是可以自由切換的，後面會再描述。
+Slim 提供兩個預設實作，分別是 [`RequestResponse`][] 與 [`RequestResponseArgs`][]。只是前者才是預設的行為，後者是可選的行為。這就是 Strategy Pattern 的優點，演算法是可以自由切換的，切換的方法後面會再描述。
 
 ## 它是如何被使用？
 
@@ -62,7 +62,7 @@ public function __invoke(
 }
 ```
 
-中間的 foreach 先跳過，比對官方的 GET 範例：
+中間的 foreach 先不看，先來比對官方的 GET 範例：
 
 ```php
 $app = new \Slim\App();
@@ -71,7 +71,7 @@ $app->get('/books/{id}', function ($request, $response, $args) {
 });
 ```
 
-從這幾個原始碼可以了解，Route 的 callable 是如何被執行的。
+從這兩份片段原始碼可以了解，Route 的 callable 是如何被執行的。
 
 這也是為什麼需要 `$args` 變數，即使 `$request` 或 `$response` 變數都用不到，我們還是得三個都打上去才能正常運作。
 
@@ -104,6 +104,10 @@ $app->get('/books/{id}', function (Request $request, $args) {
     // no response variable
 });
 ```
+
+## References
+
+* [Laravel Bridge for Slim Framework](https://github.com/laravel-bridge/slim/tree/master) | 參考實作
 
 [`InvocationStrategyInterface`]: https://github.com/slimphp/Slim/blob/3.12.1/Slim/Interfaces/InvocationStrategyInterface.php
 [`CallableResolverInterface`]: https://github.com/slimphp/Slim/blob/3.12.1/Slim/Interfaces/CallableResolverInterface.php
