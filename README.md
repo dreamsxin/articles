@@ -20,6 +20,7 @@
 ## 筆記
 
 * [原始碼分析](/src/analyze-source-code/README.md)
+* [Linux 終端機相關筆記](/src/unix-like-tty/README.md)
 
 外部連結：
 

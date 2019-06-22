@@ -181,6 +181,7 @@ themeConfig:
     - title: 筆記
       children:
         - /src/analyze-source-code/
+        - /src/unix-like-tty/
   repo: MilesChou/articles
   repoLabel: GitHub
   editLinks: true
