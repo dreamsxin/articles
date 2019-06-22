@@ -19,8 +19,7 @@
 
 ## 筆記
 
-* [Slim Framework 原始碼分析](/src/analyze-slim-framework/README.md)
-* [Laravel 套件開發小提醒](/src/laravel-package-development-notice/README.md)
+* [原始碼分析](/src/analyze-source-code/README.md)
 
 外部連結：
 

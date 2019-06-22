@@ -180,8 +180,7 @@ themeConfig:
         - /src/the-twelve-factor-app/
     - title: 筆記
       children:
-        - /src/analyze-slim-framework/
-        - /src/laravel-package-development-notice/
+        - /src/analyze-source-code/
   repo: MilesChou/articles
   repoLabel: GitHub
   editLinks: true
