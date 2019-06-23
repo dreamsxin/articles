@@ -9,6 +9,8 @@
 | canonical（也稱 cooked 模式） | 終端設備會處理特殊字元，且會以一次「一列」的方式將輸入傳給應用程式 | 如 Shell 指令，或是一般寫指令都會使用這個模式 |
 | non-canonical（也稱 raw 模式） | 終端設備「不會」處理特殊字元，且會以一次「一個字元」的方式將輸入傳給應用程式 | 如 Vim，或是有些指令安裝會有選單介面，都會使用這個模式 |
 
+> [stty 指令參考](https://codingstandards.iteye.com/blog/826924)，[tput 指令參考](https://blog.csdn.net/fdipzone/article/details/9993961)
+
 ## References
 
 * [What is tty?](https://flykof.pixnet.net/blog/post/24277709-%5B%E8%BD%89%E8%BC%89%E6%95%B4%E7%90%86%5Dwhat-is-tty%3F)
@@ -19,6 +21,7 @@
 * [Symfony Console](https://github.com/symfony/Console)
 * [Hoa\Console](https://github.com/hoaproject/Console)
 * [CLImate](https://github.com/thephpleague/climate)
+* [ink](https://github.com/vadimdemedes/ink)
 
 另外也有直接操控 terminal 的套件可以參考：
 
