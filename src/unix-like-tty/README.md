@@ -15,6 +15,8 @@
 
 * [What is tty?](https://flykof.pixnet.net/blog/post/24277709-%5B%E8%BD%89%E8%BC%89%E6%95%B4%E7%90%86%5Dwhat-is-tty%3F)
 * [Linux RS-232 程式設計](https://blog.xuite.net/uwlib_mud/twblog/108242774-Linux+RS-232+%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88)
+* [反樸歸真: 文字模式下的程式設計](https://www.cyut.edu.tw/~ckhung/b/mi/textmode.php)
+* [VT100、ANSI 碼說明](https://www.csie.ntu.edu.tw/~r88009/Java/html/Network/vt100.htm)
 
 因相關的中文資料難找，因此另外找了寫 command line 的套件參考：
 
