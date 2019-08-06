@@ -43,13 +43,13 @@ class SquareTest extends \Codeception\Test\Unit
         // Arrange
         $number = new NumberFake(10);
         $target = new \HelloWorld\Square();
-        $excepted = 100;
+        $expected = 100;
 
         // Act
         $actual = $target->square($number);
 
         // Assert
-        $this->assertEquals($excepted, $actual);
+        $this->assertEquals($expected, $actual);
     }
 }
 
@@ -155,13 +155,13 @@ class NumberTest extends \Codeception\Test\Unit
         // Arrange
         $pdoMock = \Codeception\Util\Stub::make('PDO');
         $target = new \HelloWorld\Number(1, $pdoMock);
-        $excepted = 1;
+        $expected = 1;
 
         // Act
         $actual = $target->get();
 
         // Assert
-        $this->assertEquals($excepted, $actual);
+        $this->assertEquals($expected, $actual);
     }
 }
 ```
@@ -206,13 +206,13 @@ class SquareTest extends \Codeception\Test\Unit
         // Arrange
         $numberMock = \Codeception\Util\Stub::make(\HelloWorld\Number::class, ['mux' => 100]);
         $target = new \HelloWorld\Square();
-        $excepted = 100;
+        $expected = 100;
 
         // Act
         $actual = $target->square($numberMock);
 
         // Assert
-        $this->assertEquals($excepted, $actual);
+        $this->assertEquals($expected, $actual);
     }
 }
 ```

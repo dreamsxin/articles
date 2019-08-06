@@ -51,13 +51,13 @@ class SumTest extends \Codeception\Test\Unit
             new \HelloWorld\Number(2),
             new \HelloWorld\Number(3),
         ];
-        $excepted = 6;
+        $expected = 6;
 
         // Act
         $actual = $target->sum($numbers)->get();
 
         // Assert
-        $this->assertEquals($excepted, $actual);
+        $this->assertEquals($expected, $actual);
     }
 }
 ```

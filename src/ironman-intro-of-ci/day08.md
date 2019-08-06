@@ -221,13 +221,13 @@ class NumberTest extends \Codeception\Test\Unit
     {
         // Arrange
         $target = new \HelloWorld\Number(1);
-        $excepted = 1;
+        $expected = 1;
 
         // Act
         $actual = $target->get();
 
         // Assert
-        $this->assertEquals($excepted, $actual);
+        $this->assertEquals($expected, $actual);
     }
 }
 ```

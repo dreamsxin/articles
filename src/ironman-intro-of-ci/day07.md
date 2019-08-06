@@ -111,13 +111,13 @@ include 'add.php';
 // Arrange
 $x = 1;
 $y = 2;
-$excepted = 3;
+$expected = 3;
 
 // Act
 $actual = add($x, $y);
 
 // Assert
-if ($actual === $excepted) {
+if ($actual === $expected) {
     echo 'test add OK';
 } else {
     echo 'test add Fail';
@@ -204,14 +204,14 @@ include 'number.php';
 
 // Arrange
 $number = 10;
-$excepted = $number;
+$expected = $number;
 
 // Act
 $target = new Number($number);
 $actual = $target->get();
 
 // Assert
-if ($actual === $excepted) {
+if ($actual === $expected) {
     echo 'test add OK';
 } else {
     echo 'test add Fail';
@@ -229,20 +229,20 @@ include 'number.php';
 
 // Arrange
 $number = 10;
-$excepted = $number;
+$expected = $number;
 
 $addend = 10;
-$exceptedAdd = 20;
+$expectedAdd = 20;
 
 $subtrahend = 5;
-$exceptedSub = 5;
+$expectedSub = 5;
 
 // Act
 $target = new Number($number);
 $actual = $target->get();
 
 // Assert
-if ($actual === $excepted) {
+if ($actual === $expected) {
     echo 'test add OK';
 } else {
     echo 'test add Fail';
@@ -253,7 +253,7 @@ $target = new Number($number);
 $actual = $target->add($addend);
 
 // Assert
-if ($actual === $exceptedAdd) {
+if ($actual === $expectedAdd) {
     echo 'test add OK';
 } else {
     echo 'test add Fail';
@@ -264,7 +264,7 @@ $target = new Number($number);
 $actual = $target->sub($subtrahend);
 
 // Assert
-if ($actual === $exceptedSub) {
+if ($actual === $expectedSub) {
     echo 'test add OK';
 } else {
     echo 'test add Fail';
