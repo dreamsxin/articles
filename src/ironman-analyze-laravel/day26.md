@@ -131,7 +131,7 @@ public function validateCredentials(Authenticatable $user, array $credentials);
 DatabaseUserProvider 與 EloquentUserProvider 都實作了這個介面，即然這兩個實作都不能用的話，就自己寫一個：
 
 ```php
-class ArrayUserProvider extends UserProvider
+class ArrayUserProvider implements UserProvider
 {
     private $credentials = [
         'admin' => 'password',
@@ -149,7 +149,7 @@ class ArrayUserProvider extends UserProvider
             'password' => $this->credentials[$identifier],
             // 如果要用 GenericUser 的話，加下面這行即可
             'remember_token' => '',
-        ]
+        ];
         
         return new User($attributes);
     }
@@ -169,7 +169,7 @@ class ArrayUserProvider extends UserProvider
     public function retrieveByCredentials(array $credentials)
     {
         // 如果沒有給 id 欄位的話，無法找到對應的 user
-        if (!isset($credentials['id']) {
+        if (!isset($credentials['id'])) {
             return null;
         }
         
@@ -178,7 +178,7 @@ class ArrayUserProvider extends UserProvider
             'password' => $this->credentials[$credentials['id']],
             // 如果要用 GenericUser 的話，加下面這行即可
             'remember_token' => '',
-        ]
+        ];
         
         return new User($attributes);
     }
@@ -186,7 +186,7 @@ class ArrayUserProvider extends UserProvider
     public function validateCredentials(Authenticatable $user, array $credentials)
     {
         // 如果沒有給 password 欄位的話，等於驗證失敗
-        if (!isset($credentials['password']) {
+        if (!isset($credentials['password'])) {
             return false;
         }
         
