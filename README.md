@@ -1,5 +1,7 @@
 # 文章集散地
 
+**此專案已不再維護，請參考 [https://github.com/MilesChou/mileschou.github.io](https://github.com/MilesChou/mileschou.github.io)**
+
 [![Build Status](https://travis-ci.com/MilesChou/articles.svg?branch=master)](https://travis-ci.com/MilesChou/articles)
 
 ## 鐵人賽系列文章
