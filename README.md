@@ -1,6 +1,5 @@
 # 文章集散地
 
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/mileschou)
 [![Build Status](https://travis-ci.com/MilesChou/articles.svg?branch=master)](https://travis-ci.com/MilesChou/articles)
 
 ## 鐵人賽系列文章
